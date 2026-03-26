@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+.HeroNews {
+  width: 100%;
+  overflow: hidden;
+  background: #f2d400;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.HeroNews__track {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  animation: HeroNewsMarquee 28s linear infinite;
+  will-change: transform;
+}
+
+.HeroNews__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.HeroNews__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 34px;
+  flex-shrink: 0;
+}
+
+.HeroNews__iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.HeroNews__icon {
+  font-size: 34px;
+  color: #111111;
+  stroke-width: 1.8;
+  animation: HeroNewsSpin 8s linear infinite;
+  transform-origin: center;
+}
+
+.HeroNews__text {
+  color: #111111;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 400;
+  white-space: nowrap;
+  letter-spacing: -0.4px;
+}
+
+@keyframes HeroNewsMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes HeroNewsSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* large laptop */
+@media (max-width: 1200px) {
+  .HeroNews__item {
+    gap: 18px;
+    padding: 12px 28px;
+  }
+
+  .HeroNews__icon {
+    font-size: 30px;
+  }
+
+  .HeroNews__text {
+    font-size: 26px;
+  }
+}
+
+/* tablet */
+@media (max-width: 991px) {
+  .HeroNews__track {
+    animation-duration: 24s;
+  }
+
+  .HeroNews__item {
+    gap: 16px;
+    padding: 12px 24px;
+  }
+
+  .HeroNews__icon {
+    font-size: 26px;
+  }
+
+  .HeroNews__text {
+    font-size: 22px;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .HeroNews__track {
+    animation-duration: 20s;
+  }
+
+  .HeroNews__item {
+    gap: 12px;
+    padding: 10px 18px;
+  }
+
+  .HeroNews__icon {
+    font-size: 20px;
+  }
+
+  .HeroNews__text {
+    font-size: 18px;
+    letter-spacing: 0;
+  }
+}
+
+/* small mobile */
+@media (max-width: 480px) {
+  .HeroNews__item {
+    padding: 10px 14px;
+  }
+
+  .HeroNews__text {
+    font-size: 16px;
+  }
+}

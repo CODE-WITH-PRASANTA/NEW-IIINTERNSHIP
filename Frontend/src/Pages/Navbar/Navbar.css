@@ -1,0 +1,563 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bs-white: #ffffff;
+  --bs-black: #111111;
+  --bs-text: #232323;
+  --bs-heading: #202124;
+  --bs-border: #ece7df;
+  --bs-secondary: #f3dd34;
+  --bs-secondary-300: #f9ef8d;
+  --bs-green: #21a366;
+  --bs-shadow: 0 14px 40px rgba(12, 18, 28, 0.08);
+  --bs-shadow-soft: 0 8px 24px rgba(17, 17, 17, 0.08);
+  --bg-deg: 180deg;
+  --navbar-height: 100px;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  width: 100%;
+  background: var(--bs-white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.navbar__container {
+  width: 100%;
+  max-width: 1380px;
+  min-height: var(--navbar-height);
+  margin: 0 auto;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* =========================
+   LOGO
+========================= */
+.navbar__logoWrap {
+  flex-shrink: 0;
+}
+
+.navbar__logoLink {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar__logo {
+  width: 190px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================
+   DESKTOP MENU
+========================= */
+.navbar__desktopNav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__menuItem {
+  position: relative;
+}
+
+.navbar__menuLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  color: var(--bs-heading);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.navbar__menuLink:hover {
+  color: #111111;
+}
+
+.navbar__menuArrow {
+  font-size: 15px;
+  transition: transform 0.3s ease;
+}
+
+.navbar__menuItem:hover .navbar__menuArrow {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+.navbar__dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  min-width: 300px;
+  background: var(--bs-white);
+  border: 1px solid rgba(32, 33, 36, 0.08);
+  border-radius: 0 0 14px 14px;
+  box-shadow: var(--bs-shadow);
+  padding: 18px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+  z-index: 50;
+}
+
+.navbar__dropdown--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navbar__dropdownList {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__dropdownItem {
+  width: 100%;
+}
+
+.navbar__dropdownLink {
+  display: block;
+  padding: 13px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #595959;
+  transition: all 0.28s ease;
+}
+
+.navbar__dropdownLink:hover {
+  color: var(--bs-heading);
+  background: rgba(243, 221, 52, 0.1);
+  padding-left: 34px;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.navbar__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--bs-heading);
+  font-size: 17px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.navbar__phone:hover {
+  color: var(--bs-green);
+}
+
+.navbar__phoneIconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__phoneIcon {
+  font-size: 28px;
+  color: var(--bs-green);
+}
+
+.navbar__phoneText {
+  white-space: nowrap;
+}
+
+/* =========================
+   CONTACT BUTTON
+========================= */
+.navbar__contactBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 18px;
+  padding: 6px 6px 6px 24px;
+  background: conic-gradient(
+    from var(--bg-deg) at 21.67% 70.54%,
+    var(--bs-secondary-300) 0deg,
+    var(--bs-secondary) 360deg
+  );
+  color: #111111;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  min-height: 56px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(243, 221, 52, 0.28);
+}
+
+.navbar__contactBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(243, 221, 52, 0.35);
+}
+
+.navbar__contactText {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.navbar__contactIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--bs-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--bs-shadow-soft);
+}
+
+.navbar__contactIcon {
+  font-size: 20px;
+  color: #111111;
+}
+
+/* =========================
+   MOBILE TOGGLE
+========================= */
+.navbar__toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: var(--bs-heading);
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+.navbar__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease;
+  z-index: 1098;
+}
+
+.navbar__overlay--show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   MOBILE SIDEBAR
+========================= */
+.navbar__mobileSidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  max-width: 86%;
+  height: 100vh;
+  background: var(--bs-white);
+  z-index: 1099;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 12px 0 30px rgba(0, 0, 0, 0.16);
+}
+
+.navbar__mobileSidebar--open {
+  transform: translateX(0);
+}
+
+.navbar__mobileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 18px;
+  border-bottom: 1px solid var(--bs-border);
+}
+
+.navbar__mobileLogoLink {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar__mobileLogo {
+  width: 155px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.navbar__mobileClose {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #111111;
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.navbar__mobileClose:hover {
+  transform: rotate(90deg);
+  background: #000000;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+.navbar__mobileMenu {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.navbar__mobileItem {
+  border-bottom: 1px solid var(--bs-border);
+}
+
+.navbar__mobileTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 18px;
+  min-height: 56px;
+  cursor: pointer;
+}
+
+.navbar__mobileLink {
+  flex: 1;
+  color: #4a4a4a;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 18px 0;
+}
+
+.navbar__mobileArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  transition: transform 0.3s ease;
+}
+
+.navbar__mobileArrow--open {
+  transform: rotate(180deg);
+}
+
+.navbar__mobileDropdown {
+  max-height: 0;
+  overflow: hidden;
+  background: #fafafa;
+  transition: max-height 0.38s ease, padding 0.38s ease;
+}
+
+.navbar__mobileDropdown--open {
+  max-height: 500px;
+}
+
+.navbar__mobileDropdownList {
+  padding: 6px 0 10px;
+}
+
+.navbar__mobileDropdownItem {
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.navbar__mobileDropdownLink {
+  display: block;
+  padding: 14px 28px;
+  color: #666666;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar__mobileDropdownLink:hover {
+  background: rgba(243, 221, 52, 0.1);
+  color: #111111;
+  padding-left: 34px;
+}
+
+/* =========================
+   MOBILE BOTTOM
+========================= */
+.navbar__mobileBottom {
+  margin-top: auto;
+  padding: 18px;
+  border-top: 1px solid var(--bs-border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.navbar__mobilePhone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--bs-heading);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.navbar__mobilePhoneIcon {
+  font-size: 20px;
+  color: var(--bs-green);
+}
+
+.navbar__mobileContactBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 18px;
+  border-radius: 14px;
+  background: conic-gradient(
+    from var(--bg-deg) at 21.67% 70.54%,
+    var(--bs-secondary-300) 0deg,
+    var(--bs-secondary) 360deg
+  );
+  color: #111111;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(243, 221, 52, 0.25);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1199px) {
+  .navbar__container {
+    max-width: 100%;
+    padding: 16px 22px;
+  }
+
+  .navbar__menuLink {
+    font-size: 16px;
+    padding: 12px 12px;
+  }
+
+  .navbar__phoneText {
+    font-size: 15px;
+  }
+
+  .navbar__contactBtn {
+    padding: 6px 6px 6px 18px;
+    min-height: 52px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar__desktopNav,
+  .navbar__right {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar__container {
+    min-height: 84px;
+  }
+
+  .navbar__logo {
+    width: 170px;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar__container {
+    padding: 14px 16px;
+    min-height: 78px;
+  }
+
+  .navbar__logo {
+    width: 150px;
+  }
+
+  .navbar__mobileSidebar {
+    width: 290px;
+  }
+
+  .navbar__mobileLogo {
+    width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__container {
+    padding: 12px 14px;
+  }
+
+  .navbar__logo {
+    width: 138px;
+  }
+
+  .navbar__mobileSidebar {
+    width: 280px;
+    max-width: 88%;
+  }
+
+  .navbar__mobileTop {
+    min-height: 52px;
+  }
+
+  .navbar__mobileLink {
+    font-size: 14px;
+  }
+}

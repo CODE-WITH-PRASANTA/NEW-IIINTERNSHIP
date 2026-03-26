@@ -1,0 +1,569 @@
+* {
+  box-sizing: border-box;
+}
+
+.HeroCourse {
+  width: 100%;
+  background: #f3ebe4;
+  padding: 70px 0 56px;
+  overflow: hidden;
+}
+
+.HeroCourse__container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 26px;
+}
+
+.HeroCourse__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 34px;
+}
+
+.HeroCourse__title {
+  margin: 0;
+  color: #1b1b1b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 76px;
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -1.8px;
+}
+
+.HeroCourse__viewAllBtn {
+  border: none;
+  cursor: pointer;
+  background: #2faa70;
+  color: #ffffff;
+  border-radius: 18px;
+  min-height: 60px;
+  padding: 6px 6px 6px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 22px rgba(47, 170, 112, 0.18);
+}
+
+.HeroCourse__viewAllBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(47, 170, 112, 0.24);
+}
+
+.HeroCourse__viewAllIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #f2d400;
+  color: #1c1c1c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.HeroCourse__tabBar {
+  display: flex;
+  align-items: center;
+  gap: 16px 34px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.HeroCourse__tab {
+  border: none;
+  background: transparent;
+  color: #111111;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 0 10px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.HeroCourse__tab:hover {
+  color: #2e9d73;
+}
+
+.HeroCourse__tab--active {
+  color: #2e9d73;
+}
+
+.HeroCourse__tab--active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 82px;
+  height: 7px;
+  background: #47c68a;
+  border-radius: 999px;
+}
+
+.HeroCourse__line {
+  width: 100%;
+  height: 1px;
+  background: #d8cec6;
+  margin-bottom: 42px;
+}
+
+.HeroCourse__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px 26px;
+}
+
+.HeroCourse__card {
+  position: relative;
+  background: #f8f8f8;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(18, 18, 18, 0.06);
+  min-height: 510px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.HeroCourse__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(18, 18, 18, 0.12);
+}
+
+.HeroCourse__imageWrap {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.HeroCourse__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.HeroCourse__card:hover .HeroCourse__image {
+  transform: scale(1.06);
+}
+
+.HeroCourse__cardBody {
+  padding: 24px 28px 20px;
+  background: #f7f7f7;
+}
+
+.HeroCourse__cardTitle {
+  margin: 0 0 16px;
+  color: #222222;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 600;
+  min-height: 96px;
+}
+
+.HeroCourse__ratingWrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.HeroCourse__stars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #f7b32b;
+  font-size: 20px;
+}
+
+.HeroCourse__ratingText {
+  color: #3a3a3a;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.HeroCourse__priceWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.HeroCourse__price {
+  color: #1d8f63;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.HeroCourse__oldPrice {
+  color: #8d8d8d;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+.HeroCourse__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 28px;
+  border-top: 1px solid #e3e3e3;
+  background: #fafafa;
+}
+
+.HeroCourse__metaItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2f2f2f;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.HeroCourse__metaIcon {
+  color: #1d8f63;
+  font-size: 21px;
+}
+
+/* hover layer */
+.HeroCourse__hoverLayer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0%;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--herocourse-hover) 86%, white 14%) 0%,
+    var(--herocourse-hover) 100%
+  );
+  z-index: 5;
+  overflow: hidden;
+  transition: height 0.45s ease;
+  display: flex;
+  align-items: flex-start;
+}
+
+.HeroCourse__card:hover .HeroCourse__hoverLayer {
+  height: 100%;
+}
+
+.HeroCourse__hoverContent {
+  padding: 28px;
+  color: #ffffff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.HeroCourse__hoverTitle {
+  margin: 0 0 16px;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.HeroCourse__hoverRatingWrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.HeroCourse__hoverStars {
+  display: flex;
+  gap: 3px;
+  color: #ffd452;
+  font-size: 20px;
+}
+
+.HeroCourse__hoverRatingText {
+  font-size: 17px;
+  font-weight: 500;
+  color: #eef5ff;
+}
+
+.HeroCourse__hoverText {
+  margin: 0 0 26px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.HeroCourse__hoverPriceWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: 26px;
+}
+
+.HeroCourse__hoverPrice {
+  color: #ffe166;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.HeroCourse__hoverOldPrice {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: line-through;
+}
+
+.HeroCourse__hoverBtn {
+  width: 100%;
+  min-height: 62px;
+  border: none;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #21785b;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.HeroCourse__hoverBtn:hover {
+  transform: translateY(-2px);
+}
+
+.HeroCourse__footerNoteWrap {
+  position: relative;
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.HeroCourse__footerLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #d8cec6;
+}
+
+.HeroCourse__footerNote {
+  position: relative;
+  z-index: 2;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: #f8f8f8;
+  color: #2a2a2a;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.HeroCourse__footerNote span {
+  color: #1d8f63;
+  font-weight: 700;
+}
+
+/* 1400 */
+@media (max-width: 1400px) {
+  .HeroCourse__title {
+    font-size: 66px;
+  }
+
+  .HeroCourse__cardTitle,
+  .HeroCourse__hoverTitle {
+    font-size: 24px;
+  }
+
+  .HeroCourse__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* 1200 */
+@media (max-width: 1200px) {
+  .HeroCourse {
+    padding: 60px 0 50px;
+  }
+
+  .HeroCourse__title {
+    font-size: 58px;
+  }
+
+  .HeroCourse__container {
+    padding: 0 20px;
+  }
+
+  .HeroCourse__cardTitle,
+  .HeroCourse__hoverTitle {
+    font-size: 22px;
+    min-height: auto;
+  }
+
+  .HeroCourse__ratingText,
+  .HeroCourse__metaItem,
+  .HeroCourse__hoverText {
+    font-size: 16px;
+  }
+
+  .HeroCourse__meta {
+    padding: 20px 22px;
+  }
+
+  .HeroCourse__cardBody {
+    padding: 22px;
+  }
+}
+
+/* 991 */
+@media (max-width: 991px) {
+  .HeroCourse__header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 26px;
+  }
+
+  .HeroCourse__title {
+    font-size: 48px;
+  }
+
+  .HeroCourse__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .HeroCourse__tabBar {
+    gap: 14px 22px;
+  }
+
+  .HeroCourse__tab {
+    font-size: 16px;
+  }
+
+  .HeroCourse__tab--active::after {
+    width: 64px;
+    height: 6px;
+  }
+}
+
+/* 767 */
+@media (max-width: 767px) {
+  .HeroCourse {
+    padding: 46px 0 42px;
+  }
+
+  .HeroCourse__container {
+    padding: 0 16px;
+  }
+
+  .HeroCourse__title {
+    font-size: 38px;
+    line-height: 1.02;
+  }
+
+  .HeroCourse__viewAllBtn {
+    min-height: 54px;
+    font-size: 16px;
+    padding: 6px 6px 6px 16px;
+    border-radius: 16px;
+  }
+
+  .HeroCourse__viewAllIcon {
+    width: 42px;
+    height: 42px;
+    font-size: 19px;
+  }
+
+  .HeroCourse__tabBar {
+    gap: 12px 18px;
+  }
+
+  .HeroCourse__tab {
+    font-size: 15px;
+    padding-bottom: 8px;
+  }
+
+  .HeroCourse__line {
+    margin-bottom: 28px;
+  }
+
+  .HeroCourse__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .HeroCourse__card {
+    min-height: auto;
+  }
+
+  .HeroCourse__imageWrap {
+    height: 220px;
+  }
+
+  .HeroCourse__cardTitle,
+  .HeroCourse__hoverTitle {
+    font-size: 20px;
+  }
+
+  .HeroCourse__ratingText,
+  .HeroCourse__metaItem,
+  .HeroCourse__hoverText,
+  .HeroCourse__footerNote {
+    font-size: 15px;
+  }
+
+  .HeroCourse__stars,
+  .HeroCourse__hoverStars {
+    font-size: 18px;
+  }
+
+  .HeroCourse__hoverBtn {
+    min-height: 54px;
+    font-size: 16px;
+  }
+
+  .HeroCourse__footerNote {
+    padding: 12px 18px;
+  }
+}
+
+/* 480 */
+@media (max-width: 480px) {
+  .HeroCourse__title {
+    font-size: 32px;
+  }
+
+  .HeroCourse__tabBar {
+    gap: 10px 14px;
+  }
+
+  .HeroCourse__tab {
+    font-size: 14px;
+  }
+
+  .HeroCourse__imageWrap {
+    height: 190px;
+  }
+
+  .HeroCourse__cardBody {
+    padding: 18px;
+  }
+
+  .HeroCourse__meta {
+    padding: 16px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .HeroCourse__hoverContent {
+    padding: 20px;
+  }
+
+  .HeroCourse__hoverBtn {
+    min-height: 50px;
+  }
+}

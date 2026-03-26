@@ -1,0 +1,443 @@
+* {
+  box-sizing: border-box;
+}
+
+.HeroSection {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #f8f8f6;
+  padding: 36px 0 24px;
+}
+
+.HeroSection__container {
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 760px;
+  position: relative;
+  z-index: 2;
+}
+
+/* background curved lines */
+.HeroSection__bgLines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background:
+    radial-gradient(circle at 18% 55%, transparent 0 210px, rgba(29, 125, 87, 0.1) 211px 213px, transparent 214px),
+    radial-gradient(circle at 18% 55%, transparent 0 270px, rgba(29, 125, 87, 0.1) 271px 273px, transparent 274px),
+    radial-gradient(circle at 18% 55%, transparent 0 330px, rgba(29, 125, 87, 0.1) 331px 333px, transparent 334px),
+    radial-gradient(circle at 18% 55%, transparent 0 390px, rgba(29, 125, 87, 0.1) 391px 393px, transparent 394px),
+    radial-gradient(circle at 82% 55%, transparent 0 210px, rgba(29, 125, 87, 0.1) 211px 213px, transparent 214px),
+    radial-gradient(circle at 82% 55%, transparent 0 270px, rgba(29, 125, 87, 0.1) 271px 273px, transparent 274px),
+    radial-gradient(circle at 82% 55%, transparent 0 330px, rgba(29, 125, 87, 0.1) 331px 333px, transparent 334px),
+    radial-gradient(circle at 82% 55%, transparent 0 390px, rgba(29, 125, 87, 0.1) 391px 393px, transparent 394px);
+}
+
+.HeroSection__content {
+  width: 100%;
+  max-width: 610px;
+  position: relative;
+  z-index: 3;
+}
+
+.HeroSection__sparkles {
+  position: relative;
+  height: 70px;
+  margin-bottom: 6px;
+}
+
+.HeroSection__sparkle {
+  position: absolute;
+  display: inline-flex;
+  line-height: 1;
+}
+
+.HeroSection__sparkle--dark {
+  left: -6px;
+  top: 18px;
+  font-size: 48px;
+  color: #222222;
+}
+
+.HeroSection__sparkle--light {
+  left: 42px;
+  top: -2px;
+  font-size: 34px;
+  color: #cfd0ce;
+}
+
+.HeroSection__title {
+  margin: 0;
+  color: #171717;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 82px;
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -2px;
+}
+
+.HeroSection__titleHighlight {
+  color: #1d8f63;
+}
+
+.HeroSection__description {
+  max-width: 560px;
+  margin: 28px 0 34px;
+  color: #7b7b7b;
+  font-size: 19px;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.HeroSection__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 6px 6px 6px 18px;
+  border-radius: 16px;
+  background: #2ba36f;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(43, 163, 111, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.HeroSection__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(43, 163, 111, 0.26);
+}
+
+.HeroSection__buttonIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #f4f4f1;
+  color: #222222;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.HeroSection__instructors {
+  margin-top: 68px;
+}
+
+.HeroSection__instructorsText {
+  margin: 0 0 14px;
+  color: #393939;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.HeroSection__instructorsList {
+  display: flex;
+  align-items: center;
+}
+
+.HeroSection__instructorImage,
+.HeroSection__instructorMore {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid #f8f8f6;
+  margin-left: -12px;
+  object-fit: cover;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.HeroSection__instructorImage:first-child {
+  margin-left: 0;
+}
+
+.HeroSection__instructorMore {
+  background: #d9d9d6;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.HeroSection__imageArea {
+  width: 100%;
+  max-width: 760px;
+  min-height: 720px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.HeroSection__shape {
+  position: absolute;
+  width: 320px;
+  height: 400px;
+  background: #1d8f63;
+  left: 120px;
+  bottom: 74px;
+  border-radius: 22px;
+  transform: rotate(11deg);
+  z-index: 1;
+}
+
+.HeroSection__mainImage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 720px;
+  max-height: 700px;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================
+   LARGE LAPTOP
+========================= */
+@media (max-width: 1400px) {
+  .HeroSection__title {
+    font-size: 72px;
+  }
+
+  .HeroSection__container {
+    min-height: 700px;
+  }
+
+  .HeroSection__imageArea {
+    min-height: 650px;
+  }
+
+  .HeroSection__shape {
+    width: 280px;
+    height: 360px;
+    left: 100px;
+    bottom: 70px;
+  }
+}
+
+/* =========================
+   LAPTOP
+========================= */
+@media (max-width: 1199px) {
+  .HeroSection__container {
+    padding: 0 22px;
+    min-height: 640px;
+  }
+
+  .HeroSection__title {
+    font-size: 62px;
+  }
+
+  .HeroSection__description {
+    font-size: 17px;
+    margin: 22px 0 28px;
+  }
+
+  .HeroSection__instructors {
+    margin-top: 46px;
+  }
+
+  .HeroSection__imageArea {
+    max-width: 620px;
+    min-height: 570px;
+  }
+
+  .HeroSection__shape {
+    width: 240px;
+    height: 320px;
+    left: 90px;
+    bottom: 56px;
+  }
+
+  .HeroSection__mainImage {
+    max-width: 610px;
+    max-height: 580px;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 991px) {
+  .HeroSection {
+    padding: 24px 0 18px;
+  }
+
+  .HeroSection__container {
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: auto;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .HeroSection__content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .HeroSection__sparkles {
+    width: 100%;
+    height: 54px;
+    margin-bottom: 0;
+  }
+
+  .HeroSection__sparkle--dark {
+    position: relative;
+    left: auto;
+    top: auto;
+    font-size: 34px;
+    margin-right: 10px;
+  }
+
+  .HeroSection__sparkle--light {
+    position: relative;
+    left: auto;
+    top: auto;
+    font-size: 24px;
+  }
+
+  .HeroSection__title {
+    font-size: 54px;
+  }
+
+  .HeroSection__description {
+    max-width: 640px;
+    margin: 20px 0 24px;
+  }
+
+  .HeroSection__instructors {
+    margin-top: 34px;
+  }
+
+  .HeroSection__imageArea {
+    max-width: 100%;
+    min-height: 470px;
+  }
+
+  .HeroSection__shape {
+    width: 220px;
+    height: 280px;
+    left: 50%;
+    transform: translateX(-50%) rotate(10deg);
+    bottom: 52px;
+  }
+
+  .HeroSection__mainImage {
+    max-width: 540px;
+    width: 100%;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 767px) {
+  .HeroSection {
+    padding: 18px 0 10px;
+  }
+
+  .HeroSection__container {
+    padding: 0 16px;
+  }
+
+  .HeroSection__title {
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .HeroSection__description {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 16px 0 22px;
+  }
+
+  .HeroSection__button {
+    min-height: 50px;
+    padding: 6px 6px 6px 14px;
+    font-size: 16px;
+    border-radius: 14px;
+  }
+
+  .HeroSection__buttonIcon {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .HeroSection__instructors {
+    margin-top: 28px;
+  }
+
+  .HeroSection__instructorsText {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .HeroSection__instructorImage,
+  .HeroSection__instructorMore {
+    width: 42px;
+    height: 42px;
+  }
+
+  .HeroSection__imageArea {
+    min-height: 340px;
+  }
+
+  .HeroSection__shape {
+    width: 150px;
+    height: 220px;
+    bottom: 34px;
+  }
+
+  .HeroSection__mainImage {
+    max-width: 360px;
+  }
+
+  .HeroSection__bgLines {
+    opacity: 0.3;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+@media (max-width: 480px) {
+  .HeroSection__title {
+    font-size: 34px;
+  }
+
+  .HeroSection__description {
+    font-size: 14px;
+  }
+
+  .HeroSection__imageArea {
+    min-height: 300px;
+  }
+
+  .HeroSection__shape {
+    width: 130px;
+    height: 190px;
+    bottom: 28px;
+  }
+
+  .HeroSection__mainImage {
+    max-width: 310px;
+  }
+}

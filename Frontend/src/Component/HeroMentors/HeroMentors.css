@@ -1,0 +1,511 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+.HeroMentors {
+  width: 100%;
+  background: #f4ede8;
+  padding: 48px 22px;
+  overflow: hidden;
+}
+
+.HeroMentors__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.95fr 1.25fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.HeroMentors__left {
+  position: relative;
+  padding: 10px 0 0 28px;
+}
+
+.HeroMentors__spark {
+  position: absolute;
+  font-size: 28px;
+  line-height: 1;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.HeroMentors__spark--one {
+  top: 0;
+  left: 0;
+  color: #188f69;
+}
+
+.HeroMentors__spark--two {
+  top: 62px;
+  left: 18px;
+  color: #d8d9cf;
+  font-size: 22px;
+}
+
+.HeroMentors__title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  color: #1d1d1d;
+  line-height: 0.92;
+  letter-spacing: -1px;
+  max-width: 460px;
+}
+
+.HeroMentors__titleLine {
+  display: block;
+  font-size: 5.15rem;
+}
+
+.HeroMentors__titleLine--accent {
+  color: #138b66;
+}
+
+.HeroMentors__stats {
+  margin-top: 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.HeroMentors__stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.HeroMentors__statCircle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.HeroMentors__statCircle span {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #232323;
+  line-height: 1;
+}
+
+.HeroMentors__statCircle--yellow {
+  background: #f5dd70;
+}
+
+.HeroMentors__statCircle--green {
+  background: #bfe786;
+}
+
+.HeroMentors__statCircle--pink {
+  background: #efb0bd;
+}
+
+.HeroMentors__statContent {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.HeroMentors__statValue {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.2rem;
+  line-height: 1;
+  font-weight: 500;
+  color: #202020;
+}
+
+.HeroMentors__statUnit {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.2rem;
+  line-height: 1;
+  font-weight: 500;
+  color: #202020;
+  margin-left: -2px;
+}
+
+.HeroMentors__statLabel {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: #1d1d1d;
+  line-height: 1.2;
+}
+
+.HeroMentors__right {
+  width: 100%;
+}
+
+.HeroMentors__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px 24px;
+}
+
+.HeroMentors__card {
+  position: relative;
+  background: #ddd2ca;
+  border-radius: 28px;
+  height: 345px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.HeroMentors__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 40px rgba(16, 16, 16, 0.12);
+}
+
+.HeroMentors__brush {
+  position: absolute;
+  top: 78px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-8deg);
+  width: 190px;
+  height: 105px;
+  border-radius: 50px;
+  filter: blur(0.2px);
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.HeroMentors__brush--yellow {
+  background: #f2ea9b;
+  clip-path: polygon(
+    4% 42%,
+    14% 26%,
+    25% 18%,
+    41% 11%,
+    59% 15%,
+    74% 25%,
+    88% 18%,
+    98% 38%,
+    95% 60%,
+    85% 76%,
+    70% 86%,
+    52% 78%,
+    37% 87%,
+    18% 76%,
+    6% 60%
+  );
+}
+
+.HeroMentors__brush--green {
+  background: #bdf18d;
+  clip-path: polygon(
+    7% 33%,
+    20% 15%,
+    38% 8%,
+    58% 15%,
+    74% 8%,
+    88% 25%,
+    96% 45%,
+    90% 66%,
+    76% 84%,
+    58% 91%,
+    35% 88%,
+    16% 70%,
+    6% 53%
+  );
+}
+
+.HeroMentors__brush--pink {
+  background: #f3aaba;
+  clip-path: polygon(
+    6% 40%,
+    16% 22%,
+    32% 12%,
+    50% 18%,
+    66% 10%,
+    82% 24%,
+    96% 43%,
+    93% 64%,
+    77% 82%,
+    55% 90%,
+    34% 83%,
+    16% 68%,
+    8% 54%
+  );
+}
+
+.HeroMentors__imageWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.HeroMentors__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1);
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.HeroMentors__card:hover .HeroMentors__image {
+  transform: scale(1.05);
+}
+
+.HeroMentors__info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 93px;
+  background: linear-gradient(135deg, #020202 0%, #090909 78%, #181818 100%);
+  padding: 16px 22px 14px;
+  border-radius: 32px 32px 0 0;
+  z-index: 3;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.HeroMentors__cutShape {
+  position: absolute;
+  right: -18px;
+  bottom: -6px;
+  width: 76px;
+  height: 76px;
+  background: rgba(255, 255, 255, 0.06);
+  transform: rotate(32deg);
+  border-radius: 20px;
+}
+
+.HeroMentors__name {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 4px;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.HeroMentors__role {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.18rem;
+  font-weight: 400;
+  color: #e4cd2f;
+  line-height: 1.25;
+}
+
+@media (max-width: 1399px) {
+  .HeroMentors__titleLine {
+    font-size: 4.5rem;
+  }
+
+  .HeroMentors__statValue,
+  .HeroMentors__statUnit {
+    font-size: 2.8rem;
+  }
+
+  .HeroMentors__statLabel {
+    font-size: 1.55rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .HeroMentors__container {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .HeroMentors__left {
+    padding-left: 18px;
+  }
+
+  .HeroMentors__title {
+    max-width: 100%;
+  }
+
+  .HeroMentors__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .HeroMentors {
+    padding: 42px 18px;
+  }
+
+  .HeroMentors__titleLine {
+    font-size: 3.9rem;
+  }
+
+  .HeroMentors__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .HeroMentors__card {
+    height: 330px;
+  }
+
+  .HeroMentors__statCircle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .HeroMentors__statCircle span {
+    font-size: 2rem;
+  }
+
+  .HeroMentors__statValue,
+  .HeroMentors__statUnit {
+    font-size: 2.5rem;
+  }
+
+  .HeroMentors__statLabel {
+    font-size: 1.35rem;
+  }
+
+  .HeroMentors__name {
+    font-size: 1.72rem;
+  }
+
+  .HeroMentors__role {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .HeroMentors__left {
+    padding-left: 8px;
+  }
+
+  .HeroMentors__spark--one {
+    top: -2px;
+    left: -4px;
+  }
+
+  .HeroMentors__spark--two {
+    top: 52px;
+    left: 12px;
+  }
+
+  .HeroMentors__titleLine {
+    font-size: 3.15rem;
+  }
+
+  .HeroMentors__stats {
+    margin-top: 28px;
+    gap: 18px;
+  }
+
+  .HeroMentors__stat {
+    gap: 12px;
+  }
+
+  .HeroMentors__statCircle {
+    width: 62px;
+    height: 62px;
+  }
+
+  .HeroMentors__statCircle span {
+    font-size: 1.8rem;
+  }
+
+  .HeroMentors__statValue,
+  .HeroMentors__statUnit {
+    font-size: 2.15rem;
+  }
+
+  .HeroMentors__statLabel {
+    font-size: 1.1rem;
+  }
+
+  .HeroMentors__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .HeroMentors__card {
+    height: 360px;
+  }
+
+  .HeroMentors__info {
+    min-height: 88px;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .HeroMentors__name {
+    font-size: 1.55rem;
+  }
+
+  .HeroMentors__role {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .HeroMentors {
+    padding: 34px 14px;
+  }
+
+  .HeroMentors__titleLine {
+    font-size: 2.65rem;
+  }
+
+  .HeroMentors__statCircle {
+    width: 56px;
+    height: 56px;
+  }
+
+  .HeroMentors__statCircle span {
+    font-size: 1.55rem;
+  }
+
+  .HeroMentors__statValue,
+  .HeroMentors__statUnit {
+    font-size: 1.9rem;
+  }
+
+  .HeroMentors__statLabel {
+    font-size: 1rem;
+  }
+
+  .HeroMentors__card {
+    height: 320px;
+    border-radius: 24px;
+  }
+
+  .HeroMentors__info {
+    min-height: 84px;
+    border-radius: 24px 24px 0 0;
+    padding: 14px 18px 12px;
+  }
+
+  .HeroMentors__name {
+    font-size: 1.35rem;
+  }
+
+  .HeroMentors__role {
+    font-size: 0.92rem;
+  }
+}
