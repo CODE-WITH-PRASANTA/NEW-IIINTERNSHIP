@@ -8,73 +8,46 @@ import {
   FiX,
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import logo from "../../assets/Logo.png";
+import logo from "../../assets/IIITLOGO.png";
 
-/* =========================
-   NAV ITEMS WITH ROUTES
-========================= */
 const navItems = [
+  { title: "Home", link: "/", dropdown: [] },
+
   {
-    title: "Home",
-    link: "/",
-    dropdown: [],
-  },
-  {
-    title: "Courses",
-    link: "/courses",
-    dropdown: [
-      { name: "Course Grid", path: "/courses/grid" },
-      { name: "Course List", path: "/courses/list" },
-      { name: "Course Grid Video", path: "/courses/grid-video" },
-      { name: "Courses Details", path: "/courses/details" },
-    ],
-  },
-  {
-    title: "Instructors",
-    link: "/instructors",
-    dropdown: [
-      { name: "Instructors", path: "/instructors" },
-      { name: "Instructors Details", path: "/instructors/details" },
-    ],
-  },
-  {
-    title: "Blog",
-    link: "/blog",
-    dropdown: [
-      { name: "Blog", path: "/blog" },
-      { name: "Blog Sidebar", path: "/blog/sidebar" },
-      { name: "Blog Details", path: "/blog/details" },
-    ],
-  },
-  {
-    title: "Pages",
+    title: "About Us",
     link: "/about",
     dropdown: [
-      { name: "About Us", path: "/about" },
-      { name: "Faqs", path: "/faq" },
-      { name: "Testimonials", path: "/testimonials" },
-      { name: "Pricing Plans", path: "/pricing" },
-      { name: "Login", path: "/login" },
-      { name: "Register", path: "/register" },
-      { name: "Contact Us", path: "/contact" },
-      { name: "Error 404", path: "/404" },
+      { name: "Organisation History", path: "/org/history" },
+      { name: "Vision & Mission", path: "/vision/mission" },
+      { name: "What is Immersion", path: "/immersion" },
+      { name: "What is Internship", path: "/internship" },
     ],
   },
+
+  {
+    title: "Internships Program",
+    link: "/internship/program",
+    dropdown: [
+      { name: "Running Internships", path: "/running" },
+      { name: "Virtual Internships", path: "/virtual" },
+      { name: "On Campus Internships", path: "/oncampus" },
+    ],
+  },
+
+  { title: "Gallery", link: "/gallery", dropdown: [] },
+  { title: "Success Story", link: "/story", dropdown: [] },
+  { title: "Recruitment", link: "/career", dropdown: [] },
+  { title: "FAQ", link: "/faq", dropdown: [] },
+  { title: "Contact Us", link: "/contact", dropdown: [] },
 ];
 
 const Navbar = () => {
-  const [navbarMobileOpen, setNavbarMobileOpen] = useState(false);
-  const [navbarMobileDropdown, setNavbarMobileDropdown] = useState(null);
-  const [navbarActiveDropdown, setNavbarActiveDropdown] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   useEffect(() => {
-    document.body.style.overflow = navbarMobileOpen ? "hidden" : "auto";
-    return () => (document.body.style.overflow = "auto");
-  }, [navbarMobileOpen]);
-
-  const handleMobileDropdown = (index) => {
-    setNavbarMobileDropdown((prev) => (prev === index ? null : index));
-  };
+    document.body.style.overflow = mobileOpen ? "hidden" : "auto";
+  }, [mobileOpen]);
 
   return (
     <>
@@ -82,148 +55,105 @@ const Navbar = () => {
         <div className="navbar__container">
 
           {/* LOGO */}
-          <div className="navbar__logoWrap">
-            <Link to="/" className="navbar__logoLink">
-              <img src={logo} alt="EduThink Logo" className="navbar__logo" />
-            </Link>
-          </div>
+          <Link to="/" className="navbar__logoWrap">
+            <img src={logo} alt="logo" />
+          </Link>
 
-          {/* DESKTOP MENU */}
-          <nav className="navbar__desktopNav">
-            <ul className="navbar__menu">
-              {navItems.map((item, index) => (
-                <li
-                  key={index}
-                  className="navbar__menuItem"
-                  onMouseEnter={() =>
-                    item.dropdown.length && setNavbarActiveDropdown(index)
-                  }
-                  onMouseLeave={() => setNavbarActiveDropdown(null)}
-                >
-                  <Link to={item.link} className="navbar__menuLink">
-                    {item.title}
-                    {item.dropdown.length > 0 && (
-                      <FiChevronDown className="navbar__menuArrow" />
-                    )}
-                  </Link>
+          {/* MENU */}
+          <nav className="navbar__menu">
+            {navItems.map((item, index) => (
+              <div
+                key={index}
+                className="navbar__item"
+                onMouseEnter={() =>
+                  item.dropdown.length && setActiveDropdown(index)
+                }
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <Link to={item.link} className="navbar__link">
+                  {item.title}
+                  {item.dropdown.length > 0 && <FiChevronDown />}
+                </Link>
 
-                  {/* DROPDOWN */}
-                  {item.dropdown.length > 0 && (
-                    <div
-                      className={`navbar__dropdown ${
-                        navbarActiveDropdown === index
-                          ? "navbar__dropdown--open"
-                          : ""
-                      }`}
-                    >
-                      <ul className="navbar__dropdownList">
-                        {item.dropdown.map((subItem, subIndex) => (
-                          <li key={subIndex} className="navbar__dropdownItem">
-                            <Link
-                              to={subItem.path}
-                              className="navbar__dropdownLink"
-                            >
-                              {subItem.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
+                {item.dropdown.length > 0 && (
+                  <div
+                    className={`navbar__dropdown ${
+                      activeDropdown === index ? "show" : ""
+                    }`}
+                  >
+                    {item.dropdown.map((sub, i) => (
+                      <Link key={i} to={sub.path}>
+                        {sub.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </nav>
 
           {/* RIGHT SIDE */}
           <div className="navbar__right">
-            <a href="tel:+011234567890" className="navbar__phone">
-              <FiPhoneCall className="navbar__phoneIcon" />
-              <span>+01123 456 7890</span>
-            </a>
 
-            <Link to="/contact" className="navbar__contactBtn">
-              <span>Contact Us</span>
-              <span className="navbar__contactIconWrap">
-                <FiArrowRight />
-              </span>
+            {/* CONTACT BLOCK */}
+<div className="navbar__contactWrap">
+  <a href="tel:+011234567890" className="navbar__contactBtn">
+    <FiPhoneCall />
+
+    <span className="navbar__contactLabel">Contact Us</span>
+
+    <span className="navbar__divider"></span>
+
+    <span className="navbar__contactText">+01123 456 7890</span>
+
+    <FiArrowRight />
+  </a>
+</div>
+
+            {/* DONATE */}
+            <Link to="/donate" className="navbar__donate">
+              Donate
             </Link>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE */}
           <button
             className="navbar__toggle"
-            onClick={() => setNavbarMobileOpen(true)}
+            onClick={() => setMobileOpen(true)}
           >
             <FiMenu />
           </button>
         </div>
       </header>
 
-      {/* OVERLAY */}
-      <div
-        className={`navbar__overlay ${
-          navbarMobileOpen ? "navbar__overlay--show" : ""
-        }`}
-        onClick={() => setNavbarMobileOpen(false)}
-      ></div>
-
-      {/* MOBILE SIDEBAR */}
-      <aside
-        className={`navbar__mobileSidebar ${
-          navbarMobileOpen ? "navbar__mobileSidebar--open" : ""
-        }`}
-      >
-        <div className="navbar__mobileHeader">
-          <img src={logo} className="navbar__mobileLogo" />
-
-          <button onClick={() => setNavbarMobileOpen(false)}>
-            <FiX />
-          </button>
+      {/* MOBILE MENU */}
+      <div className={`mobile ${mobileOpen ? "show" : ""}`}>
+        <div className="mobile__header">
+          <img src={logo} alt="" />
+          <FiX onClick={() => setMobileOpen(false)} />
         </div>
 
-        <ul className="navbar__mobileMenu">
-          {navItems.map((item, index) => (
-            <li key={index} className="navbar__mobileItem">
-              <div
-                className="navbar__mobileTop"
-                onClick={() =>
-                  item.dropdown.length
-                    ? handleMobileDropdown(index)
-                    : setNavbarMobileOpen(false)
-                }
-              >
-                <Link to={item.link}>{item.title}</Link>
+        {navItems.map((item, i) => (
+          <Link key={i} to={item.link} onClick={() => setMobileOpen(false)}>
+            {item.title}
+          </Link>
+        ))}
 
-                {item.dropdown.length > 0 && <FiChevronDown />}
-              </div>
+        <a href="tel:+011234567890" className="mobile__phone">
+          <FiPhoneCall /> +01123 456 7890
+        </a>
 
-              {item.dropdown.length > 0 && (
-                <div
-                  className={`navbar__mobileDropdown ${
-                    navbarMobileDropdown === index
-                      ? "navbar__mobileDropdown--open"
-                      : ""
-                  }`}
-                >
-                  {item.dropdown.map((subItem, i) => (
-                    <Link
-                      key={i}
-                      to={subItem.path}
-                      className="navbar__mobileDropdownLink"
-                      onClick={() => setNavbarMobileOpen(false)}
-                    >
-                      {subItem.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-      </aside>
+        <Link to="/contact" className="mobile__contact">
+          Contact Us
+        </Link>
+
+        <Link to="/donate" className="mobile__donate">
+          Donate
+        </Link>
+      </div>
     </>
   );
 };
 
 export default Navbar;
+
