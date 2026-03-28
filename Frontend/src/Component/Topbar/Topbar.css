@@ -1,0 +1,135 @@
+/* ================= TOPBAR ================= */
+.topbar {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #1c1c1c,
+    #2a2a2a,
+    #1c1c1c
+  );
+  color: #fff;
+  font-size: 13px;
+}
+
+/* CONTAINER */
+.topbar__container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 8px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= LEFT ================= */
+.topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.topbar__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ddd;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.topbar__item svg {
+  color: #f3dd34;
+}
+
+.topbar__item:hover {
+  color: #fff;
+}
+
+/* ================= RIGHT ================= */
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* LOGIN BUTTON */
+.topbar__login {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 500;
+  backdrop-filter: blur(6px);
+  transition: 0.3s;
+}
+
+.topbar__login:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* APPLY BUTTON */
+.topbar__apply {
+  background: linear-gradient(135deg, #ff4d5a, #ff6a3d);
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.topbar__apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 77, 90, 0.4);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 992px) {
+  .topbar__left {
+    gap: 14px;
+  }
+
+  .topbar__item span {
+    font-size: 12px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .topbar__container {
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 12px;
+    text-align: center;
+  }
+
+  .topbar__left {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .topbar__right {
+    justify-content: center;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .topbar__item span {
+    display: none; /* only icons */
+  }
+
+  .topbar__login {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .topbar__apply {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

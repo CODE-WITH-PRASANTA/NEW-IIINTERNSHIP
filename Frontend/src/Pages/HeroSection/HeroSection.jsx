@@ -30,7 +30,7 @@ const HeroSection = () => {
             <br />
             Best Online Courses
             <br />
-            From EduThink
+            From II Internships
           </h1>
 
           <p className="HeroSection__description">
