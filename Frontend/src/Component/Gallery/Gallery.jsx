@@ -1,11 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Gallery.css";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
 
 const Gallery = () => {
   const base = "gallerySection";
   const scrollRef = useRef(null);
+  const autoScrollRef = useRef(null);
   const [activeImage, setActiveImage] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   const galleryImages = [
     {
@@ -53,7 +55,8 @@ const Gallery = () => {
   const scrollGallery = (direction) => {
     if (!scrollRef.current) return;
 
-    const cardWidth = scrollRef.current.querySelector(`.${base}__card`)?.offsetWidth || 280;
+    const cardWidth =
+      scrollRef.current.querySelector(`.${base}__card`)?.offsetWidth || 280;
     const gap = 18;
     const scrollAmount = cardWidth + gap;
 
@@ -66,12 +69,55 @@ const Gallery = () => {
   const openPreview = (image) => {
     setActiveImage(image);
     document.body.style.overflow = "hidden";
+    setIsPaused(true);
   };
 
   const closePreview = () => {
     setActiveImage(null);
     document.body.style.overflow = "auto";
+    setIsPaused(false);
   };
+
+  useEffect(() => {
+    const track = scrollRef.current;
+    if (!track) return;
+
+    const startAutoScroll = () => {
+      autoScrollRef.current = setInterval(() => {
+        if (!track || isPaused) return;
+
+        const maxScrollLeft = track.scrollWidth - track.clientWidth;
+        const card = track.querySelector(`.${base}__card`);
+        const cardWidth = card?.offsetWidth || 280;
+        const gap = window.innerWidth <= 767 ? 14 : 18;
+        const scrollStep = cardWidth + gap;
+
+        if (track.scrollLeft + scrollStep >= maxScrollLeft - 5) {
+          track.scrollTo({
+            left: 0,
+            behavior: "smooth",
+          });
+        } else {
+          track.scrollBy({
+            left: scrollStep,
+            behavior: "smooth",
+          });
+        }
+      }, 2500);
+    };
+
+    startAutoScroll();
+
+    return () => {
+      if (autoScrollRef.current) clearInterval(autoScrollRef.current);
+    };
+  }, [isPaused]);
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   return (
     <>
@@ -81,7 +127,11 @@ const Gallery = () => {
           <h2 className={`${base}__title`}>Our Gallery</h2>
         </div>
 
-        <div className={`${base}__wrapper`}>
+        <div
+          className={`${base}__wrapper`}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <button
             className={`${base}__nav ${base}__nav--left`}
             onClick={() => scrollGallery("left")}
