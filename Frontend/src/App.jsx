@@ -11,6 +11,10 @@ import OrganisationHistory from "./Pages/OrganisationHistory/OrganisationHistory
 import VisionMission from "./Pages/VisionMission/VisionMission";
 
 import CourseVideo from "./Pages/CourseVideo/CourseVideo";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
+import Faq from "./Pages/Faq/Faq";
+import SuccessStoryDetails from "./Pages/SuccessStoryDetails/SuccessStoryDetails";
 
 const App = () => {
   return (
@@ -27,6 +31,10 @@ const App = () => {
         <Route path="/vision/mission" element={<VisionMission/>} />
         
         <Route path="/coursevideo" element={<CourseVideo/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/faq" element={<Faq/>}/>
+        <Route path="/successstorydetails" element={<SuccessStoryDetails/>}/>
       </Routes>
 
       <Footer />

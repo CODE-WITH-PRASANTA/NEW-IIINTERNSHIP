@@ -1,177 +1,150 @@
 import React, { useMemo, useState } from "react";
 import "./CoursesView.css";
+import { BsGrid3X3GapFill } from "react-icons/bs";
+import { FaListUl, FaUserAlt, FaStar } from "react-icons/fa";
+import { HiOutlineDocumentText } from "react-icons/hi";
 
 const CoursesView = () => {
   const base = "coursesView";
   const [activePage, setActivePage] = useState(1);
   const [sortBy, setSortBy] = useState("Default");
-  const [viewMode, setViewMode] = useState("list");
+  const [viewMode, setViewMode] = useState("grid");
+  const [activeCard, setActiveCard] = useState(null);
 
-  
-   const allCourses = [
+  const allCourses = [
     {
       id: 1,
       title: "Introduction to Data Science and Analytics",
       image:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-      instructorImage: "https://randomuser.me/api/portraits/women/44.jpg",
-      instructor: "Sophia Carter",
       price: "$24",
       oldPrice: "$30",
-      students: "270 Students",
+      students: "270 Student",
       lessons: "40 Lessons",
-      duration: "12 Weeks",
-      level: "Beginner",
       ratingText: "(4.8 / 2.6k Ratings)",
-      category: "Data Science",
       description:
-        "Learn the foundations of analytics, visualization, and real-world data-driven decision making with practical lessons.",
+        "Learn key data science and analytics concepts, tools, and techniques to make data-driven decisions.",
     },
     {
       id: 2,
       title: "Digital Marketing Strategies and Tools",
       image:
         "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-      instructorImage: "https://randomuser.me/api/portraits/men/32.jpg",
-      instructor: "Daniel Brooks",
       price: "$49",
       oldPrice: "$59",
-      students: "270 Students",
+      students: "270 Student",
       lessons: "40 Lessons",
-      duration: "10 Weeks",
-      level: "Intermediate",
       ratingText: "(4.8 / 2.6k Ratings)",
-      category: "Marketing",
       description:
-        "Master SEO, paid ads, funnels, social campaigns, and high-converting strategies for modern digital brands.",
+        "Develop digital marketing strategies to enhance brand visibility, engage audiences, and drive business growth online.",
     },
     {
       id: 3,
-      title: "Web Development From Beginner to Expert",
+      title: "Social Media Marketing and Branding",
       image:
-        "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80",
-      instructorImage: "https://randomuser.me/api/portraits/men/41.jpg",
-      instructor: "James Parker",
-      price: "$20",
-      oldPrice: "$28",
-      students: "50 Students",
-      lessons: "20 Lessons",
-      duration: "8 Weeks",
-      level: "Beginner",
-      ratingText: "(4.7 / 1.4k Ratings)",
-      category: "Development",
+        "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80",
+      price: "$720",
+      oldPrice: "$999",
+      students: "82 Student",
+      lessons: "24 Lessons",
+      ratingText: "(4.8 / 2.6k Ratings)",
       description:
-        "Build modern responsive websites and real projects with HTML, CSS, JavaScript, React, and deployment guidance.",
+        "Build strong social media campaigns, create engaging content, and improve brand presence across platforms.",
     },
     {
       id: 4,
-      title: "Mastering Graphic Design Fundamentals",
+      title: "Web Development From Beginner to Expert",
       image:
-        "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80",
-      instructorImage: "https://randomuser.me/api/portraits/women/29.jpg",
-      instructor: "Olivia Watson",
-      price: "$119",
-      oldPrice: "$149",
-      students: "89 Students",
-      lessons: "35 Lessons",
-      duration: "16 Weeks",
-      level: "Intermediate",
-      ratingText: "(4.8 / 2.1k Ratings)",
-      category: "Design",
+        "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80",
+      price: "$20",
+      oldPrice: "$28",
+      students: "50 Student",
+      lessons: "20 Lessons",
+      ratingText: "(4.7 / 1.4k Ratings)",
       description:
-        "Understand typography, composition, color systems, and visual storytelling for polished design work.",
+        "Build responsive websites and real projects with HTML, CSS, JavaScript, React, and deployment guidance.",
     },
     {
       id: 5,
-      title: "Business Analytics for Decision Making",
+      title: "Mastering Graphic Design Fundamentals",
       image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
-      instructorImage: "https://randomuser.me/api/portraits/men/18.jpg",
-      instructor: "Ethan Hall",
-      price: "Free",
-      oldPrice: "$99",
-      students: "56 Students",
-      lessons: "20 Lessons",
-      duration: "6 Weeks",
-      level: "Beginner",
-      ratingText: "(4.6 / 950 Ratings)",
-      category: "Business",
+        "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80",
+      price: "$119",
+      oldPrice: "$149",
+      students: "89 Student",
+      lessons: "35 Lessons",
+      ratingText: "(4.8 / 2.1k Ratings)",
       description:
-        "A beginner-friendly analytics course covering reports, decision models, KPIs, and strategic thinking.",
+        "Understand typography, color systems, layout balance, and visual storytelling for polished design work.",
     },
     {
       id: 6,
-      title: "UI UX Design for Modern Interfaces",
+      title: "Business Analytics for Decision Making",
       image:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-      instructorImage: "https://randomuser.me/api/portraits/women/12.jpg",
-      instructor: "Grace Miller",
-      price: "$39",
-      oldPrice: "$62",
-      students: "138 Students",
-      lessons: "31 Lessons",
-      duration: "11 Weeks",
-      level: "Intermediate",
-      ratingText: "(4.9 / 3.1k Ratings)",
-      category: "Design",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+      price: "Free",
+      oldPrice: "$99",
+      students: "56 Student",
+      lessons: "20 Lessons",
+      ratingText: "(4.6 / 950 Ratings)",
       description:
-        "Create stunning digital experiences with wireframes, user research, design systems, and prototyping.",
+        "A beginner-friendly course covering reports, KPIs, data-backed decisions, and business strategy fundamentals.",
     },
     {
       id: 7,
-      title: "Python Programming Bootcamp",
+      title: "UI UX Design for Modern Interfaces",
       image:
-        "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
-      instructorImage: "https://randomuser.me/api/portraits/men/22.jpg",
-      instructor: "Liam Turner",
-      price: "$29",
-      oldPrice: "$45",
-      students: "1.2k Students",
-      lessons: "52 Lessons",
-      duration: "15 Weeks",
-      level: "Beginner",
-      ratingText: "(4.8 / 4.2k Ratings)",
-      category: "Programming",
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+      price: "$39",
+      oldPrice: "$62",
+      students: "138 Student",
+      lessons: "31 Lessons",
+      ratingText: "(4.9 / 3.1k Ratings)",
       description:
-        "Start coding in Python from basics to projects including logic building, automation, and practice tasks.",
+        "Create beautiful digital experiences with wireframes, research, design systems, and clickable prototypes.",
     },
     {
       id: 8,
+      title: "Python Programming Bootcamp",
+      image:
+        "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
+      price: "$29",
+      oldPrice: "$45",
+      students: "1.2k Student",
+      lessons: "52 Lessons",
+      ratingText: "(4.8 / 4.2k Ratings)",
+      description:
+        "Start coding in Python from basics to projects with logic building, practice tasks, and clean coding methods.",
+    },
+    {
+      id: 9,
       title: "Machine Learning Basics for Beginners",
       image:
         "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
-      instructorImage: "https://randomuser.me/api/portraits/men/15.jpg",
-      instructor: "Henry Walker",
       price: "$84",
       oldPrice: "$110",
-      students: "780 Students",
+      students: "780 Student",
       lessons: "48 Lessons",
-      duration: "13 Weeks",
-      level: "Advanced",
       ratingText: "(4.9 / 2.8k Ratings)",
-      category: "AI",
       description:
-        "Explore machine learning concepts, beginner models, training workflows, and practical AI applications.",
+        "Explore machine learning concepts, beginner models, workflows, and practical AI applications.",
     },
   ];
 
   const sortedCourses = useMemo(() => {
     const courses = [...allCourses];
 
+    const getPrice = (value) => {
+      if (value === "Free") return 0;
+      return Number(value.replace("$", ""));
+    };
+
     if (sortBy === "Price Low") {
-      return courses.sort((a, b) => {
-        const aPrice = a.price === "Free" ? 0 : Number(a.price.replace("$", ""));
-        const bPrice = b.price === "Free" ? 0 : Number(b.price.replace("$", ""));
-        return aPrice - bPrice;
-      });
+      return courses.sort((a, b) => getPrice(a.price) - getPrice(b.price));
     }
 
     if (sortBy === "Price High") {
-      return courses.sort((a, b) => {
-        const aPrice = a.price === "Free" ? 0 : Number(a.price.replace("$", ""));
-        const bPrice = b.price === "Free" ? 0 : Number(b.price.replace("$", ""));
-        return bPrice - aPrice;
-      });
+      return courses.sort((a, b) => getPrice(b.price) - getPrice(a.price));
     }
 
     if (sortBy === "Title") {
@@ -179,9 +152,9 @@ const CoursesView = () => {
     }
 
     return courses;
-  }, [sortBy, allCourses]);
+  }, [sortBy]);
 
-  const itemsPerPage = viewMode === "grid" ? 6 : 4;
+  const itemsPerPage = viewMode === "grid" ? 9 : 6;
   const totalPages = Math.ceil(sortedCourses.length / itemsPerPage);
 
   const paginatedCourses = sortedCourses.slice(
@@ -192,28 +165,19 @@ const CoursesView = () => {
   const startCount = (activePage - 1) * itemsPerPage + 1;
   const endCount = Math.min(activePage * itemsPerPage, sortedCourses.length);
 
-  const handlePrev = () => {
-    if (activePage > 1) {
-      setActivePage(activePage - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (activePage < totalPages) {
-      setActivePage(activePage + 1);
-    }
-  };
-
   const renderStars = () => {
     return (
       <div className={`${base}__stars`}>
         {[1, 2, 3, 4, 5].map((item) => (
-          <span key={item} className={`${base}__star`}>
-            ★
-          </span>
+          <FaStar key={item} className={`${base}__star`} />
         ))}
       </div>
     );
+  };
+
+  const handleCardClick = (id) => {
+    if (viewMode !== "grid") return;
+    setActiveCard((prev) => (prev === id ? null : id));
   };
 
   return (
@@ -224,35 +188,41 @@ const CoursesView = () => {
             Showing {startCount}-{endCount} of {sortedCourses.length} results
           </p>
 
-          <div className={`${base}__controls`}>
-            <button
-              type="button"
-              className={`${base}__viewBtn ${
-                viewMode === "grid" ? `${base}__viewBtn--active` : ""
-              }`}
-              onClick={() => {
-                setViewMode("grid");
-                setActivePage(1);
-              }}
-            >
-              Grid
-            </button>
+          <div className={`${base}__topbarRight`}>
+            <div className={`${base}__viewSwitch`}>
+              <button
+                type="button"
+                className={`${base}__viewBtn ${
+                  viewMode === "grid" ? `${base}__viewBtn--active` : ""
+                }`}
+                onClick={() => {
+                  setViewMode("grid");
+                  setActivePage(1);
+                  setActiveCard(null);
+                }}
+                aria-label="Grid view"
+              >
+                <BsGrid3X3GapFill />
+              </button>
 
-            <button
-              type="button"
-              className={`${base}__viewBtn ${
-                viewMode === "list" ? `${base}__viewBtn--active` : ""
-              }`}
-              onClick={() => {
-                setViewMode("list");
-                setActivePage(1);
-              }}
-            >
-              List
-            </button>
+              <button
+                type="button"
+                className={`${base}__viewBtn ${
+                  viewMode === "list" ? `${base}__viewBtn--active` : ""
+                }`}
+                onClick={() => {
+                  setViewMode("list");
+                  setActivePage(1);
+                  setActiveCard(null);
+                }}
+                aria-label="List view"
+              >
+                <FaListUl />
+              </button>
+            </div>
 
             <div className={`${base}__sortWrap`}>
-              <span className={`${base}__sortLabel`}>Sort By:</span>
+              <span className={`${base}__sortLabel`}>Short By:</span>
               <select
                 className={`${base}__sortSelect`}
                 value={sortBy}
@@ -276,104 +246,141 @@ const CoursesView = () => {
           }`}
         >
           {paginatedCourses.map((course) => (
-            <article className={`${base}__card`} key={course.id}>
+            <article
+              key={course.id}
+              className={`${base}__card ${
+                activeCard === course.id ? `${base}__card--active` : ""
+              }`}
+              onClick={() => handleCardClick(course.id)}
+            >
               <div className={`${base}__imageWrap`}>
                 <img
                   src={course.image}
                   alt={course.title}
                   className={`${base}__image`}
                 />
-                <span className={`${base}__badge`}>{course.category}</span>
               </div>
 
               <div className={`${base}__content`}>
-                <div className={`${base}__contentTop`}>
-                  <div className={`${base}__instructorRow`}>
-                    <img
-                      src={course.instructorImage}
-                      alt={course.instructor}
-                      className={`${base}__instructorImage`}
-                    />
-                    <div>
-                      <p className={`${base}__instructorLabel`}>Instructor</p>
-                      <h4 className={`${base}__instructorName`}>
-                        {course.instructor}
-                      </h4>
-                    </div>
-                  </div>
-
-                  <div className={`${base}__priceBox`}>
-                    <span
-                      className={`${base}__price ${
-                        course.price === "Free" ? `${base}__price--free` : ""
-                      }`}
-                    >
-                      {course.price}
-                    </span>
-                    <span className={`${base}__oldPrice`}>{course.oldPrice}</span>
-                  </div>
-                </div>
-
                 <h3 className={`${base}__title`}>{course.title}</h3>
-                <p className={`${base}__description`}>{course.description}</p>
 
                 <div className={`${base}__ratingRow`}>
                   {renderStars()}
-                  <span className={`${base}__ratingText`}>{course.ratingText}</span>
+                  <span className={`${base}__ratingText`}>
+                    {course.ratingText}
+                  </span>
                 </div>
 
-                <div className={`${base}__meta`}>
-                  <span className={`${base}__metaItem`}>{course.students}</span>
-                  <span className={`${base}__metaItem`}>{course.lessons}</span>
-                  <span className={`${base}__metaItem`}>{course.duration}</span>
-                  <span className={`${base}__metaItem`}>{course.level}</span>
+                {viewMode === "list" && (
+                  <p className={`${base}__description`}>{course.description}</p>
+                )}
+
+                <div className={`${base}__priceRow`}>
+                  <span
+                    className={`${base}__price ${
+                      course.price === "Free" ? `${base}__price--free` : ""
+                    }`}
+                  >
+                    {course.price}
+                  </span>
+                  <span className={`${base}__oldPrice`}>{course.oldPrice}</span>
                 </div>
 
-                <div className={`${base}__footer`}>
-                  <button type="button" className={`${base}__detailsBtn`}>
-                    View Details
-                  </button>
-                  <button type="button" className={`${base}__enrollBtn`}>
-                    Enroll Now
-                  </button>
-                </div>
+                {viewMode === "list" && (
+                  <div className={`${base}__metaRow`}>
+                    <div className={`${base}__metaItem`}>
+                      <FaUserAlt />
+                      <span>{course.students}</span>
+                    </div>
+                    <div className={`${base}__metaItem`}>
+                      <HiOutlineDocumentText />
+                      <span>{course.lessons}</span>
+                    </div>
+                  </div>
+                )}
               </div>
+
+              {viewMode === "grid" && (
+                <div className={`${base}__hoverPanel`}>
+                  <div className={`${base}__hoverInner`}>
+                    <h3 className={`${base}__hoverTitle`}>{course.title}</h3>
+
+                    <div className={`${base}__ratingRow ${base}__ratingRow--hover`}>
+                      {renderStars()}
+                      <span className={`${base}__hoverRatingText`}>
+                        {course.ratingText}
+                      </span>
+                    </div>
+
+                    <p className={`${base}__hoverDescription`}>
+                      {course.description}
+                    </p>
+
+                    <div className={`${base}__hoverBottom`}>
+                      <div className={`${base}__priceRow`}>
+                        <span
+                          className={`${base}__price ${
+                            course.price === "Free" ? `${base}__price--free` : ""
+                          }`}
+                        >
+                          {course.price}
+                        </span>
+                        <span className={`${base}__oldPrice`}>
+                          {course.oldPrice}
+                        </span>
+                      </div>
+
+                      <button
+                        type="button"
+                        className={`${base}__viewAllBtn`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        View All
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </article>
           ))}
         </div>
 
-        <div className={`${base}__pagination`}>
-          <button
-            type="button"
-            className={`${base}__pageBtn`}
-            onClick={handlePrev}
-            disabled={activePage === 1}
-          >
-            ←
-          </button>
-
-          {Array.from({ length: totalPages }, (_, index) => (
+        {totalPages > 1 && (
+          <div className={`${base}__pagination`}>
             <button
-              key={index + 1}
               type="button"
-              className={`${base}__pageBtn ${
-                activePage === index + 1 ? `${base}__pageBtn--active` : ""
-              }`}
-              onClick={() => setActivePage(index + 1)}
+              className={`${base}__pageBtn`}
+              onClick={() => setActivePage((prev) => Math.max(prev - 1, 1))}
+              disabled={activePage === 1}
             >
-              {index + 1}
+              Prev
             </button>
-          ))}
 
-          <button
-            type="button"
-            className={`${base}__pageBtn`}
-            onClick={handleNext}
-            disabled={activePage === totalPages}
-          >
-            →
-          </button>
-        </div>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                type="button"
+                className={`${base}__pageBtn ${
+                  activePage === index + 1 ? `${base}__pageBtn--active` : ""
+                }`}
+                onClick={() => setActivePage(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
+
+            <button
+              type="button"
+              className={`${base}__pageBtn`}
+              onClick={() =>
+                setActivePage((prev) => Math.min(prev + 1, totalPages))
+              }
+              disabled={activePage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

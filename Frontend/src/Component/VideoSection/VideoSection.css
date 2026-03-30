@@ -1,0 +1,710 @@
+* {
+  box-sizing: border-box;
+}
+
+.videoSection {
+  --bg: #f5ede7;
+  --card: #ffffff;
+  --card-soft: #fbf8f5;
+  --text: #191919;
+  --muted: #6f6a66;
+  --line: #e8ddd5;
+  --green: #18b67c;
+  --green-dark: #0f8a60;
+  --yellow: #ffb52c;
+  --shadow: 0 10px 30px rgba(45, 28, 18, 0.05);
+  --radius-xl: 26px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+
+  width: 100%;
+  padding: 22px 0 56px;
+  background: var(--bg);
+}
+
+.videoSection__container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.videoSection__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.videoSection__results {
+  margin: 0;
+  color: #111111;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.videoSection__topbarRight {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.videoSection__viewSwitch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.videoSection__viewBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #92877e;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.videoSection__viewBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.videoSection__viewBtn--active,
+.videoSection__viewBtn:hover {
+  color: var(--green);
+}
+
+.videoSection__sortWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.videoSection__sortLabel {
+  font-size: 14px;
+  color: #8a8179;
+  font-weight: 500;
+}
+
+.videoSection__sortSelect {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding-right: 2px;
+}
+
+.videoSection__featuredWrap {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) 340px;
+  gap: 0;
+  background: #f4efeb;
+  border: 1px solid #e2d9d1;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 28px;
+}
+
+.videoSection__featuredMain {
+  padding: 10px 10px 0 10px;
+  background: #fbf9f7;
+}
+
+.videoSection__featuredImageWrap {
+  position: relative;
+  width: 100%;
+  height: 390px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.videoSection__featuredImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.videoSection__playBtn,
+.videoSection__playBtn--card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60px;
+  height: 42px;
+  border: none;
+  border-radius: 14px;
+  background: #ff1c14;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 30px rgba(255, 28, 20, 0.28);
+  cursor: pointer;
+}
+
+.videoSection__playBtn--card {
+  width: 62px;
+  height: 42px;
+}
+
+.videoSection__playTriangle {
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 14px solid #ffffff;
+}
+
+.videoSection__featuredContent {
+  padding: 18px 24px 24px;
+}
+
+.videoSection__featuredTitle {
+  margin: 0 0 12px;
+  color: #121212;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.videoSection__ratingRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.videoSection__stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.videoSection__star {
+  color: var(--yellow);
+  font-size: 14px;
+}
+
+.videoSection__ratingText {
+  color: #1d1d1d;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.videoSection__priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 34px;
+}
+
+.videoSection__priceRow--card {
+  margin-top: 26px;
+}
+
+.videoSection__priceRow--list {
+  margin-top: 18px;
+}
+
+.videoSection__price {
+  color: var(--green-dark);
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.videoSection__price--free {
+  color: var(--green-dark);
+}
+
+.videoSection__oldPrice {
+  color: #8e8e8e;
+  font-size: 16px;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.videoSection__playlist {
+  padding: 10px 10px 10px 0;
+  background: #f4efeb;
+}
+
+.videoSection__playlistHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 16px 14px;
+  background: #fbf9f7;
+  border: 1px solid #ded4cb;
+  border-bottom: none;
+  border-radius: 24px 24px 0 0;
+}
+
+.videoSection__playlistTitle {
+  margin: 0;
+  color: #1c1c1c;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.videoSection__playlistLessons {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.videoSection__playlistLessons svg {
+  font-size: 15px;
+}
+
+.videoSection__playlistList {
+  max-height: 500px;
+  overflow-y: auto;
+  background: #fbf9f7;
+  border: 1px solid #ded4cb;
+  border-top: none;
+  border-radius: 0 0 24px 24px;
+  padding: 6px 10px 12px;
+}
+
+.videoSection__playlistList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.videoSection__playlistList::-webkit-scrollbar-thumb {
+  background: #d8ccc1;
+  border-radius: 99px;
+}
+
+.videoSection__playlistItem {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 10px 4px;
+  display: grid;
+  grid-template-columns: 20px 102px 1fr;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 14px;
+  transition: background 0.22s ease;
+}
+
+.videoSection__playlistItem:hover,
+.videoSection__playlistItem--active {
+  background: #f1ebe5;
+}
+
+.videoSection__playlistNumber {
+  color: #78706a;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.videoSection__playlistThumb {
+  width: 102px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.videoSection__playlistContent {
+  min-width: 0;
+}
+
+.videoSection__playlistItemTitle {
+  margin: 0 0 6px;
+  color: #252525;
+  font-size: 13px;
+  line-height: 1.3;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.videoSection__playlistItemMeta {
+  margin: 0;
+  color: #8a837c;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.videoSection__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px 22px;
+}
+
+.videoSection__card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e4d9d1;
+  border-radius: 0 0 24px 24px;
+  box-shadow: 0 8px 24px rgba(50, 32, 20, 0.04);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.videoSection__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(50, 32, 20, 0.08);
+}
+
+.videoSection__cardImageWrap {
+  position: relative;
+  height: 246px;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.videoSection__cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.videoSection__cardContent {
+  padding: 20px 26px 0;
+  min-height: 176px;
+}
+
+.videoSection__cardTitle {
+  margin: 0 0 14px;
+  color: #161616;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.videoSection__cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 26px 20px;
+  border-top: 1px solid #e7dcd3;
+}
+
+.videoSection__metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #151515;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.videoSection__metaItem svg {
+  color: var(--green-dark);
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.videoSection__listWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.videoSection__listCard {
+  display: grid;
+  grid-template-columns: 430px 1fr;
+  align-items: stretch;
+  background: #fbf9f7;
+  border: 1px solid #e4d9d1;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(50, 32, 20, 0.04);
+}
+
+.videoSection__listImageWrap {
+  padding: 10px 0 10px 10px;
+}
+
+.videoSection__listImage {
+  width: 100%;
+  height: 280px;
+  border-radius: 22px;
+  object-fit: cover;
+  display: block;
+}
+
+.videoSection__listContent {
+  padding: 24px 32px 22px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.videoSection__listTitle {
+  margin: 0 0 12px;
+  color: #161616;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.videoSection__listDescription {
+  margin: 20px 0 0;
+  color: #544d47;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+.videoSection__listFooter {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid #dfd3c9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.videoSection__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.videoSection__pageBtn {
+  min-width: 42px;
+  height: 42px;
+  border: 1px solid #ddd3cb;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #3a3531;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 14px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.videoSection__pageBtn:hover:not(:disabled),
+.videoSection__pageBtn--active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #ffffff;
+}
+
+.videoSection__pageBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1199px) {
+  .videoSection__featuredWrap {
+    grid-template-columns: 1.5fr 320px;
+  }
+
+  .videoSection__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .videoSection__listCard {
+    grid-template-columns: 340px 1fr;
+  }
+
+  .videoSection__listImage {
+    height: 250px;
+  }
+}
+
+@media (max-width: 991px) {
+  .videoSection {
+    padding: 20px 0 48px;
+  }
+
+  .videoSection__container {
+    padding: 0 14px;
+  }
+
+  .videoSection__topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .videoSection__topbarRight {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .videoSection__featuredWrap {
+    grid-template-columns: 1fr;
+  }
+
+  .videoSection__playlist {
+    padding: 0 10px 10px;
+  }
+
+  .videoSection__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .videoSection__listCard {
+    grid-template-columns: 1fr;
+  }
+
+  .videoSection__listImageWrap {
+    padding: 10px 10px 0;
+  }
+
+  .videoSection__listContent {
+    padding: 22px 20px 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .videoSection__results {
+    font-size: 14px;
+  }
+
+  .videoSection__sortWrap {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .videoSection__featuredImageWrap {
+    height: 250px;
+  }
+
+  .videoSection__featuredContent {
+    padding: 16px 18px 20px;
+  }
+
+  .videoSection__featuredTitle,
+  .videoSection__cardTitle,
+  .videoSection__listTitle {
+    font-size: 17px;
+  }
+
+  .videoSection__cardImageWrap {
+    height: 220px;
+  }
+
+  .videoSection__cardContent {
+    padding: 18px 18px 0;
+    min-height: auto;
+  }
+
+  .videoSection__cardFooter {
+    padding: 16px 18px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .videoSection__listImage {
+    height: 230px;
+  }
+
+  .videoSection__listDescription {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .videoSection__listFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .videoSection__playlistItem {
+    grid-template-columns: 20px 86px 1fr;
+  }
+
+  .videoSection__playlistThumb {
+    width: 86px;
+    height: 62px;
+  }
+}
+
+@media (max-width: 480px) {
+  .videoSection__container {
+    padding: 0 12px;
+  }
+
+  .videoSection__topbarRight {
+    gap: 12px;
+  }
+
+  .videoSection__featuredImageWrap {
+    height: 220px;
+    border-radius: 18px;
+  }
+
+  .videoSection__playlistHead {
+    padding: 16px 14px 12px;
+  }
+
+  .videoSection__playlistList {
+    padding: 6px 8px 10px;
+  }
+
+  .videoSection__playlistItem {
+    grid-template-columns: 18px 74px 1fr;
+    gap: 8px;
+  }
+
+  .videoSection__playlistThumb {
+    width: 74px;
+    height: 56px;
+    border-radius: 10px;
+  }
+
+  .videoSection__playlistItemTitle {
+    font-size: 12px;
+  }
+
+  .videoSection__cardImageWrap {
+    height: 200px;
+  }
+
+  .videoSection__price {
+    font-size: 20px;
+  }
+
+  .videoSection__oldPrice {
+    font-size: 15px;
+  }
+
+  .videoSection__playBtn,
+  .videoSection__playBtn--card {
+    width: 56px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .videoSection__playTriangle {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 13px solid #ffffff;
+  }
+
+  .videoSection__pageBtn {
+    min-width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+}
