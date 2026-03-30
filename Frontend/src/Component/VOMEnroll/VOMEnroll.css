@@ -1,0 +1,91 @@
+/* ===============================
+   SECTION
+================================ */
+.esc-section {
+  width: 100%;
+  padding: 80px 20px;
+  background: linear-gradient(
+    90deg,
+    #1bb096 0%,
+    #29c39f 50%,
+    #36d0a8 100%
+  );
+}
+
+/* ===============================
+   CONTAINER
+================================ */
+.esc-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  align-items: center;
+}
+
+/* ===============================
+   ITEM
+================================ */
+.esc-item {
+  position: relative;
+  padding: 20px 10px;
+}
+
+.esc-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ===============================
+   NUMBER
+================================ */
+.esc-number {
+  font-size: 56px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   LABEL
+================================ */
+.esc-label {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 992px) {
+  .esc-container {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 40px;
+  }
+
+  .esc-item::after {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .esc-container {
+    grid-template-columns: 1fr;
+  }
+
+  .esc-number {
+    font-size: 42px;
+  }
+
+  .esc-section {
+    padding: 60px 15px;
+  }
+}

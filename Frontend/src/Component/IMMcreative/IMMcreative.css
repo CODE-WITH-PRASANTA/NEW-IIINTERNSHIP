@@ -1,0 +1,256 @@
+/* SECTION WRAPPER */
+.cp-section-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+/* CONTAINER */
+.cp-container {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* TITLE */
+.cp-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 15px;
+}
+
+/* UNDERLINE CURVE */
+.cp-title-underline {
+  width: 120px;
+  height: 6px;
+  background: #00b894;
+  border-radius: 20px;
+  margin: 0 auto 40px;
+}
+
+/* TEXT */
+.cp-text-wrapper {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  color: #555;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* BUTTON */
+.cp-btn {
+  background: #00b894;
+  color: #fff;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 6px;
+  font-size: 17px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cp-btn:hover {
+  background: #019874;
+}
+
+/* LEFT IMAGES */
+.cp-left-images {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cp-left-img {
+  width: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  animation: cpFloat 6s ease-in-out infinite;
+}
+
+.cp-left-img-top {
+  padding-left: -80px;
+  width: 200px;
+  right: 30px;
+}
+
+.cp-left-img-bottom {
+  margin-left: 10px;
+}
+
+/* RIGHT IMAGE */
+.cp-right-image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.cp-right-img {
+  width: 280px;
+  border-radius: 6px;
+  animation: cpFloat 7s ease-in-out infinite;
+}
+
+/* FLOAT ANIMATION */
+@keyframes cpFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* DOT PATTERN BACKGROUND */
+.cp-dot-pattern {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  background-image: radial-gradient(#dcdcdc 2px, transparent 2px);
+  background-size: 18px 18px;
+  z-index: -1;
+}
+
+/* RED ARC DECORATION */
+.cp-red-arc {
+  position: absolute;
+  right: 60px;
+  top: 200px;
+  width: 150px;
+  height: 150px;
+  border: 10px solid #ff4d4d;
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(45deg);
+}
+
+.imm-simple-section {
+  width: 100%;
+  padding: 100px 0;
+  background: #f9fafb;
+}
+
+.imm-simple-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.imm-simple-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: #111;
+}
+
+.imm-simple-underline {
+  width: 80px;
+  height: 4px;
+  background: #00b894;
+  margin: 15px auto 50px;
+  border-radius: 20px;
+}
+
+/* GRID */
+.imm-simple-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  text-align: left;
+}
+
+/* COLUMN */
+.imm-simple-column {
+  padding: 10px 10px;
+}
+
+/* HEADINGS */
+.imm-simple-heading {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.internship {
+  color: #00b894;
+}
+
+.immersion {
+  color: #ff4d4d;
+}
+
+/* LIST */
+.imm-simple-list {
+  list-style: none;
+  padding: 0;
+}
+
+.imm-simple-list li {
+  margin-bottom: 14px;
+  line-height: 1.6;
+  font-size: 15px;
+  color: #444;
+  position: relative;
+  padding-left: 18px;
+}
+
+.imm-simple-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #00b894;
+  font-weight: bold;
+}
+
+/* BUTTON */
+.imm-simple-btn {
+  margin-top: 50px;
+  background: #00b894;
+  color: #fff;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.imm-simple-btn:hover {
+  background: #019874;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .imm-simple-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .imm-simple-title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .imm-simple-title {
+    font-size: 24px;
+  }
+}

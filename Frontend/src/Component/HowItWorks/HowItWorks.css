@@ -1,0 +1,216 @@
+:root {
+  --primary-color: #59a869;
+  --hover-color: #3d8d4b;
+  --line-color: #cfe9d7;
+  --card-bg: #fff;
+  --card-border: #eee;
+  --text-color: #222;
+  --text-muted: #888;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+.hoeitworks {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 60px 100px;
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+
+  /* Full page border */
+  border: 3px solid #1f3b4d; /* Adjust color as needed */
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+  background-color: #f9faff; /* Optional background for contrast */
+  max-width: 1200px;
+  margin: 0 auto; /* Center the section */
+  position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hoeitworks {
+    flex-direction: column;
+    padding: 40px 50px;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hoeitworks {
+    padding: 30px 20px;
+    gap: 20px;
+  }
+}
+
+/* Left Section */
+.hoeitworks-left {
+  flex: 1;
+}
+
+.hoeitworks-subtitle {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.hoeitworks-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.hoeitworks-desc {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.hoeitworks-text {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.hoeitworks-readybox {
+  border: 2px solid var(--line-color);
+  background: #f6fff9;
+  padding: 25px 30px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.hoeitworks-readybox:hover {
+  transform: scale(1.02);
+}
+
+.hoeitworks-readybox h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.hoeitworks-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.hoeitworks-button:hover {
+  background: var(--hover-color);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hoeitworks-query {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+/* Right Section */
+.hoeitworks-right {
+  flex: 1;
+  position: relative;
+}
+
+.hoeitworks-line {
+  position: absolute;
+  left: 25px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--line-color);
+  z-index: 0;
+  animation: growLine 1.5s ease forwards;
+}
+
+@keyframes growLine {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.hoeitworks-step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.hoeitworks-circle {
+  min-width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  font-size: 18px;
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hoeitworks-circle:hover {
+  transform: scale(1.1);
+  background: var(--hover-color);
+}
+
+.hoeitworks-card {
+  margin-left: 20px;
+  padding: 20px;
+  border: 2px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--card-bg);
+  transition: all 0.4s ease;
+  animation: fadeInUp 0.8s ease both;
+  cursor: pointer;
+}
+
+.hoeitworks-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.hoeitworks-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect: all cards change color */
+.hoeitworks-right:hover .hoeitworks-card {
+  background: var(--hover-color);
+  color: white;
+  border-color: var(--hover-color);
+}
+
+.hoeitworks-right:hover .hoeitworks-card h4,
+.hoeitworks-right:hover .hoeitworks-card p {
+  color: white;
+}

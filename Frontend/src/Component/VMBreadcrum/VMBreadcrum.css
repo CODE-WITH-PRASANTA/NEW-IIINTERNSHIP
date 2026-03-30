@@ -1,5 +1,5 @@
 /* ================= LIST HERO ================= */
-.OrgBD {
+.VMBreadcrum {
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #1f8b5d 0%, #228d60 45%, #1d8458 100%);
@@ -9,7 +9,7 @@
 }
 
 /* BACKGROUND EFFECT */
-.OrgBD::before {
+.VMBreadcrum::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -19,7 +19,7 @@
   z-index: -3;
 }
 
-.OrgBD__bg-lines {
+.VMBreadcrum__bg-lines {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -31,7 +31,7 @@
 }
 
 /* INNER */
-.OrgBD__inner {
+.VMBreadcrum__inner {
   width: min(1300px, calc(100% - 56px));
   margin: 0 auto;
   display: grid;
@@ -40,23 +40,23 @@
 }
 
 /* CONTENT */
-.OrgBD__content {
+.VMBreadcrum__content {
   max-width: 560px;
 }
 
 /* SPARKLES */
-.OrgBD__sparkles {
+.VMBreadcrum__sparkles {
   position: relative;
   width: 82px;
   height: 52px;
   margin-bottom: 10px;
 }
 
-.OrgBD__spark {
+.VMBreadcrum__spark {
   position: absolute;
 }
 
-.OrgBD__spark--big {
+.VMBreadcrum__spark--big {
   width: 28px;
   height: 28px;
   left: 0;
@@ -64,7 +64,7 @@
   color: #f6d508;
 }
 
-.OrgBD__spark--small {
+.VMBreadcrum__spark--small {
   width: 16px;
   height: 16px;
   left: 44px;
@@ -73,12 +73,12 @@
 }
 
 /* HEADER WRAPPER */
-.OrgBD__header {
+.VMBreadcrum__header {
   margin-bottom: 20px;
 }
 
 /* TITLE (Gradient Like Screenshot) */
-.OrgBD__title {
+.VMBreadcrum__title {
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 800;
   line-height: 1.1;
@@ -91,7 +91,7 @@
 }
 
 /* BREADCRUMB */
-.OrgBD__breadcrumb {
+.VMBreadcrum__breadcrumb {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -101,31 +101,31 @@
 }
 
 /* HOME */
-.OrgBD__home {
+.VMBreadcrum__home {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
 /* DIVIDER */
-.OrgBD__divider {
+.VMBreadcrum__divider {
   opacity: 0.7;
 }
 
 /* CURRENT PAGE */
-.OrgBD__current {
+.VMBreadcrum__current {
   font-weight: 500;
   opacity: 0.9;
 }
 
 /* IMAGE */
-.OrgBD__visual {
+.VMBreadcrum__visual {
   position: relative;
   display: flex;
   justify-content: flex-end;
 }
 
-.OrgBD__shape {
+.VMBreadcrum__shape {
   position: absolute;
   top: 10px;
   right: 100px;
@@ -136,20 +136,20 @@
   transform: rotate(10deg);
 }
 
-.OrgBD__image {
+.VMBreadcrum__image {
   position: relative;
   width: 100%;
   max-width: 600px;
 }
 
 /* CURVE */
-.OrgBD__curve {
+.VMBreadcrum__curve {
   position: absolute;
   bottom: -6px;
   width: 100%;
 }
 
-.OrgBD__curve-svg {
+.VMBreadcrum__curve-svg {
   width: 100%;
   height: 280px;
 }
@@ -157,28 +157,28 @@
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 991px) {
-  .OrgBD__inner {
+  .VMBreadcrum__inner {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .OrgBD__visual {
+  .VMBreadcrum__visual {
     justify-content: center;
     margin-top: 20px;
   }
 
-  .OrgBD__shape {
+  .VMBreadcrum__shape {
     left: 50%;
     transform: translateX(-50%) rotate(10deg);
   }
 }
 
 @media (max-width: 600px) {
-  .OrgBD__title {
+  .VMBreadcrum__title {
     font-size: 2.3rem;
   }
 
-  .OrgBD__subtitle {
+  .VMBreadcrum__subtitle {
     font-size: 0.9rem;
   }
 }

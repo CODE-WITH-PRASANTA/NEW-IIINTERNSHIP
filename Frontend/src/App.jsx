@@ -9,6 +9,8 @@ import Topbar from "./Component/Topbar/Topbar";
 import CourseGrid from "./Pages/CourseGrid/CourseGrid";
 import OrganisationHistory from "./Pages/OrganisationHistory/OrganisationHistory";
 import VisionMission from "./Pages/VisionMission/VisionMission";
+import Immersion from "./Pages/Immersion/Immersion";
+import Internship from "./Pages/Internship/Internship";
 
 import CourseVideo from "./Pages/CourseVideo/CourseVideo";
 import Login from "./Pages/Login/Login";
@@ -35,6 +37,8 @@ const App = () => {
         <Route path="/register" element={<Register/>}/>
         <Route path="/faq" element={<Faq/>}/>
         <Route path="/successstorydetails" element={<SuccessStoryDetails/>}/>
+        <Route path="/immersion" element={<Immersion/>} />
+        <Route path="/internship" element={<Internship/>} />
       </Routes>
 
       <Footer />

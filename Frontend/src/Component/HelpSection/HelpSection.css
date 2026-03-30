@@ -1,0 +1,314 @@
+/* ==========================
+   Root Theme Variables
+========================== */
+:root {
+  --primary-gradient: linear-gradient(135deg, #6a11cb, #2575fc);
+  --card-gradient: linear-gradient(135deg, #ffffff, #f4f6ff);
+  --accent: #2575fc;
+  --secondary: #1a1a1a;
+  --muted: #666;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --radius: 16px;
+  --transition: all 0.4s ease;
+}
+
+/* ==========================
+   Section Base
+========================== */
+.help-section {
+  padding: 1rem 2rem;
+  background: linear-gradient(180deg, #f9faff 0%, #ffffff 100%);
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: var(--secondary);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ==========================
+   Headings
+========================== */
+.help-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.help-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: var(--primary-gradient);
+  display: block;
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+.help-subtitle {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 4rem;
+  letter-spacing: 0.3px;
+}
+
+/* ==========================
+   Grid Layout
+========================== */
+.help-grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, auto);
+  align-items: center;
+  justify-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ==========================
+   Diamond Position Layout
+========================== */
+.help-box-top-left {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.help-box-bottom-left {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.help-box-top-right {
+  grid-column: 4 / 5;
+  grid-row: 1 / 2;
+}
+
+.help-box-bottom-right {
+  grid-column: 4 / 5;
+  grid-row: 3 / 4;
+}
+
+/* ==========================
+   Center Image
+========================== */
+.help-center-image {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+.help-center-image img {
+  width: 380px;
+  border-radius: 70%;
+  object-fit: cover;
+  border: 4px solid rgba(37, 117, 252, 0.2);
+  box-shadow: 0 15px 40px rgba(37, 117, 252, 0.2);
+  transition: var(--transition);
+  background: #fff;
+}
+
+.help-center-image img:hover {
+  box-shadow: 0 20px 45px rgba(106, 17, 203, 0.3);
+}
+
+/* ==========================
+   Help Boxes
+========================== */
+.help-box {
+  background: var(--card-gradient);
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  width: 240px;
+  text-align: center;
+  border: 1.5px solid rgba(106, 17, 203, 0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.help-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-gradient);
+  opacity: 0.08;
+  transition: 0.5s;
+}
+
+.help-box:hover::before {
+  left: 0;
+}
+
+.help-box:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: rgba(37, 117, 252, 0.25);
+  box-shadow: 0 12px 35px rgba(37, 117, 252, 0.25);
+}
+
+/* Icon Style */
+.icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.8rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+.help-box h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 0.4rem;
+}
+
+.help-box p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================
+   Animations
+========================== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(106, 17, 203, 0.7);
+  }
+}
+
+/* ==========================
+   Responsive Design
+========================== */
+
+/* Large Tablets / Small Desktops */
+@media (max-width: 1024px) {
+  .help-center-image img {
+    width: 320px;
+    height: 320px;
+  }
+
+  .help-box {
+    width: 220px;
+    padding: 1.6rem;
+  }
+
+  .help-subtitle {
+    margin-bottom: 3rem;
+  }
+}
+
+/* Tablets / Medium Screens */
+@media (max-width: 768px) {
+  .help-grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 2.5rem;
+  }
+
+  .help-center-image {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .help-center-image img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .help-box {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .help-title {
+    font-size: 2.4rem;
+  }
+
+  .help-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* Mobile / Small Screens */
+@media (max-width: 480px) {
+  .help-grid-container {
+    display: block;
+  }
+
+  .help-center-image img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .help-box {
+    width: 95%;
+    padding: 1.3rem;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+
+  .help-title {
+    font-size: 2rem;
+  }
+
+  .help-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Extra Small Devices / Portrait Phones */
+@media (max-width: 360px) {
+  .help-center-image img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .help-box {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .help-title {
+    font-size: 1.8rem;
+  }
+
+  .help-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .icon {
+    font-size: 1.8rem;
+  }
+}
