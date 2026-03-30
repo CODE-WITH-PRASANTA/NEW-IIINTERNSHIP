@@ -1,0 +1,36 @@
+.course-details {
+  background: #efe7df;
+}
+
+/* MAIN GRID */
+.course-details__container {
+  width: min(1300px, 92%);
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 30px;
+  align-items: start;
+}
+
+/* LEFT */
+.course-details__left {
+  width: 100%;
+}
+
+/* RIGHT SIDEBAR */
+.course-details__right {
+  position: sticky;
+  top: 100px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+  .course-details__container {
+    grid-template-columns: 1fr;
+  }
+
+  .course-details__right {
+    position: relative;
+    top: 0;
+  }
+}

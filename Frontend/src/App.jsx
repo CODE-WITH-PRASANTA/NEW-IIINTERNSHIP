@@ -10,6 +10,8 @@ import OrganisationHistory from "./Pages/OrganisationHistory/OrganisationHistory
 import VisionMission from "./Pages/VisionMission/VisionMission";
 import Immersion from "./Pages/Immersion/Immersion";
 import Internship from "./Pages/Internship/Internship";
+import CourseDetails from "./Pages/CourseDetails/CourseDetails";
+import SuccessStory from "./Pages/SuccessStory/SuccessStory";
 
 const App = () => {
   return (
@@ -25,6 +27,8 @@ const App = () => {
         <Route path="/vision/mission" element={<VisionMission/>} />
         <Route path="/immersion" element={<Immersion/>} />
         <Route path="/internship" element={<Internship/>} />
+        <Route path="/Course" element={<CourseDetails/>} />
+        <Route path="/story" element={<SuccessStory/>} />
       </Routes>
 
       <Footer />
