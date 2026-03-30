@@ -6,6 +6,7 @@ import Footer from "./Pages/Footer/Footer";
 
 import Home from "./Pages/Home/Home";
 import Topbar from "./Component/Topbar/Topbar";
+import CourseGrid from "./Pages/CourseGrid/CourseGrid";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Routes>
         {/* ✅ Home Route */}
         <Route path="/" element={<Home />} />
+        <Route path="/coursegrid" element={<CourseGrid/>}/>
       </Routes>
 
       <Footer />

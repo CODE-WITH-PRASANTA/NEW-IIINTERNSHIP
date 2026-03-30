@@ -31,6 +31,8 @@ const navItems = [
       { name: "Running Internships", path: "/running" },
       { name: "Virtual Internships", path: "/virtual" },
       { name: "On Campus Internships", path: "/oncampus" },
+       { name: "Course Grid", path: "/coursegrid" },
+       { name: "Course List", path: "/courselist" },
     ],
   },
 
