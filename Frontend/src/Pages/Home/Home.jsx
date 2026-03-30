@@ -6,6 +6,10 @@ import HeroCourse from '../../Component/HeroCourse/HeroCourse'
 import CourseCategory from '../../Component/CourseCategory/CourseCategory'
 import HeroMentors from '../../Component/HeroMentors/HeroMentors'
 import HeroTestimonial from '../../Component/HeroTestimonial/HeroTestimonial'
+import FreeWorkshop from '../../Component/FreeWorkshop/FreeWorkshop'
+import WhyStudent from '../../Component/WhyStudent/WhyStudent'
+import LearningPartner from '../../Component/LearningPartner/LearningPartner'
+import Gallery from '../../Component/Gallery/Gallery'
 
 const Home = () => {
   return (
@@ -17,6 +21,10 @@ const Home = () => {
       <CourseCategory/>
       <HeroMentors />
       <HeroTestimonial />
+      <FreeWorkshop/>
+      <WhyStudent/>
+      <LearningPartner/>
+      <Gallery/>
     </div>
   )
 }
