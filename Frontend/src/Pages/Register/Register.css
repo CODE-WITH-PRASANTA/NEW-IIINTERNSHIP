@@ -1,0 +1,469 @@
+.registerPage {
+  min-height: 100vh;
+  padding: 24px;
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  box-sizing: border-box;
+}
+
+.registerPage * {
+  box-sizing: border-box;
+}
+
+.registerPage__wrapper {
+  width: 100%;
+  max-width: 1500px;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 72px;
+}
+
+.registerPage__left {
+  width: 100%;
+}
+
+.registerPage__slider {
+  position: relative;
+  min-height: 760px;
+  border-radius: 42px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 48px 44px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.14);
+}
+
+.registerPage__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0.76) 100%
+  );
+  z-index: 1;
+}
+
+.registerPage__count {
+  position: absolute;
+  top: 44px;
+  right: 40px;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.registerPage__content {
+  position: relative;
+  z-index: 2;
+  max-width: 85%;
+}
+
+.registerPage__quote {
+  margin: 0 0 30px;
+  color: #ffffff;
+  font-size: 2.1rem;
+  line-height: 1.33;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.registerPage__author h4 {
+  margin: 0 0 8px;
+  color: #ffcf30;
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.registerPage__author span {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.02rem;
+}
+
+.registerPage__arrows {
+  position: absolute;
+  right: 40px;
+  bottom: 34px;
+  z-index: 2;
+  display: flex;
+  gap: 14px;
+}
+
+.registerPage__arrowBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.registerPage__arrowBtn:hover {
+  background: #ffffff;
+  color: #121212;
+  transform: translateY(-2px);
+}
+
+.registerPage__right {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.registerPage__formBox {
+  width: 100%;
+  max-width: 530px;
+  padding: 10px 6px;
+}
+
+.registerPage__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.registerPage__logoIcon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.registerPage__logoText h2 {
+  margin: 0;
+  font-size: 2.15rem;
+  line-height: 1;
+  font-weight: 800;
+  color: #1f9468;
+}
+
+.registerPage__logoText p {
+  margin: 2px 0 0;
+  color: #6f6f6f;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.registerPage__title {
+  margin: 0 0 42px;
+  text-align: center;
+  color: #111111;
+  font-size: 2.7rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.registerPage__form {
+  width: 100%;
+}
+
+.registerPage__field {
+  margin-bottom: 26px;
+}
+
+.registerPage__field label {
+  display: block;
+  margin-bottom: 12px;
+  color: #2d2d2d;
+  font-size: 1.08rem;
+  font-weight: 500;
+}
+
+.registerPage__field input {
+  width: 100%;
+  height: 72px;
+  border: 1px solid #e6ddd6;
+  border-radius: 18px;
+  background: #efe7e1;
+  padding: 0 20px;
+  font-size: 1.4rem;
+  color: #242424;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.registerPage__field input::placeholder {
+  color: #535353;
+}
+
+.registerPage__field input:focus {
+  border-color: #27a56d;
+  background: #f4ece7;
+  box-shadow: 0 0 0 4px rgba(39, 165, 109, 0.08);
+}
+
+.registerPage__forgotWrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -6px;
+  margin-bottom: 30px;
+}
+
+.registerPage__forgotWrap a {
+  color: #177d61;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.registerPage__submitBtn {
+  width: 100%;
+  height: 72px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #22935f 0%, #33b977 100%);
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 16px 32px rgba(41, 168, 108, 0.22);
+  transition: all 0.3s ease;
+}
+
+.registerPage__submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(41, 168, 108, 0.28);
+}
+
+.registerPage__divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 34px 0 26px;
+}
+
+.registerPage__divider span {
+  flex: 1;
+  height: 1px;
+  background: #d7d7d7;
+}
+
+.registerPage__divider p {
+  margin: 0;
+  color: #7b7b7b;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.registerPage__socialRow {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.registerPage__socialBtn {
+  width: 66px;
+  height: 66px;
+  border-radius: 999px;
+  border: 1px solid #e6e0df;
+  background: #ffffff;
+  color: #101010;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.registerPage__socialBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+}
+
+.registerPage__bottomText {
+  margin: 0;
+  text-align: center;
+  color: #171717;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.registerPage__bottomText a {
+  color: #177d61;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 600;
+}
+
+@media (max-width: 1399px) {
+  .registerPage__wrapper {
+    gap: 44px;
+  }
+
+  .registerPage__slider {
+    min-height: 690px;
+  }
+
+  .registerPage__quote {
+    font-size: 1.85rem;
+  }
+
+  .registerPage__title {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .registerPage {
+    padding: 20px;
+  }
+
+  .registerPage__wrapper {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 920px;
+  }
+
+  .registerPage__slider {
+    min-height: 620px;
+  }
+
+  .registerPage__formBox {
+    max-width: 620px;
+    padding: 8px 0 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .registerPage {
+    padding: 14px;
+  }
+
+  .registerPage__wrapper {
+    gap: 18px;
+  }
+
+  .registerPage__slider {
+    min-height: 500px;
+    border-radius: 28px;
+    padding: 26px 22px;
+  }
+
+  .registerPage__count {
+    top: 22px;
+    right: 20px;
+    font-size: 1.15rem;
+  }
+
+  .registerPage__content {
+    max-width: 100%;
+  }
+
+  .registerPage__quote {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 22px;
+  }
+
+  .registerPage__author h4 {
+    font-size: 1rem;
+  }
+
+  .registerPage__author span {
+    font-size: 0.95rem;
+  }
+
+  .registerPage__arrows {
+    right: 20px;
+    bottom: 20px;
+    gap: 10px;
+  }
+
+  .registerPage__arrowBtn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+
+  .registerPage__logo {
+    margin-bottom: 18px;
+  }
+
+  .registerPage__logoText h2 {
+    font-size: 1.7rem;
+  }
+
+  .registerPage__logoText p {
+    font-size: 0.9rem;
+  }
+
+  .registerPage__title {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+
+  .registerPage__field {
+    margin-bottom: 20px;
+  }
+
+  .registerPage__field label {
+    font-size: 0.98rem;
+    margin-bottom: 10px;
+  }
+
+  .registerPage__field input {
+    height: 58px;
+    border-radius: 14px;
+    font-size: 1rem;
+    padding: 0 16px;
+  }
+
+  .registerPage__forgotWrap {
+    margin-bottom: 24px;
+  }
+
+  .registerPage__submitBtn {
+    height: 58px;
+    border-radius: 16px;
+    font-size: 1.18rem;
+  }
+
+  .registerPage__socialBtn {
+    width: 56px;
+    height: 56px;
+    font-size: 1.32rem;
+  }
+
+  .registerPage__bottomText {
+    font-size: 0.96rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .registerPage__slider {
+    min-height: 430px;
+    padding: 22px 18px;
+  }
+
+  .registerPage__quote {
+    font-size: 1.22rem;
+  }
+
+  .registerPage__title {
+    font-size: 1.7rem;
+  }
+
+  .registerPage__divider p {
+    font-size: 0.88rem;
+  }
+}

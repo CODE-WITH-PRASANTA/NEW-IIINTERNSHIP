@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+}
+
+.videoPrice {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.videoPrice__card {
+  width: 100%;
+  max-width: 320px;
+  background: #f4ede8;
+  border: 1px solid rgba(94, 75, 60, 0.08);
+  border-radius: 0;
+  padding: 42px 30px 38px;
+  box-shadow: 0 10px 30px rgba(58, 42, 32, 0.04);
+}
+
+.videoPrice__group {
+  width: 100%;
+}
+
+.videoPrice__groupHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.videoPrice__title {
+  margin: 0;
+  color: #232323;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.videoPrice__divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(94, 75, 60, 0.09);
+  margin: 14px 0 22px;
+}
+
+.videoPrice__options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.videoPrice__option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.videoPrice__input {
+  display: none;
+}
+
+.videoPrice__box {
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+  border-radius: 7px;
+  background: #e7cfbc;
+  border: 1px solid transparent;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.videoPrice__box::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 5px;
+  width: 6px;
+  height: 3px;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  transform: rotate(-45deg) scale(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.videoPrice__input:checked + .videoPrice__box {
+  background: #23a56f;
+  box-shadow: 0 8px 18px rgba(35, 165, 111, 0.2);
+}
+
+.videoPrice__input:checked + .videoPrice__box::after {
+  transform: rotate(-45deg) scale(1);
+}
+
+.videoPrice__label {
+  color: #4c4c4c;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.videoPrice__option:hover .videoPrice__box {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(70, 46, 27, 0.08);
+}
+
+.videoPrice__option:hover .videoPrice__label {
+  color: #1f1f1f;
+}
+
+.videoPrice__space {
+  height: 52px;
+}
+
+@media (max-width: 991px) {
+  .videoPrice__card {
+    max-width: 100%;
+    padding: 34px 24px 30px;
+  }
+
+  .videoPrice__space {
+    height: 42px;
+  }
+}
+
+@media (max-width: 767px) {
+  .videoPrice__card {
+    padding: 28px 20px 26px;
+  }
+
+  .videoPrice__title {
+    font-size: 0.98rem;
+  }
+
+  .videoPrice__label {
+    font-size: 0.96rem;
+  }
+
+  .videoPrice__options {
+    gap: 17px;
+  }
+
+  .videoPrice__space {
+    height: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .videoPrice__card {
+    padding: 24px 16px 22px;
+  }
+
+  .videoPrice__box {
+    width: 19px;
+    height: 19px;
+    min-width: 19px;
+    border-radius: 6px;
+  }
+
+  .videoPrice__box::after {
+    left: 5px;
+    top: 4px;
+  }
+
+  .videoPrice__label {
+    font-size: 0.95rem;
+  }
+
+  .videoPrice__divider {
+    margin: 12px 0 18px;
+  }
+
+  .videoPrice__space {
+    height: 28px;
+  }
+}

@@ -1,0 +1,290 @@
+.leaveComment {
+  width: 100%;
+  background: #f3ece6;
+  padding: 28px 18px 80px;
+}
+
+.leaveComment__card {
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto;
+  background: #f4f4f4;
+  border-radius: 26px;
+  padding: 56px 48px 50px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03), 0 12px 30px rgba(27, 20, 14, 0.05);
+  border: 1px solid #ebe1d8;
+}
+
+.leaveComment__title {
+  margin: 0 0 12px;
+  color: #20b57e;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.leaveComment__subtitle {
+  margin: 0 0 28px;
+  color: #3e3c3a;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.leaveComment__required {
+  color: #ef6464;
+}
+
+.leaveComment__form {
+  width: 100%;
+}
+
+.leaveComment__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 26px;
+}
+
+.leaveComment__field {
+  width: 100%;
+}
+
+.leaveComment__field--full {
+  margin-bottom: 24px;
+}
+
+.leaveComment__label {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #22252a;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.leaveComment__input,
+.leaveComment__textarea {
+  width: 100%;
+  border: 1px solid #ead8cb;
+  background: #efe6df;
+  color: #27313d;
+  border-radius: 16px;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.2s ease;
+  font-family: inherit;
+}
+
+.leaveComment__input {
+  height: 58px;
+  padding: 0 18px;
+  font-size: 16px;
+}
+
+.leaveComment__textarea {
+  min-height: 152px;
+  padding: 16px 18px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.leaveComment__input::placeholder,
+.leaveComment__textarea::placeholder {
+  color: #6d6f74;
+}
+
+.leaveComment__input:focus,
+.leaveComment__textarea:focus {
+  border-color: #cdb7a6;
+  box-shadow: 0 0 0 4px rgba(225, 202, 185, 0.28);
+}
+
+.leaveComment__checkRow {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.leaveComment__checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.leaveComment__checkBoxUi {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 7px;
+  background: #e4d0c0;
+  border: 1px solid #e1cab9;
+  margin-top: 1px;
+  transition: all 0.25s ease;
+}
+
+.leaveComment__checkbox:checked + .leaveComment__checkBoxUi {
+  background: #20b57e;
+  border-color: #20b57e;
+  box-shadow: inset 0 0 0 5px #ffffff;
+}
+
+.leaveComment__checkText {
+  color: #29323c;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.leaveComment__submitBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: space-between;
+  min-width: 212px;
+  min-height: 58px;
+  border: none;
+  border-radius: 16px;
+  background: #2ca06f;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 12px 24px rgba(44, 160, 111, 0.18);
+}
+
+.leaveComment__submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 30px rgba(44, 160, 111, 0.24);
+}
+
+.leaveComment__submitText {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px 0 18px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
+.leaveComment__submitText::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  bottom: 0;
+  width: 28px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  transform: skewX(16deg);
+}
+
+.leaveComment__submitIconWrap {
+  width: 52px;
+  min-width: 52px;
+  background: #eedb2f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.leaveComment__submitIcon {
+  color: #1a1d22;
+  font-size: 20px;
+}
+
+@media (max-width: 991px) {
+  .leaveComment {
+    padding: 24px 16px 64px;
+  }
+
+  .leaveComment__card {
+    padding: 42px 28px 38px;
+    border-radius: 22px;
+  }
+
+  .leaveComment__row {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .leaveComment {
+    padding: 20px 14px 52px;
+  }
+
+  .leaveComment__card {
+    padding: 28px 18px 28px;
+    border-radius: 20px;
+  }
+
+  .leaveComment__title {
+    font-size: 25px;
+  }
+
+  .leaveComment__subtitle {
+    font-size: 15px;
+    margin-bottom: 22px;
+  }
+
+  .leaveComment__row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+
+  .leaveComment__field--full {
+    margin-bottom: 20px;
+  }
+
+  .leaveComment__input {
+    height: 54px;
+    border-radius: 14px;
+  }
+
+  .leaveComment__textarea {
+    min-height: 140px;
+    border-radius: 14px;
+  }
+
+  .leaveComment__checkText {
+    font-size: 15px;
+  }
+
+  .leaveComment__submitBtn {
+    width: 100%;
+    min-width: 100%;
+    min-height: 54px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leaveComment__card {
+    padding: 24px 14px 24px;
+  }
+
+  .leaveComment__title {
+    font-size: 22px;
+  }
+
+  .leaveComment__label,
+  .leaveComment__input,
+  .leaveComment__textarea,
+  .leaveComment__checkText {
+    font-size: 14px;
+  }
+
+  .leaveComment__submitText {
+    font-size: 16px;
+  }
+
+  .leaveComment__submitIconWrap {
+    width: 48px;
+    min-width: 48px;
+  }
+}
