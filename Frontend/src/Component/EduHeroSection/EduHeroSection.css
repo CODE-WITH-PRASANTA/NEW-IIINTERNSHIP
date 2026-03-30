@@ -1,0 +1,141 @@
+/* MAIN SECTION */
+.eduhero-section {
+  width: 100%;
+  background: #f5f5f5;
+  padding: 80px 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* CONTAINER */
+.eduhero-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* LEFT SIDE */
+.eduhero-welcome {
+  color: #00a88e;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.eduhero-heading {
+  font-size: 48px;
+  font-weight: 700;
+  margin-top: 20px;
+  line-height: 1.2;
+  color: #111;
+}
+
+/* RIGHT SIDE */
+.eduhero-subheading {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #111;
+}
+
+.eduhero-description {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.eduhero-list {
+  margin-top: 25px;
+  list-style: none;
+  padding: 0;
+}
+
+.eduhero-list li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+}
+
+/* IMAGE SECTION */
+.eduhero-image-wrapper {
+  max-width: 1100px;
+  margin: 20px auto 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.eduhero-main-image {
+  width: 100%;
+  height: 450px;
+  max-width: 1000px;
+  border-radius: 250px;
+  object-fit: cover;
+}
+
+/* Decorative Shapes */
+.eduhero-shape-left {
+  position: absolute;
+  top: -30px;
+  left: 40px;
+  width: 120px;
+  height: 120px;
+  border: 6px solid #ff4c4c;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+
+.eduhero-shape-right {
+  position: absolute;
+  right: 60px;
+  top: 40px;
+  width: 60px;
+  height: 60px;
+  background: #f36f45;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .eduhero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .eduhero-heading {
+    font-size: 38px;
+  }
+
+  .eduhero-subheading {
+    font-size: 22px;
+  }
+
+  .eduhero-image-wrapper {
+    margin-top: 60px;
+  }
+
+  .eduhero-main-image {
+    border-radius: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eduhero-heading {
+    font-size: 30px;
+  }
+
+  .eduhero-subheading {
+    font-size: 18px;
+  }
+
+  .eduhero-main-image {
+    border-radius: 120px;
+  }
+}

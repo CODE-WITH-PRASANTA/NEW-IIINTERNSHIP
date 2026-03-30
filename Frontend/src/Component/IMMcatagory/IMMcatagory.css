@@ -1,0 +1,118 @@
+/* ================================
+   I3 IMMERSION SECTION
+================================ */
+
+.i3-immersion-section {
+  padding: 40px 20px;
+  background: #f4f6f8;
+}
+
+.i3-immersion-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Title */
+.i3-immersion-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.i3-immersion-underline {
+  width: 80px;
+  height: 4px;
+  background: #0ea5a4;
+  margin: 10px auto 20px auto;
+  border-radius: 10px;
+}
+
+.i3-immersion-subtitle {
+  max-width: 750px;
+  margin: 0 auto 50px auto;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Grid */
+.i3-immersion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Card */
+.i3-immersion-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 25px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+/* Hover Animation */
+.i3-immersion-card:hover {
+  background: var(--icon-color);
+  transform: translateY(-6px);
+}
+
+.i3-immersion-card:hover .i3-immersion-card-title,
+.i3-immersion-card:hover .i3-immersion-card-desc,
+.i3-immersion-card:hover .i3-immersion-icon {
+  color: #fff !important;
+}
+
+/* Icon */
+.i3-immersion-icon {
+  font-size: 30px;
+  min-width: 45px;
+  transition: 0.3s;
+}
+
+/* Card Title */
+.i3-immersion-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111;
+  transition: 0.3s;
+}
+
+/* Card Description */
+.i3-immersion-card-desc {
+  font-size: 14px;
+  color: #666;
+  transition: 0.3s;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 1024px) {
+  .i3-immersion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .i3-immersion-title {
+    font-size: 28px;
+  }
+
+  .i3-immersion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .i3-immersion-card {
+    padding: 20px;
+  }
+}

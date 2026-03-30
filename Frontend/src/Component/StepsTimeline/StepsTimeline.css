@@ -1,0 +1,345 @@
+:root {
+  --primary-gradient: linear-gradient(135deg, #6a11cb, #2575fc);
+  --accent: #2575fc;
+  --secondary: #1a1a1a;
+  --text-muted: #666;
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Section ===== */
+.timeline-section {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #f7f8fc, #eef3ff);
+  text-align: center;
+  position: relative;
+  border-top: 3px solid rgba(37, 117, 252, 0.1);
+  border-bottom: 3px solid rgba(106, 17, 203, 0.1);
+  overflow: hidden;
+}
+
+.timeline-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100px;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle at center, rgba(106, 17, 203, 0.05), transparent 70%);
+  z-index: 0;
+  animation: floatBg 20s linear infinite;
+}
+
+@keyframes floatBg {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-10%, -10%);
+  }
+}
+
+/* ===== Title ===== */
+.timeline-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.timeline-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 70px;
+}
+
+/* ===== Timeline Container ===== */
+.timeline-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #6a11cb, #2575fc, #6a11cb);
+  background-size: 400% 400%;
+  border-radius: 10px;
+  animation: runningGradient 6s linear infinite;
+}
+
+@keyframes runningGradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* ===== Timeline Item ===== */
+.timeline-item {
+  position: relative;
+  width: 46%;
+  background: var(--card-bg);
+  border-radius: 16px;
+  margin: 60px 0;
+  padding: 35px 40px;
+  box-shadow: 0 6px 20px var(--shadow);
+  border: 1px solid rgba(37, 117, 252, 0.08);
+  opacity: 0;
+  transform: translateY(70px);
+  transition: all 0.8s ease-in-out;
+  z-index: 1;
+}
+
+.timeline-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item:hover {
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, #ffffff, #f4f8ff);
+  box-shadow: 0 10px 35px rgba(37, 117, 252, 0.2);
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* ===== Left / Right Positioning ===== */
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 54%;
+  text-align: left;
+}
+
+/* ===== Content ===== */
+.timeline-content h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+
+.timeline-content p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ===== Icon ===== */
+.timeline-icon {
+  position: absolute;
+  top: 25px;
+  width: 60px;
+  height: 60px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(37, 117, 252, 0.6);
+  border: 3px solid #fff;
+  z-index: 3;
+  transition: 0.3s ease;
+}
+
+.timeline-icon:hover {
+  transform: rotate(15deg) scale(1.1);
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  box-shadow: 0 0 30px rgba(106, 17, 203, 0.8);
+}
+
+.timeline-item.left .timeline-icon {
+  right: -35px;
+}
+
+.timeline-item.right .timeline-icon {
+  left: -35px;
+}
+
+/* ===== Label ===== */
+.timeline-label {
+  position: absolute;
+  top: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--secondary);
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(37, 117, 252, 0.1);
+}
+
+.timeline-item.left .timeline-label {
+  left: calc(100% + 90px);
+}
+
+.timeline-item.right .timeline-label {
+  right: calc(100% + 90px);
+}
+
+/* ===== Animations ===== */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(106, 17, 203, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(106, 17, 203, 0.9);
+  }
+}
+
+/* ===========================
+   📱 Responsive Design
+=========================== */
+
+/* Large Tablets and Small Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .timeline-section {
+    padding: 60px 30px;
+  }
+
+  .timeline-title {
+    font-size: 2.3rem;
+  }
+
+  .timeline-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+  }
+
+  .timeline-item {
+    width: 48%;
+    padding: 30px 30px;
+    margin: 50px 0;
+  }
+
+  .timeline-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+  }
+
+  .timeline-label {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 8px;
+    width: 4px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    text-align: left;
+    padding: 25px 25px;
+    margin: 50px 0;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 5%;
+  }
+
+  .timeline-item .timeline-icon {
+    left: -35px;
+    right: auto;
+    top: 20px;
+  }
+
+  .timeline-item .timeline-label {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 10px;
+    background: #f5f7ff;
+    box-shadow: none;
+  }
+  .timeline-content p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile Devices (max-width: 576px) */
+@media (max-width: 576px) {
+  .timeline-section {
+    padding: 40px 20px;
+  }
+
+  .timeline-title {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+
+  .timeline-subtitle {
+    margin-bottom: 40px;
+  }
+
+  .timeline-container::before {
+    left: 20px;
+    width: 3px;
+  }
+
+  .timeline-item {
+    padding: 20px 20px 20px 50px;
+    margin: 40px 0;
+    border-radius: 12px;
+  }
+
+  .timeline-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    top: 15px;
+    left: -23px;
+  }
+
+  .timeline-label {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+  }
+  .timeline-content p {
+    line-height: 1.6;
+  }
+}
+
+/* Very Small Phones (max-width: 400px) */
+@media (max-width: 400px) {
+
+  .timeline-item {
+    padding: 18px 15px 18px 45px;
+  }
+
+  .timeline-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    left: -18px;
+  }
+}

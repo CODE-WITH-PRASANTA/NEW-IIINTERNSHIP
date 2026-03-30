@@ -1,19 +1,19 @@
 import React from "react";
-import "./OrgBD.css";
+import "./InternshipBD.css";
 import studentsImg from "../../assets/Breadcrum-iit.webp";
 import bgLines from "../../assets/bg-lines.png";
 
-const OrgBD = () => {
+const ImmersionBD = () => {
   return (
-    <section className="OrgBD">
-      <img src={bgLines} alt="" className="OrgBD__bg-lines" />
+    <section className="ImmersionBD">
+      <img src={bgLines} alt="" className="ImmersionBD__bg-lines" />
 
-      <div className="OrgBD__inner">
+      <div className="ImmersionBD__inner">
         {/* LEFT CONTENT */}
-        <div className="OrgBD__content">
-          <div className="OrgBD__sparkles" aria-hidden="true">
+        <div className="ImmersionBD__content">
+          <div className="ImmersionBD__sparkles" aria-hidden="true">
             <svg
-              className="OrgBD__spark OrgBD__spark--big"
+              className="ImmersionBD__spark ImmersionBD__spark--big"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -21,7 +21,7 @@ const OrgBD = () => {
             </svg>
 
             <svg
-              className="OrgBD__spark OrgBD__spark--small"
+              className="ImmersionBD__spark ImmersionBD__spark--small"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -29,39 +29,39 @@ const OrgBD = () => {
             </svg>
           </div>
 
-          <div className="OrgBD__header">
-            <h1 className="OrgBD__title">About Us</h1>
+          <div className="ImmersionBD__header">
+            <h1 className="ImmersionBD__title">About Us</h1>
 
-            <div className="OrgBD__breadcrumb">
-              <span className="OrgBD__home">🏠 Home</span>
-              <span className="OrgBD__divider">›</span>
-              <span className="OrgBD__current">Organization History</span>
+            <div className="ImmersionBD__breadcrumb">
+              <span className="ImmersionBD__home">🏠 Home</span>
+              <span className="ImmersionBD__divider">›</span>
+              <span className="ImmersionBD__current">What is Internship</span>
             </div>
           </div>
-          <p className="OrgBD__subtitle">
+          <p className="ImmersionBD__subtitle">
             Best online education platforms offer flexible learning, quality
             courses, and expert instructors.
           </p>
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="OrgBD__visual">
-          <div className="OrgBD__shape"></div>
+        <div className="ImmersionBD__visual">
+          <div className="ImmersionBD__shape"></div>
 
           <img
             src={studentsImg}
             alt="Students learning together"
-            className="OrgBD__image"
+            className="ImmersionBD__image"
           />
         </div>
       </div>
 
       {/* BOTTOM CURVE */}
-      <div className="OrgBD__curve" aria-hidden="true">
+      <div className="ImmersionBD__curve" aria-hidden="true">
         <svg
           viewBox="0 0 1440 180"
           preserveAspectRatio="none"
-          className="OrgBD__curve-svg"
+          className="ImmersionBD__curve-svg"
         >
           <path
             d="M0,125 C260,145 520,78 790,92 C1020,104 1225,70 1440,62 L1440,180 L0,180 Z"
@@ -73,4 +73,4 @@ const OrgBD = () => {
   );
 };
 
-export default OrgBD;
+export default ImmersionBD;

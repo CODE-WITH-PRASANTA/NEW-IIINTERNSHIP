@@ -8,6 +8,8 @@ import Home from "./Pages/Home/Home";
 import Topbar from "./Component/Topbar/Topbar";
 import OrganisationHistory from "./Pages/OrganisationHistory/OrganisationHistory";
 import VisionMission from "./Pages/VisionMission/VisionMission";
+import Immersion from "./Pages/Immersion/Immersion";
+import Internship from "./Pages/Internship/Internship";
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/org/history" element={<OrganisationHistory/>} />
         <Route path="/vision/mission" element={<VisionMission/>} />
+        <Route path="/immersion" element={<Immersion/>} />
+        <Route path="/internship" element={<Internship/>} />
       </Routes>
 
       <Footer />
