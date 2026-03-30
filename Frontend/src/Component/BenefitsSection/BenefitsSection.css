@@ -1,0 +1,179 @@
+/* ===== Container ===== */
+.BenefitSec-container {
+  padding: 40px 20px;
+  background: #0b0c17; /* deep dark background */
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+
+  /* Border and radius */
+  border: 2px solid rgba(255, 255, 255, 0.1); /* subtle light border */
+  border-radius: 30px; /* smooth rounded corners */
+
+  /* Shadow for depth */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); /* deep shadow for professional look */
+
+  /* Optional: soft inner glow for modern look */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.05);
+  margin-top: 20px;
+}
+
+
+/* Subtitle */
+.BenefitSec-subtitle {
+  font-size: 1rem;
+  color: #9ca3af;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  animation: fadeInDown 1s ease forwards;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Title */
+.BenefitSec-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  animation: fadeInUp 1s ease forwards;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.BenefitSec-title span {
+  color: #ff4081; 
+  background: linear-gradient(45deg, #ff6ec7, #ff4081, #f50057);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Underline */
+.BenefitSec-underline {
+  width: 90px;
+  height: 5px;
+  background: linear-gradient(90deg, #14b8a6, #3b82f6, #ff4081);
+  margin: 0 auto 40px;
+  border-radius: 5px;
+  animation: expandLine 1.2s ease forwards;
+}
+
+/* Grid */
+.BenefitSec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Card */
+.BenefitSec-card {
+  background: rgba(26,28,43,0.85); /* dark glass effect */
+  border-radius: 25px;
+  padding: 45px 30px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 0.8s ease both;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(6px); /* subtle glass effect */
+}
+
+/* Card Hover Effects */
+.BenefitSec-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(255,64,129,0.5);
+}
+
+/* Animated Glow Border */
+.BenefitSec-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  padding: 2px;
+  background: linear-gradient(135deg, #ff6ec7, #ff4081, #3b82f6, #14b8a6, #ff4081);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderGlow 4s linear infinite;
+}
+
+/* Icon */
+.BenefitSec-icon {
+  font-size: 55px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  color: #fff;
+  animation: bounce 2s infinite;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  z-index: 1;
+  position: relative;
+  background: linear-gradient(135deg, #ff6ec7, #ff4081, #ff80ab);
+  box-shadow: 0 8px 25px rgba(255,64,129,0.5);
+}
+
+/* Icon Hover */
+.BenefitSec-icon:hover {
+  transform: rotate(360deg) scale(1.2);
+  box-shadow: 0 15px 40px rgba(255,64,129,0.8);
+}
+
+/* Colors for Icons */
+.BenefitSec-green { background: linear-gradient(135deg, #14b8a6, #06b6d4, #0ff); }
+.BenefitSec-pink { background: linear-gradient(135deg, #ff6ec7, #ff4081, #f50057); }
+.BenefitSec-blue { background: linear-gradient(135deg, #3b82f6, #2563eb, #60a5fa); }
+
+/* Card Titles */
+.BenefitSec-cardTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #fff;
+  animation: fadeInUp 1s ease forwards;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* Card Description */
+.BenefitSec-cardDesc {
+  font-size: 1rem;
+  color: #d1d5db;
+  line-height: 1.8;
+  animation: fadeInUp 1.2s ease forwards;
+  text-align: center;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes expandLine {
+  from { width: 0; opacity: 0; }
+  to { width: 90px; opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes borderGlow {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(180deg); }
+  100% { filter: hue-rotate(360deg); }
+}

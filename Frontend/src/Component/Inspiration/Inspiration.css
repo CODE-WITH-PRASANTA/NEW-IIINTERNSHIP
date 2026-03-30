@@ -1,0 +1,164 @@
+/* ================= SECTION ================= */
+
+.inspSection-wrapper {
+  background: #f7f6f4;
+  padding: 100px 20px;
+  position: relative;
+}
+
+.inspSection-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* ================= LEFT CONTENT ================= */
+
+.inspSection-content {
+  flex: 1;
+}
+
+.inspSection-subtitle {
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.inspSection-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+.inspSection-title span {
+  color: #ff4d5a;
+}
+
+.inspSection-underline {
+  width: 70px;
+  height: 6px;
+  background: #1bb69d;
+  border-radius: 20px;
+  margin: 20px 0 30px;
+}
+
+.inspSection-text {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* ================= IMAGE SIDE ================= */
+
+.inspSection-imageWrapper {
+  flex: 1;
+  position: relative;
+}
+
+/* Main Image */
+
+.inspSection-mainImage img {
+  width: 500px;
+  border-radius: 12px;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Small Overlapping Image */
+
+.inspSection-smallImage {
+  position: absolute;
+  top: -80px;
+  right: -50px;
+  width: 45%;
+  z-index: 3;
+}
+
+.inspSection-smallImage img {
+  width: 190px;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Decorative Dots */
+
+.inspSection-dots {
+  position: absolute;
+  bottom: -30px;
+  right: 20px;
+  width: 140px;
+  height: 140px;
+  background-image: radial-gradient(#1bb69d 2px, transparent 2px);
+  background-size: 16px 16px;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Decorative Circle */
+
+.inspSection-circle {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 120px;
+  height: 120px;
+  border: 8px solid #ffb703;
+  border-radius: 50%;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .inspSection-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .inspSection-imageWrapper {
+    margin-top: 40px;
+  }
+
+  .inspSection-smallImage {
+    right: 10px;
+    top: -30px;
+    width: 50%;
+  }
+
+  .inspSection-title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inspSection-title {
+    font-size: 28px;
+  }
+
+  .inspSection-wrapper {
+    padding: 70px 20px;
+  }
+
+  .inspSection-smallImage {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 70%;
+    margin: 20px auto 0;
+  }
+
+  .inspSection-dots,
+  .inspSection-circle {
+    display: none;
+  }
+}

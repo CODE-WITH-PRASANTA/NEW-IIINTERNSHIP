@@ -1,0 +1,121 @@
+.courseGridPage {
+  width: 100%;
+  min-height: 100vh;
+  background: #f6eee7;
+}
+
+.courseGridPage__mainSection {
+  position: relative;
+  padding: 34px 0 70px;
+  background: #f6eee7;
+}
+
+.courseGridPage__container {
+  width: min(1320px, calc(100% - 32px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.courseGridPage__sidebar {
+  position: relative;
+  min-width: 0;
+  align-self: start;
+}
+
+.courseGridPage__stickyBox {
+  position: sticky;
+  top: 24px;
+}
+
+.courseGridPage__content {
+  min-width: 0;
+}
+
+/* Sidebar component fit */
+.courseGridPage__sidebar .gridPrice {
+  width: 100%;
+  display: block;
+}
+
+.courseGridPage__sidebar .gridPrice__card {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 24px;
+  background: #f8efe7;
+  box-shadow: 0 12px 28px rgba(34, 28, 24, 0.06);
+  border: 1px solid rgba(80, 61, 49, 0.06);
+}
+
+/* Right content fit */
+.courseGridPage__content .coursesView {
+  padding: 0;
+  background: transparent;
+}
+
+.courseGridPage__content .coursesView__container {
+  width: 100%;
+  margin: 0;
+}
+
+.courseGridPage__content .coursesView__topbar {
+  margin-top: 4px;
+}
+
+/* Optional: make the two sections feel visually aligned */
+.courseGridPage__sidebar,
+.courseGridPage__content {
+  padding-bottom: 8px;
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+  .courseGridPage__container {
+    width: min(100% - 28px, 1280px);
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .courseGridPage__stickyBox {
+    top: 18px;
+  }
+}
+
+/* Mobile and small tablet */
+@media (max-width: 991px) {
+  .courseGridPage__mainSection {
+    padding: 26px 0 50px;
+  }
+
+  .courseGridPage__container {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .courseGridPage__stickyBox {
+    position: static;
+  }
+
+  .courseGridPage__sidebar .gridPrice__card {
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .courseGridPage__mainSection {
+    padding: 20px 0 40px;
+  }
+
+  .courseGridPage__container {
+    width: calc(100% - 20px);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .courseGridPage__container {
+    width: calc(100% - 16px);
+  }
+}

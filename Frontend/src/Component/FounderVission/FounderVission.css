@@ -1,0 +1,135 @@
+/* ================= SECTION ================= */
+
+.founderCard-section {
+  background: #f7f6f4;
+  padding: 100px 20px;
+}
+
+.founderCard-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ================= HEADER ================= */
+
+.founderCard-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.founderCard-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 15px;
+}
+
+.founderCard-title span {
+  color: #ff4d5a;
+}
+
+.founderCard-underline {
+  width: 70px;
+  height: 6px;
+  background: #1bb69d;
+  margin: 20px auto 60px;
+  border-radius: 20px;
+}
+
+/* ================= GRID ================= */
+
+.founderCard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ================= CARD ================= */
+
+.founderCard-card {
+  background: #ffffff;
+  padding: 50px 35px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+
+.founderCard-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= ICON ================= */
+
+.founderCard-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+/* Icon Colors */
+
+.founderCard-green {
+  background: rgba(27, 182, 157, 0.15);
+  color: #1bb69d;
+}
+
+.founderCard-pink {
+  background: rgba(255, 77, 90, 0.15);
+  color: #ff4d5a;
+}
+
+.founderCard-blue {
+  background: rgba(60, 110, 255, 0.15);
+  color: #3c6eff;
+}
+
+/* ================= TEXT ================= */
+
+.founderCard-cardTitle {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.founderCard-cardDesc {
+  font-size: 16px;
+  color: #6c757d;
+  line-height: 1.7;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .founderCard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .founderCard-title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  .founderCard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .founderCard-section {
+    padding: 70px 20px;
+  }
+
+  .founderCard-title {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,134 @@
+/* ================= ROOT ================= */
+.orgbd {
+  position: relative;
+  width: 100%;
+  background: #247a57;
+  overflow: hidden;
+}
+
+/* ================= BG LINES ================= */
+.orgbd__bg-lines {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* ================= CONTAINER ================= */
+.orgbd__container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 100px 20px 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= TEXT ================= */
+.orgbd__content h1 {
+  font-size: 70px;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.orgbd__content p {
+  color: #cfeee2;
+  font-size: 18px;
+}
+
+/* ================= STARS ================= */
+.orgbd__stars {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.orgbd__star {
+  width: 18px;
+  height: 18px;
+  background: #ffd700;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 
+    68% 57%, 79% 91%, 
+    50% 70%, 21% 91%, 
+    32% 57%, 2% 35%, 
+    39% 35%
+  );
+  animation: blink 1.5s infinite ease-in-out;
+}
+
+.orgbd__star.small {
+  width: 10px;
+  height: 10px;
+  animation-delay: 0.6s;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ================= IMAGE ================= */
+.orgbd__image img {
+  width: 490px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* ================= CURVE (FIXED) ================= */
+.orgbd__curve {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+.orgbd__curve img {
+  width: 100%;
+  display: block;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 992px) {
+  .orgbd__container {
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 20px 120px;
+  }
+
+  .orgbd__content h1 {
+    font-size: 48px;
+  }
+
+  .orgbd__image {
+    margin-top: 30px;
+  }
+
+  .orgbd__image img {
+    width: 320px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  .orgbd__content h1 {
+    font-size: 34px;
+  }
+
+  .orgbd__content p {
+    font-size: 14px;
+  }
+
+  .orgbd__image img {
+    width: 240px;
+  }
+}

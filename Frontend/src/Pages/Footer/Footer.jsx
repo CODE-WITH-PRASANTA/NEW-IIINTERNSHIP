@@ -83,8 +83,8 @@ const Footer = () => {
               <ul className="footer__list">
                 <li><a href="/" className="footer__link">Home</a></li>
                 <li><a href="/" className="footer__link">About</a></li>
-                <li><a href="/" className="footer__link">Courses</a></li>
-                <li><a href="/" className="footer__link">Blogs</a></li>
+                <li><a href="/" className="footer__link">Gallery</a></li>
+                <li><a href="/" className="footer__link">Suscess Story</a></li>
                 <li><a href="/" className="footer__link">FAQs</a></li>
               </ul>
             </div>

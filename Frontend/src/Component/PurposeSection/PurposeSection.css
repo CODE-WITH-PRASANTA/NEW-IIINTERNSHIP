@@ -1,0 +1,190 @@
+/* ================= SECTION ================= */
+
+.i3Purpose-section {
+  background: #f7f6f4;
+  padding: 100px 20px;
+  position: relative;
+}
+
+.i3Purpose-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ================= HEADER ================= */
+
+.i3Purpose-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.i3Purpose-headingLeft {
+  flex: 1;
+}
+
+.i3Purpose-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.3;
+}
+
+.i3Purpose-title span {
+  color: #ff4d5a;
+}
+
+.i3Purpose-underline {
+  width: 70px;
+  height: 6px;
+  background: #1bb69d;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.i3Purpose-headingRight {
+  flex: 1;
+}
+
+.i3Purpose-headingRight p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ================= GRID ================= */
+
+.i3Purpose-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* ================= CARD ================= */
+
+.i3Purpose-card {
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 60px 30px 40px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+
+.i3Purpose-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= ICON ================= */
+
+.i3Purpose-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+}
+
+/* ICON COLORS */
+
+.i3Purpose-green {
+  background: #1bb69d;
+}
+
+.i3Purpose-red {
+  background: #ff4d5a;
+}
+
+.i3Purpose-blue {
+  background: #3c6eff;
+}
+
+.i3Purpose-purple {
+  background: #7c3aed;
+}
+
+/* ================= TEXT ================= */
+
+.i3Purpose-cardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.i3Purpose-cardDesc {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* ================= DECORATIVE DOTS ================= */
+
+.i3Purpose-dotsLeft,
+.i3Purpose-dotsRight {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-image: radial-gradient(#1bb69d 2px, transparent 2px);
+  background-size: 14px 14px;
+  opacity: 0.4;
+}
+
+.i3Purpose-dotsLeft {
+  left: 20px;
+  top: 200px;
+}
+
+.i3Purpose-dotsRight {
+  right: 20px;
+  top: 250px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+  .i3Purpose-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .i3Purpose-header {
+    flex-direction: column;
+  }
+
+  .i3Purpose-title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .i3Purpose-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .i3Purpose-section {
+    padding: 70px 20px;
+  }
+
+  .i3Purpose-title {
+    font-size: 26px;
+  }
+
+  .i3Purpose-dotsLeft,
+  .i3Purpose-dotsRight {
+    display: none;
+  }
+}
