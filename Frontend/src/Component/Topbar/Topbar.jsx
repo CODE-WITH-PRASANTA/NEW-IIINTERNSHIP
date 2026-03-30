@@ -27,6 +27,11 @@ const Topbar = () => {
             🔑 Login / Register
           </Link>
 
+          {/* NEW DONATE BUTTON */}
+          <Link to="/donate" className="topbar__donate">
+            💖 Donate
+          </Link>
+
           <Link to="/apply" className="topbar__apply">
             🚀 Apply Now
           </Link>

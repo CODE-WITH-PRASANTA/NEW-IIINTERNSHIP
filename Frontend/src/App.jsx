@@ -6,16 +6,21 @@ import Footer from "./Pages/Footer/Footer";
 
 import Home from "./Pages/Home/Home";
 import Topbar from "./Component/Topbar/Topbar";
+import OrganisationHistory from "./Pages/OrganisationHistory/OrganisationHistory";
+import VisionMission from "./Pages/VisionMission/VisionMission";
 
 const App = () => {
   return (
     <>
-      <Topbar/>
+      {/* 🔥 Global Layout */}
+      <Topbar />
       <Navbar />
 
+      {/* 🔥 Routes only */}
       <Routes>
-        {/* ✅ Home Route */}
         <Route path="/" element={<Home />} />
+        <Route path="/org/history" element={<OrganisationHistory/>} />
+        <Route path="/vision/mission" element={<VisionMission/>} />
       </Routes>
 
       <Footer />

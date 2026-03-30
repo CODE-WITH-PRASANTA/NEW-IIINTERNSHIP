@@ -12,7 +12,6 @@ import logo from "../../assets/IIITLOGO.png";
 
 const navItems = [
   { title: "Home", link: "/", dropdown: [] },
-
   {
     title: "About Us",
     link: "/about",
@@ -23,7 +22,6 @@ const navItems = [
       { name: "What is Internship", path: "/internship" },
     ],
   },
-
   {
     title: "Internships Program",
     link: "/internship/program",
@@ -33,33 +31,34 @@ const navItems = [
       { name: "On Campus Internships", path: "/oncampus" },
     ],
   },
-
   { title: "Gallery", link: "/gallery", dropdown: [] },
   { title: "Success Story", link: "/story", dropdown: [] },
   { title: "Recruitment", link: "/career", dropdown: [] },
   { title: "FAQ", link: "/faq", dropdown: [] },
-  { title: "Contact Us", link: "/contact", dropdown: [] },
+  { title: "Contact", link: "/contact", dropdown: [] },
 ];
-
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
 
+ 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "auto";
   }, [mobileOpen]);
 
+  
   return (
     <>
-      <header className="navbar">
-        <div className="navbar__container">
+        <header className="navbar">
+          <div className="navbar__container">
 
           {/* LOGO */}
           <Link to="/" className="navbar__logoWrap">
             <img src={logo} alt="logo" />
           </Link>
 
-          {/* MENU */}
+          {/* DESKTOP MENU */}
           <nav className="navbar__menu">
             {navItems.map((item, index) => (
               <div
@@ -92,31 +91,21 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* RIGHT SIDE */}
+          {/* RIGHT */}
           <div className="navbar__right">
-
-            {/* CONTACT BLOCK */}
-<div className="navbar__contactWrap">
-  <a href="tel:+011234567890" className="navbar__contactBtn">
-    <FiPhoneCall />
-
-    <span className="navbar__contactLabel">Contact Us</span>
-
-    <span className="navbar__divider"></span>
-
-    <span className="navbar__contactText">+01123 456 7890</span>
-
-    <FiArrowRight />
-  </a>
-</div>
-
-            {/* DONATE */}
-            <Link to="/donate" className="navbar__donate">
-              Donate
-            </Link>
+            <a href="tel:+011234567890" className="navbar__contactBtn">
+              <FiPhoneCall />
+              <div className="navbar__contactTextWrap">
+                <span className="navbar__contactLabel">Contact Us</span>
+                <span className="navbar__contactNumber">
+                  +01123 456 7890
+                </span>
+              </div>
+              <FiArrowRight />
+            </a>
           </div>
 
-          {/* MOBILE */}
+          {/* MOBILE TOGGLE */}
           <button
             className="navbar__toggle"
             onClick={() => setMobileOpen(true)}
@@ -133,27 +122,49 @@ const Navbar = () => {
           <FiX onClick={() => setMobileOpen(false)} />
         </div>
 
-        {navItems.map((item, i) => (
-          <Link key={i} to={item.link} onClick={() => setMobileOpen(false)}>
-            {item.title}
-          </Link>
+        {navItems.map((item, index) => (
+          <div key={index} className="mobile__item">
+            <div
+              className="mobile__link"
+              onClick={() =>
+                item.dropdown.length
+                  ? setMobileDropdown(
+                      mobileDropdown === index ? null : index
+                    )
+                  : setMobileOpen(false)
+              }
+            >
+              {item.title}
+              {item.dropdown.length > 0 && <FiChevronDown />}
+            </div>
+
+            {item.dropdown.length > 0 && mobileDropdown === index && (
+              <div className="mobile__dropdown">
+                {item.dropdown.map((sub, i) => (
+                  <Link
+                    key={i}
+                    to={sub.path}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {sub.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         ))}
 
-        <a href="tel:+011234567890" className="mobile__phone">
-          <FiPhoneCall /> +01123 456 7890
+        {/* CONTACT BUTTON IN MOBILE */}
+        <a href="tel:+011234567890" className="mobile__contactBtn">
+          <FiPhoneCall />
+          <div>
+            <span>Contact Us</span>
+            <p>+01123 456 7890</p>
+          </div>
         </a>
-
-        <Link to="/contact" className="mobile__contact">
-          Contact Us
-        </Link>
-
-        <Link to="/donate" className="mobile__donate">
-          Donate
-        </Link>
       </div>
     </>
   );
 };
 
 export default Navbar;
-
