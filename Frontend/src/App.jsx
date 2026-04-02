@@ -11,6 +11,8 @@ import OrganisationHistory from "./Pages/OrganisationHistory/OrganisationHistory
 import VisionMission from "./Pages/VisionMission/VisionMission";
 import Immersion from "./Pages/Immersion/Immersion";
 import Internship from "./Pages/Internship/Internship";
+import CourseDetails from "./Pages/CourseDetails/CourseDetails";
+import SuccessStory from "./Pages/SuccessStory/SuccessStory";
 
 import CourseVideo from "./Pages/CourseVideo/CourseVideo";
 import Login from "./Pages/Login/Login";
@@ -45,6 +47,8 @@ const App = () => {
         <Route path="/gallery" element={<Gallery/>}/>
         <Route path="/career" element={<Carrier/>}/>
         <Route path="/contact" element={<Contact/>}/>
+        <Route path="/Course" element={<CourseDetails/>} />
+        <Route path="/story" element={<SuccessStory/>} />
       </Routes>
 
       <Footer />
