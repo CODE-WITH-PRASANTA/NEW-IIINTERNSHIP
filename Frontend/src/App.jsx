@@ -17,6 +17,9 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import Faq from "./Pages/Faq/Faq";
 import SuccessStoryDetails from "./Pages/SuccessStoryDetails/SuccessStoryDetails";
+import Gallery from "./Pages/Gallery/Gallery";
+import Carrier from "./Pages/Carrier/Carrier";
+import Contact from "./Pages/Contact/Contact";
 
 const App = () => {
   return (
@@ -39,6 +42,9 @@ const App = () => {
         <Route path="/successstorydetails" element={<SuccessStoryDetails/>}/>
         <Route path="/immersion" element={<Immersion/>} />
         <Route path="/internship" element={<Internship/>} />
+        <Route path="/gallery" element={<Gallery/>}/>
+        <Route path="/career" element={<Carrier/>}/>
+        <Route path="/contact" element={<Contact/>}/>
       </Routes>
 
       <Footer />
