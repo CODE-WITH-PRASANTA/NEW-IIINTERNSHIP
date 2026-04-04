@@ -1,0 +1,355 @@
+.donate {
+  width: 100%;
+  background: #efefef;
+  padding: 0 14px;
+}
+
+.donate__container {
+  width: 1000px;
+  max-width: 1360px;
+  margin: 10px auto 0;
+  background: linear-gradient(90deg, #1f1f21 0%, #212224 50%, #1b1b1d 100%);
+  border: 2px solid #e7ea00;
+  border-radius: 10px;
+  padding: 42px 46px 56px;
+  box-shadow: inset 0 0 40px rgba(255, 255, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.donate__badge {
+  width: fit-content;
+  margin: 0 auto 28px;
+  padding: 18px 26px;
+  background: linear-gradient(180deg, #b10000 0%, #890000 100%);
+  color: #ffe600;
+  font-size: 19px;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 1px solid #ff3000;
+  box-shadow: 0 0 18px rgba(231, 234, 0, 0.28);
+  text-align: center;
+}
+
+.donate__intro {
+  color: #e9e9e9;
+  font-size: 19px;
+  line-height: 1.8;
+  text-align: left;
+  margin: 0 0 24px;
+}
+
+.donate__quoteWrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 12px 0 24px;
+}
+
+.donate__quoteLine {
+  width: 4px;
+  min-width: 4px;
+  height: 38px;
+  background: #ffff00;
+  margin-top: 8px;
+}
+
+.donate__quote {
+  color: #fff200;
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.donate__quote span {
+  font-weight: 800;
+}
+
+.donate__sectionHeading {
+  margin: 26px 0 14px;
+  text-align: center;
+  color: #ffcc00;
+  font-size: 23px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  letter-spacing: 0.2px;
+}
+
+.donate__text {
+  color: #f3f3f3;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 700;
+  margin: 0 0 18px;
+}
+
+.donate__text--center {
+  text-align: center;
+}
+
+.donate__text span {
+  color: #ff29d7;
+  font-weight: 800;
+}
+
+.donate__topButtons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 34px 0 36px;
+  flex-wrap: wrap;
+}
+
+.donate__smallBtn {
+  border: none;
+  min-width: 180px;
+  height: 42px;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffe600;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(219, 255, 0, 0.22);
+  transition: all 0.3s ease;
+}
+
+.donate__smallBtn:hover {
+  transform: translateY(-2px);
+}
+
+.donate__smallBtn--primary {
+  background: linear-gradient(180deg, #b70000 0%, #960000 100%);
+}
+
+.donate__smallBtn--secondary {
+  background: linear-gradient(180deg, #ff7b00 0%, #ff5c00 100%);
+}
+
+.donate__formCard {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #e3edf2 0%, #dbe7ec 100%);
+  border: 1px solid rgba(189, 153, 255, 0.85);
+  border-radius: 18px;
+  padding: 30px 32px;
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(180, 120, 255, 0.12);
+}
+
+.donate__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+}
+
+.donate__field {
+  display: flex;
+  flex-direction: column;
+}
+
+.donate__field--full {
+  margin-bottom: 18px;
+}
+
+.donate__label {
+  color: #23334a;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.donate__label span {
+  color: #ff2d2d;
+}
+
+.donate__input,
+.donate__textarea,
+.donate__select {
+  width: 100%;
+  background: #f6f6f6;
+  border: 1px solid #a8a8a8;
+  border-radius: 12px;
+  outline: none;
+  font-size: 15px;
+  color: #2d2d2d;
+  font-family: inherit;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.donate__input {
+  height: 44px;
+  padding: 0 14px;
+}
+
+.donate__textarea {
+  min-height: 94px;
+  resize: vertical;
+  padding: 14px;
+}
+
+.donate__input::placeholder,
+.donate__textarea::placeholder {
+  color: #6d7786;
+  font-size: 15px;
+}
+
+.donate__input:focus,
+.donate__textarea:focus,
+.donate__select:focus {
+  border-color: #b164ff;
+  box-shadow: 0 0 0 3px rgba(177, 100, 255, 0.12);
+}
+
+.donate__paymentBtn {
+  width: 100%;
+  margin-top: 28px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #eb4f78 0%, #974db9 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(191, 88, 146, 0.28);
+  transition: all 0.3s ease;
+}
+
+.donate__paymentBtn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 991px) {
+  .donate__container {
+    padding: 34px 24px 44px;
+  }
+
+  .donate__intro {
+    font-size: 17px;
+  }
+
+  .donate__text {
+    font-size: 17px;
+  }
+
+  .donate__sectionHeading {
+    font-size: 21px;
+  }
+
+  .donate__formCard {
+    max-width: 100%;
+    padding: 24px 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  .donate {
+    padding: 0 8px;
+  }
+
+  .donate__container {
+    padding: 24px 14px 30px;
+  }
+
+  .donate__badge {
+    font-size: 16px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+
+  .donate__intro {
+    font-size: 15px;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .donate__quoteWrap {
+    gap: 12px;
+    margin: 8px 0 20px;
+  }
+
+  .donate__quoteLine {
+    height: 46px;
+  }
+
+  .donate__quote {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .donate__sectionHeading {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 22px 0 12px;
+  }
+
+  .donate__text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .donate__topButtons {
+    margin: 26px 0 28px;
+    gap: 10px;
+  }
+
+  .donate__smallBtn {
+    min-width: 160px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .donate__formCard {
+    border-radius: 16px;
+    padding: 18px 14px;
+  }
+
+  .donate__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .donate__label {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .donate__input {
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .donate__textarea {
+    min-height: 90px;
+    font-size: 14px;
+  }
+
+  .donate__paymentBtn {
+    margin-top: 20px;
+    height: 42px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .donate__badge {
+    width: 100%;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .donate__smallBtn {
+    width: 100%;
+  }
+
+  .donate__topButtons {
+    flex-direction: column;
+  }
+}

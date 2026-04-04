@@ -6,8 +6,10 @@ import {
   FiArrowRight,
   FiMenu,
   FiX,
+  FiPlus,
+  FiMinus,
 } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/IIITLOGO.png";
 
 const navItems = [
@@ -29,10 +31,8 @@ const navItems = [
       { name: "Running Internships", path: "/coursegrid" },
       { name: "Virtual Internships", path: "/coursevideo" },
       { name: "On Campus Internships", path: "/oncampus" },
-       
-       { name: "Course Video", path: "/coursevideo" },
-    ],
     
+    ],
   },
   { title: "Gallery", link: "/gallery", dropdown: [] },
   { title: "Success Story", link: "/story", dropdown: [] },
@@ -40,51 +40,79 @@ const navItems = [
   { title: "FAQ", link: "/faq", dropdown: [] },
   { title: "Contact", link: "/contact", dropdown: [] },
 ];
+
 const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [navbarMobileOpen, setNavbarMobileOpen] = useState(false);
+  const [navbarActiveDropdown, setNavbarActiveDropdown] = useState(null);
+  const [navbarMobileDropdown, setNavbarMobileDropdown] = useState(null);
+  const location = useLocation();
 
- 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "auto";
-  }, [mobileOpen]);
+    document.body.style.overflow = navbarMobileOpen ? "hidden" : "auto";
 
-  
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [navbarMobileOpen]);
+
+  useEffect(() => {
+    setNavbarMobileOpen(false);
+    setNavbarMobileDropdown(null);
+  }, [location.pathname]);
+
+  const isParentActive = (item) => {
+    if (location.pathname === item.link) return true;
+    if (item.dropdown?.length) {
+      return item.dropdown.some((sub) => sub.path === location.pathname);
+    }
+    return false;
+  };
+
   return (
     <>
-        <header className="navbar">
-          <div className="navbar__container">
-
+      <header className="Navbar">
+        <div className="Navbar__container">
           {/* LOGO */}
-          <Link to="/" className="navbar__logoWrap">
-            <img src={logo} alt="logo" />
+          <Link to="/" className="Navbar__logoWrap">
+            <img src={logo} alt="IIIT Logo" className="Navbar__logo" />
           </Link>
 
           {/* DESKTOP MENU */}
-          <nav className="navbar__menu">
+          <nav className="Navbar__menu">
             {navItems.map((item, index) => (
               <div
                 key={index}
-                className="navbar__item"
+                className={`Navbar__item ${
+                  isParentActive(item) ? "Navbar__item--active" : ""
+                }`}
                 onMouseEnter={() =>
-                  item.dropdown.length && setActiveDropdown(index)
+                  item.dropdown.length > 0 && setNavbarActiveDropdown(index)
                 }
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseLeave={() => setNavbarActiveDropdown(null)}
               >
-                <Link to={item.link} className="navbar__link">
-                  {item.title}
-                  {item.dropdown.length > 0 && <FiChevronDown />}
+                <Link to={item.link} className="Navbar__link">
+                  <span>{item.title}</span>
+                  {item.dropdown.length > 0 && (
+                    <FiChevronDown className="Navbar__linkIcon" />
+                  )}
                 </Link>
 
                 {item.dropdown.length > 0 && (
                   <div
-                    className={`navbar__dropdown ${
-                      activeDropdown === index ? "show" : ""
+                    className={`Navbar__dropdown ${
+                      navbarActiveDropdown === index ? "Navbar__dropdown--show" : ""
                     }`}
                   >
-                    {item.dropdown.map((sub, i) => (
-                      <Link key={i} to={sub.path}>
+                    {item.dropdown.map((sub, subIndex) => (
+                      <Link
+                        key={subIndex}
+                        to={sub.path}
+                        className={`Navbar__dropdownLink ${
+                          location.pathname === sub.path
+                            ? "Navbar__dropdownLink--active"
+                            : ""
+                        }`}
+                      >
                         {sub.name}
                       </Link>
                     ))}
@@ -94,78 +122,141 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* RIGHT */}
-          <div className="navbar__right">
-            <a href="tel:+011234567890" className="navbar__contactBtn">
-              <FiPhoneCall />
-              <div className="navbar__contactTextWrap">
-                <span className="navbar__contactLabel">Contact Us</span>
-                <span className="navbar__contactNumber">
-                  +01123 456 7890
-                </span>
+          {/* RIGHT SIDE */}
+          <div className="Navbar__right">
+            <a href="tel:+011234567890" className="Navbar__contactBtn">
+              <div className="Navbar__contactIcon">
+                <FiPhoneCall />
               </div>
-              <FiArrowRight />
+
+              <div className="Navbar__contactTextWrap">
+                <span className="Navbar__contactLabel">Contact Us</span>
+                <span className="Navbar__contactNumber">+01123 456 7890</span>
+              </div>
+
+              <div className="Navbar__contactArrow">
+                <FiArrowRight />
+              </div>
             </a>
           </div>
 
           {/* MOBILE TOGGLE */}
           <button
-            className="navbar__toggle"
-            onClick={() => setMobileOpen(true)}
+            className="Navbar__toggle"
+            onClick={() => setNavbarMobileOpen(true)}
+            aria-label="Open menu"
           >
             <FiMenu />
           </button>
         </div>
       </header>
 
-      {/* MOBILE MENU */}
-      <div className={`mobile ${mobileOpen ? "show" : ""}`}>
-        <div className="mobile__header">
-          <img src={logo} alt="" />
-          <FiX onClick={() => setMobileOpen(false)} />
+      {/* MOBILE OVERLAY */}
+      <div
+        className={`Navbar__overlay ${
+          navbarMobileOpen ? "Navbar__overlay--show" : ""
+        }`}
+        onClick={() => setNavbarMobileOpen(false)}
+      ></div>
+
+      {/* MOBILE SIDEBAR */}
+      <aside
+        className={`Navbar__mobile ${
+          navbarMobileOpen ? "Navbar__mobile--show" : ""
+        }`}
+      >
+        <div className="Navbar__mobileTop">
+          <Link to="/" className="Navbar__mobileLogoWrap">
+            <img src={logo} alt="IIIT Logo" className="Navbar__mobileLogo" />
+          </Link>
+
+          <button
+            className="Navbar__mobileClose"
+            onClick={() => setNavbarMobileOpen(false)}
+            aria-label="Close menu"
+          >
+            <FiX />
+          </button>
         </div>
 
-        {navItems.map((item, index) => (
-          <div key={index} className="mobile__item">
-            <div
-              className="mobile__link"
-              onClick={() =>
-                item.dropdown.length
-                  ? setMobileDropdown(
-                      mobileDropdown === index ? null : index
-                    )
-                  : setMobileOpen(false)
-              }
-            >
-              {item.title}
-              {item.dropdown.length > 0 && <FiChevronDown />}
-            </div>
+        <div className="Navbar__mobileBody">
+          {navItems.map((item, index) => {
+            const hasDropdown = item.dropdown.length > 0;
+            const isOpen = navbarMobileDropdown === index;
+            const isActive = isParentActive(item);
 
-            {item.dropdown.length > 0 && mobileDropdown === index && (
-              <div className="mobile__dropdown">
-                {item.dropdown.map((sub, i) => (
+            return (
+              <div
+                key={index}
+                className={`Navbar__mobileItem ${
+                  isActive ? "Navbar__mobileItem--active" : ""
+                }`}
+              >
+                <div className="Navbar__mobileRow">
                   <Link
-                    key={i}
-                    to={sub.path}
-                    onClick={() => setMobileOpen(false)}
+                    to={item.link}
+                    className="Navbar__mobileLink"
+                    onClick={() => {
+                      if (!hasDropdown) {
+                        setNavbarMobileOpen(false);
+                      }
+                    }}
                   >
-                    {sub.name}
+                    {item.title}
                   </Link>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
 
-        {/* CONTACT BUTTON IN MOBILE */}
-        <a href="tel:+011234567890" className="mobile__contactBtn">
-          <FiPhoneCall />
-          <div>
-            <span>Contact Us</span>
-            <p>+01123 456 7890</p>
-          </div>
-        </a>
-      </div>
+                  {hasDropdown && (
+                    <button
+                      className="Navbar__mobileDropdownBtn"
+                      onClick={() =>
+                        setNavbarMobileDropdown(isOpen ? null : index)
+                      }
+                      aria-label="Toggle dropdown"
+                    >
+                      {isOpen ? <FiMinus /> : <FiPlus />}
+                    </button>
+                  )}
+                </div>
+
+                {hasDropdown && (
+                  <div
+                    className={`Navbar__mobileDropdown ${
+                      isOpen ? "Navbar__mobileDropdown--show" : ""
+                    }`}
+                  >
+                    {item.dropdown.map((sub, subIndex) => (
+                      <Link
+                        key={subIndex}
+                        to={sub.path}
+                        className={`Navbar__mobileDropdownLink ${
+                          location.pathname === sub.path
+                            ? "Navbar__mobileDropdownLink--active"
+                            : ""
+                        }`}
+                        onClick={() => setNavbarMobileOpen(false)}
+                      >
+                        {sub.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="Navbar__mobileBottom">
+          <a href="tel:+011234567890" className="Navbar__mobileContactBtn">
+            <div className="Navbar__mobileContactIcon">
+              <FiPhoneCall />
+            </div>
+            <div className="Navbar__mobileContactText">
+              <span>Contact Us</span>
+              <p>+01123 456 7890</p>
+            </div>
+          </a>
+        </div>
+      </aside>
     </>
   );
 };

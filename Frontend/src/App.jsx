@@ -14,7 +14,7 @@ import Internship from "./Pages/Internship/Internship";
 import CourseDetails from "./Pages/CourseDetails/CourseDetails";
 import SuccessStory from "./Pages/SuccessStory/SuccessStory";
 
-import CourseVideo from "./Pages/CourseVideo/CourseVideo";
+
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import Faq from "./Pages/Faq/Faq";
@@ -22,6 +22,9 @@ import SuccessStoryDetails from "./Pages/SuccessStoryDetails/SuccessStoryDetails
 import Gallery from "./Pages/Gallery/Gallery";
 import Carrier from "./Pages/Carrier/Carrier";
 import Contact from "./Pages/Contact/Contact";
+import FloatingForm from "./Component/FloatingForm/FloatingForm";
+import FloatingIcons from "./Component/FloatingIcons/FloatingIcons";
+import Donate from "./Component/Donate/Donate";
 
 const App = () => {
   return (
@@ -36,8 +39,6 @@ const App = () => {
         <Route path="/coursegrid" element={<CourseGrid/>}/>
         <Route path="/org/history" element={<OrganisationHistory/>} />
         <Route path="/vision/mission" element={<VisionMission/>} />
-        
-        <Route path="/coursevideo" element={<CourseVideo/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/faq" element={<Faq/>}/>
@@ -49,8 +50,11 @@ const App = () => {
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/Course" element={<CourseDetails/>} />
         <Route path="/story" element={<SuccessStory/>} />
+        <Route path="/donate" element={<Donate />} />
       </Routes>
-
+      
+      <FloatingForm />
+      <FloatingIcons />
       <Footer />
     </>
   );
