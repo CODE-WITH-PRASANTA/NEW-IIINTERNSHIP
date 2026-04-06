@@ -1,0 +1,271 @@
+/* ===== ROOT ===== */
+:root {
+  --primary: #2b13e3;
+  --primary-light: #a29bfe;
+  --bg: #f8fafc;
+  --text: #111827;
+  --border: #e5e7eb;
+}
+
+/* ===== CONTAINER ===== */
+.form-container {
+  max-width: 920px;
+  margin: auto;
+  padding: 18px;
+  font-family: "Inter", sans-serif;
+}
+
+/* TITLE */
+.form-container h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+/* ===== AD ID ===== */
+.ad-id {
+  background: linear-gradient(135deg, var(--primary), #764ba2);
+  color: #fff;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 22px;
+  font-size: 14px;
+  box-shadow: 0 6px 20px rgba(108,92,231,0.25);
+}
+
+/* ===== FORM GROUP ===== */
+.form-group {
+  position: relative;
+  margin: 20px 0;
+}
+
+/* INPUTS */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* HOVER */
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+  border-color: var(--primary-light);
+}
+
+/* FOCUS */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(108,92,231,0.1);
+  transform: scale(1.01);
+}
+
+/* ===== FLOAT LABEL ===== */
+.form-group label {
+  position: absolute;
+  top: 15px;
+  left: 14px;
+  background: #fff;
+  padding: 0 6px;
+  color: #9ca3af;
+  font-size: 13px;
+  transition: 0.2s ease;
+  pointer-events: none;
+}
+
+/* FLOAT */
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label,
+.form-group select:focus + label,
+.form-group select:not([value=""]) + label {
+  top: -8px;
+  font-size: 11px;
+  color: var(--primary);
+}
+
+/* ===== FILE UPLOAD ===== */
+.file-upload input {
+  background: #fff;
+  cursor: pointer;
+}
+
+/* IMAGE PREVIEW */
+.image-preview {
+  margin-top: 12px;
+  animation: fadeIn 0.4s ease;
+}
+
+.image-preview img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid #eee;
+}
+
+/* ===== ACCORDION ===== */
+.accordion {
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.accordion:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+.accordion-header {
+  width: 100%;
+  padding: 18px 20px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #c4c9cd, #eef2ff);
+  transition: 0.3s;
+}
+
+.accordion-header:hover {
+  background: linear-gradient(135deg, #dfe6fc, #e0e7ff);
+}
+
+.accordion-header h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ICON */
+.icon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* CONTENT */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.accordion-content.show {
+  max-height: 1200px;
+}
+
+/* BODY */
+.accordion-body {
+  padding: 20px;
+  background: #fff;
+  animation: slideDown 0.3s ease;
+}
+
+/* ===== BUTTON ===== */
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary), #5a4bdc);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  margin-top: 24px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(108,92,231,0.35);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 16px;
+  }
+
+  .accordion-header {
+    padding: 14px;
+  }
+
+  .accordion-body {
+    padding: 14px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .submit-btn {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+/* TABLET */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .form-container {
+    padding: 20px;
+  }
+}
+
+/* LARGE SCREEN */
+@media (min-width: 1200px) {
+  .form-container {
+    max-width: 1000px;
+  }
+}
