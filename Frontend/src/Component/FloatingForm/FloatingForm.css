@@ -1,0 +1,200 @@
+.floatingForm {
+  width: 100%;
+}
+
+/* OVERLAY */
+.floatingForm__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  z-index: 9999;
+}
+
+/* CARD (REDUCED HEIGHT & WIDTH PERFECT FIT) */
+.floatingForm__card {
+  position: relative;
+  width: 100%;
+  max-width: 380px; /* reduced width */
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 22px 22px 20px; /* reduced padding */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  animation: floatingFormFadeUp 0.3s ease;
+}
+
+/* CLOSE BUTTON */
+.floatingForm__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* TITLE */
+.floatingForm__title {
+  text-align: center;
+  font-size: 22px; /* reduced */
+  font-weight: 800;
+  color: #1557d6;
+  margin-bottom: 4px;
+}
+
+/* SUBTITLE */
+.floatingForm__subtitle {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+/* DESCRIPTION */
+.floatingForm__description {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 14px;
+}
+
+/* FORM */
+.floatingForm__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* reduced gap */
+}
+
+/* INPUT */
+.floatingForm__input {
+  height: 42px; /* reduced */
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+}
+
+/* TEXTAREA */
+.floatingForm__textarea {
+  min-height: 70px; /* reduced */
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+}
+
+/* SUBMIT BUTTON */
+.floatingForm__submit {
+  height: 46px; /* reduced */
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: 0.3s;
+}
+
+.floatingForm__submit:hover {
+  transform: translateY(-2px);
+}
+
+/* DIVIDER */
+.floatingForm__divider {
+  margin: 12px 0;
+  text-align: center;
+  position: relative;
+}
+
+.floatingForm__divider::before,
+.floatingForm__divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 38%;
+  height: 1px;
+  background: #eee;
+}
+
+.floatingForm__divider::before {
+  left: 0;
+}
+
+.floatingForm__divider::after {
+  right: 0;
+}
+
+.floatingForm__dividerText {
+  background: #fff;
+  padding: 0 8px;
+  font-size: 12px;
+  color: #888;
+}
+
+/* ACTION BUTTONS */
+.floatingForm__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.floatingForm__callBtn,
+.floatingForm__whatsappBtn {
+  flex: 1;
+  height: 42px; /* reduced */
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.floatingForm__callBtn {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+.floatingForm__whatsappBtn {
+  background: linear-gradient(135deg, #10b981, #16a34a);
+}
+
+/* ANIMATION */
+@keyframes floatingFormFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-height: 700px) {
+  .floatingForm__card {
+    transform: scale(0.92);
+  }
+}
+
+@media (max-width: 480px) {
+  .floatingForm__card {
+    max-width: 100%;
+    padding: 20px 16px;
+  }
+
+  .floatingForm__actions {
+    flex-direction: column;
+  }
+}

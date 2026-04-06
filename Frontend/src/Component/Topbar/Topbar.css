@@ -1,6 +1,10 @@
 /* ================= TOPBAR ================= */
 .topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  z-index: 1000;
   background: linear-gradient(90deg, #1c1c1c, #2a2a2a, #1c1c1c);
   color: #fff;
   font-size: 13px;
@@ -11,7 +15,6 @@
   max-width: 1400px;
   margin: auto;
   padding: 8px 20px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,7 +67,7 @@
   background: rgba(255, 255, 255, 0.18);
 }
 
-/* ===== DONATE BUTTON (NEW) ===== */
+/* DONATE BUTTON */
 .topbar__donate {
   background: linear-gradient(135deg, #ff7eb3, #ff4d5a);
   padding: 7px 16px;
@@ -96,6 +99,24 @@
   box-shadow: 0 6px 18px rgba(255, 77, 90, 0.4);
 }
 
+/* ================= NAVBAR STICKY / FIXED ================= */
+.Navbar {
+  position: fixed;
+  top: 41px; /* topbar height ke according adjust */
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(10, 16, 32, 0.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* page content hidden na ho */
+body {
+  padding-top: 121px; /* topbar + navbar total height */
+}
+
 /* ================= RESPONSIVE ================= */
 
 /* TABLET */
@@ -110,6 +131,10 @@
 
   .topbar__right {
     gap: 8px;
+  }
+
+  .Navbar {
+    top: 41px;
   }
 }
 
@@ -133,12 +158,24 @@
     flex-wrap: wrap;
     gap: 8px;
   }
+
+  .topbar {
+    position: relative;
+  }
+
+  .Navbar {
+    top: 0;
+  }
+
+  body {
+    padding-top: 80px;
+  }
 }
 
 /* SMALL MOBILE */
 @media (max-width: 480px) {
   .topbar__item span {
-    display: visible; /* only icons */
+    display: none; /* only icons */
   }
 
   .topbar__login,
