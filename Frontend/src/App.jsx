@@ -22,6 +22,7 @@ import SuccessStoryDetails from "./Pages/SuccessStoryDetails/SuccessStoryDetails
 import Gallery from "./Pages/Gallery/Gallery";
 import Carrier from "./Pages/Carrier/Carrier";
 import Contact from "./Pages/Contact/Contact";
+import SignUp from "./Component/SignUp/SignUp";
 import FloatingForm from "./Component/FloatingForm/FloatingForm";
 import FloatingIcons from "./Component/FloatingIcons/FloatingIcons";
 import Donate from "./Component/Donate/Donate";
@@ -50,6 +51,7 @@ const App = () => {
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/Course" element={<CourseDetails/>} />
         <Route path="/story" element={<SuccessStory/>} />
+        <Route path="/signup" element={<SignUp/>}/>
         <Route path="/donate" element={<Donate />} />
       </Routes>
       
