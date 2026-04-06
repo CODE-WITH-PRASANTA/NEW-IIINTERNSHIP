@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import AdminLayout from "./AppLayout/AdminLayout";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import MediaPosting from "./Pages/MediaPosting/MediaPosting";
 
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
       <Routes>
         <Route element={<AdminLayout />}>
         <Route path="/" element={<Dashboard/>}/>
+        <Route path="/media/course-materials" element={<MediaPosting/>}/>
           
         </Route>
       </Routes>
