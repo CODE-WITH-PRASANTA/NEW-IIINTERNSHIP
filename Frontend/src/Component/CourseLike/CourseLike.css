@@ -3,13 +3,11 @@
   padding: 60px 0;
 }
 
-/* CONTAINER */
 .course-like__container {
   width: min(1300px, 92%);
   margin: auto;
 }
 
-/* TITLE */
 .course-like__title {
   font-family: "Playfair Display", serif;
   font-size: 2.2rem;
@@ -30,7 +28,6 @@
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 /* IMAGE */
@@ -50,13 +47,11 @@
   margin-bottom: 10px;
 }
 
-/* RATING */
 .course-like__rating {
   font-size: 0.85rem;
   color: #666;
 }
 
-/* PRICE */
 .course-like__price {
   margin: 10px 0;
 }
@@ -72,7 +67,6 @@
   color: #999;
 }
 
-/* META */
 .course-like__meta {
   display: flex;
   justify-content: space-between;
@@ -82,8 +76,7 @@
   padding-top: 10px;
 }
 
-/* ================= HOVER ================= */
-
+/* HOVER */
 .course-like__hover {
   position: absolute;
   inset: 0;
@@ -106,22 +99,6 @@
   transform: translateY(0);
 }
 
-/* HOVER TEXT */
-.course-like__hover h4 {
-  font-size: 1.1rem;
-}
-
-.course-like__hover p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 10px 0;
-}
-
-.course-like__hover .course-like__price strong {
-  color: #ffd700;
-}
-
-/* BUTTON */
 .course-like__hover button {
   border: none;
   background: #fff;
@@ -132,8 +109,30 @@
   cursor: pointer;
 }
 
-/* ================= RESPONSIVE ================= */
+/* DOTS */
+.course-like__dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 10px;
+}
 
+.course-like__dots span {
+  width: 10px;
+  height: 10px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.course-like__dots span.active {
+  background: #1f8b5d;
+  width: 25px;
+  border-radius: 10px;
+}
+
+/* RESPONSIVE */
 @media (max-width: 1200px) {
   .course-like__grid {
     grid-template-columns: repeat(3, 1fr);
@@ -142,13 +141,13 @@
 
 @media (max-width: 991px) {
   .course-like__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 600px) {
   .course-like__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .course-like__title {

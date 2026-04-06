@@ -22,13 +22,10 @@ import SuccessStoryDetails from "./Pages/SuccessStoryDetails/SuccessStoryDetails
 import Gallery from "./Pages/Gallery/Gallery";
 import Carrier from "./Pages/Carrier/Carrier";
 import Contact from "./Pages/Contact/Contact";
-<<<<<<< HEAD
 import SignUp from "./Component/SignUp/SignUp";
-=======
 import FloatingForm from "./Component/FloatingForm/FloatingForm";
 import FloatingIcons from "./Component/FloatingIcons/FloatingIcons";
 import Donate from "./Component/Donate/Donate";
->>>>>>> f8130efb80a934c3bf948e10a33026f720a356b2
 
 const App = () => {
   return (
@@ -52,13 +49,10 @@ const App = () => {
         <Route path="/gallery" element={<Gallery/>}/>
         <Route path="/career" element={<Carrier/>}/>
         <Route path="/contact" element={<Contact/>}/>
-        <Route path="/Course" element={<CourseDetails/>} />
+        <Route path="/Running-intern/Details" element={<CourseDetails/>} />
         <Route path="/story" element={<SuccessStory/>} />
-<<<<<<< HEAD
         <Route path="/signup" element={<SignUp/>}/>
-=======
         <Route path="/donate" element={<Donate />} />
->>>>>>> f8130efb80a934c3bf948e10a33026f720a356b2
       </Routes>
       
       <FloatingForm />
