@@ -1,0 +1,193 @@
+.testimonial-container {
+  padding: 20px;
+  background: #f8fafc;
+}
+
+/* HEADING */
+.testimonial-heading {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* FORM CARD */
+.testimonial-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* GRID */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.testimonial-form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* RATING */
+.rating-section {
+  margin: 15px 0;
+}
+
+.rating-section label {
+  font-weight: 500;
+}
+
+.stars {
+  display: flex;
+  margin-top: 5px;
+}
+
+.star {
+  font-size: 22px;
+  cursor: pointer;
+  color: #ccc;
+  margin-right: 5px;
+}
+
+.star.active {
+  color: #facc15;
+}
+
+/* TEXTAREA */
+.testimonial-form textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+/* BUTTON */
+.testimonial-form button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.testimonial-form button:hover {
+  background: #1d4ed8;
+}
+
+/* TABLE CARD */
+.testimonial-table-card {
+  margin-top: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* HEADER */
+.table-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* SCROLL WRAPPER */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* TABLE */
+.testimonial-table {
+  width: 100%;
+  min-width: 900px; /* IMPORTANT */
+  border-collapse: collapse;
+}
+
+.testimonial-table thead {
+  background: #f1f5f9;
+}
+
+.testimonial-table th,
+.testimonial-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.testimonial-table img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* CELLS */
+.feedback-cell {
+  max-width: 180px;
+}
+
+.rating-cell {
+  color: #facc15;
+}
+
+/* ACTION BUTTONS */
+.action-btns {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.edit-btn {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* EMPTY */
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
+
+/* HOVER */
+.testimonial-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-table {
+    font-size: 12px;
+  }
+
+  .action-btns {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
