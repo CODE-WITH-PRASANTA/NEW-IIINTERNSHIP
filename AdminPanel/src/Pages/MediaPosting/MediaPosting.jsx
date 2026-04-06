@@ -75,174 +75,224 @@ const MediaPosting = () => {
   return (
     <div className="media-container">
 
-      {/* ================= PHOTO ================= */}
-      <div className="media-section">
-        <h2>Media Posting </h2>
+      {/* ========= PHOTO ========= */}
+      <section className="media-section">
+        <h2 className="section-main-title">Photo Posting</h2>
 
         <div className="media-grid">
-          {/* FORM BOX */}
+          {/* FORM */}
           <div className="media-card">
-            <h3>Upload Photo</h3>
+            <h3 className="card-title">Upload Photo</h3>
             <form onSubmit={handlePhotoSubmit}>
               <input
                 type="text"
-                placeholder="Title"
+                placeholder="Enter Title"
                 value={photoTitle}
                 onChange={(e) => setPhotoTitle(e.target.value)}
               />
-
               <input
                 type="file"
                 onChange={(e) => setPhotoFile(e.target.files[0])}
               />
-
               <button type="submit">Submit</button>
             </form>
           </div>
 
-          {/* TABLE BOX */}
-          <div className="media-card">
-            <h3>Photo List</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Sl.No</th>
-                  <th>Title</th>
-                  <th>Image</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {photos.map((item, i) => (
-                  <tr key={item.id}>
-                    <td>{i + 1}</td>
-                    <td>{item.title}</td>
-                    <td><img src={item.image} alt="" /></td>
-                    <td>
-                      <button className="edit">Edit</button>
-                      <button onClick={() => handleDelete(item.id, "photo")} className="delete">Delete</button>
-                    </td>
+          {/* TABLE */}
+          <div className="media-card table-card">
+            <div className="table-header">
+              <h3>Photo List</h3>
+            </div>
+
+            <div className="table-responsive">
+              <table className="media-table">
+                <thead>
+                  <tr>
+                    <th>Sl.No</th>
+                    <th>Title</th>
+                    <th>Image</th>
+                    <th>Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+
+                <tbody>
+                  {photos.length === 0 ? (
+                    <tr>
+                      <td colSpan="4" className="no-data">
+                        No Photos Added
+                      </td>
+                    </tr>
+                  ) : (
+                    photos.map((item, i) => (
+                      <tr key={item.id}>
+                        <td>{i + 1}</td>
+                        <td>{item.title}</td>
+                        <td><img src={item.image} alt="" /></td>
+                        <td>
+                          <button className="btn edit">Edit</button>
+                          <button
+                            className="btn delete"
+                            onClick={() => handleDelete(item.id, "photo")}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* ================= VIDEO ================= */}
-      <div className="media-section">
-        <h2>Video Posting</h2>
+      {/* ========= VIDEO ========= */}
+      <section className="media-section">
+        <h2 className="section-main-title">Video Posting</h2>
 
         <div className="media-grid">
           <div className="media-card">
-            <h3>Upload Video</h3>
+            <h3 className="card-title">Upload Video</h3>
             <form onSubmit={handleVideoSubmit}>
               <input
                 type="text"
-                placeholder="Title"
+                placeholder="Enter Title"
                 value={videoTitle}
                 onChange={(e) => setVideoTitle(e.target.value)}
               />
-
               <input
                 type="text"
-                placeholder="Video URL"
+                placeholder="Enter Video URL"
                 value={videoURL}
                 onChange={(e) => setVideoURL(e.target.value)}
               />
-
               <button type="submit">Submit</button>
             </form>
           </div>
 
-          <div className="media-card">
-            <h3>Video List</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Sl.No</th>
-                  <th>Title</th>
-                  <th>URL</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {videos.map((item, i) => (
-                  <tr key={item.id}>
-                    <td>{i + 1}</td>
-                    <td>{item.title}</td>
-                    <td>{item.url}</td>
-                    <td>
-                      <button className="edit">Edit</button>
-                      <button onClick={() => handleDelete(item.id, "video")} className="delete">Delete</button>
-                    </td>
+          <div className="media-card table-card">
+            <div className="table-header">
+              <h3>Video List</h3>
+            </div>
+
+            <div className="table-responsive">
+              <table className="media-table">
+                <thead>
+                  <tr>
+                    <th>Sl.No</th>
+                    <th>Title</th>
+                    <th>URL</th>
+                    <th>Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+
+                <tbody>
+                  {videos.length === 0 ? (
+                    <tr>
+                      <td colSpan="4" className="no-data">
+                        No Videos Added
+                      </td>
+                    </tr>
+                  ) : (
+                    videos.map((item, i) => (
+                      <tr key={item.id}>
+                        <td>{i + 1}</td>
+                        <td>{item.title}</td>
+                        <td className="url-cell">{item.url}</td>
+                        <td>
+                          <button className="btn edit">Edit</button>
+                          <button
+                            className="btn delete"
+                            onClick={() => handleDelete(item.id, "video")}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* ================= PROJECT ================= */}
-      <div className="media-section">
-        <h2>Project Posting</h2>
+      {/* ========= PROJECT ========= */}
+      <section className="media-section">
+        <h2 className="section-main-title">Project Posting</h2>
 
         <div className="media-grid">
           <div className="media-card">
-            <h3>Add Project</h3>
+            <h3 className="card-title">Add Project</h3>
             <form onSubmit={handleProjectSubmit}>
               <input
                 type="text"
-                placeholder="Title"
+                placeholder="Enter Title"
                 value={projectTitle}
                 onChange={(e) => setProjectTitle(e.target.value)}
               />
-
               <textarea
-                placeholder="Description"
+                placeholder="Enter Description"
                 value={projectDesc}
                 onChange={(e) => setProjectDesc(e.target.value)}
               />
-
               <input
                 type="file"
                 onChange={(e) => setProjectImg(e.target.files[0])}
               />
-
               <button type="submit">Submit</button>
             </form>
           </div>
 
-          <div className="media-card">
-            <h3>Project List</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Sl.No</th>
-                  <th>Title</th>
-                  <th>Image</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {projects.map((item, i) => (
-                  <tr key={item.id}>
-                    <td>{i + 1}</td>
-                    <td>{item.title}</td>
-                    <td><img src={item.image} alt="" /></td>
-                    <td>
-                      <button className="edit">Edit</button>
-                      <button onClick={() => handleDelete(item.id, "project")} className="delete">Delete</button>
-                    </td>
+          <div className="media-card table-card">
+            <div className="table-header">
+              <h3>Project List</h3>
+            </div>
+
+            <div className="table-responsive">
+              <table className="media-table">
+                <thead>
+                  <tr>
+                    <th>Sl.No</th>
+                    <th>Title</th>
+                    <th>Image</th>
+                    <th>Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+
+                <tbody>
+                  {projects.length === 0 ? (
+                    <tr>
+                      <td colSpan="4" className="no-data">
+                        No Projects Added
+                      </td>
+                    </tr>
+                  ) : (
+                    projects.map((item, i) => (
+                      <tr key={item.id}>
+                        <td>{i + 1}</td>
+                        <td>{item.title}</td>
+                        <td><img src={item.image} alt="" /></td>
+                        <td>
+                          <button className="btn edit">Edit</button>
+                          <button
+                            className="btn delete"
+                            onClick={() => handleDelete(item.id, "project")}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
     </div>
   );

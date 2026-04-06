@@ -59,40 +59,85 @@
   cursor: pointer;
 }
 
+/* TABLE HEADER */
+.table-header {
+  margin-bottom: 10px;
+}
+
+.table-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
 /* TABLE */
-table {
+.media-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th, td {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
+.media-table thead tr {
+  background: #f1f5f9;
 }
 
-img {
+.media-table th {
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.media-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.media-table img {
   width: 60px;
   height: 40px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
-/* ACTION */
-.edit {
-  background: #22c55e;
-  color: white;
-  padding: 5px 10px;
+/* URL */
+.url-cell {
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* BUTTON */
+.btn {
+  padding: 6px 12px;
+  border-radius: 8px;
   border: none;
-  border-radius: 6px;
-  margin-right: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 6px;
 }
 
-.delete {
+.btn.edit {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn.delete {
   background: #ef4444;
   color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 6px;
+}
+
+.btn.edit:hover {
+  background: #2563eb;
+}
+
+.btn.delete:hover {
+  background: #dc2626;
+}
+
+/* ROW HOVER */
+.media-table tbody tr:hover {
+  background: #f8fafc;
 }
 
 /* RESPONSIVE */

@@ -52,10 +52,10 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
   },
 
   {
-    name: "Instructor Management",
+    name: "Mentor Management",
     icon: <FaUserTie />,
     submenu: [
-      { name: "Add Instructor", path: "/instructor/add", icon: <FaUserTie /> },
+      { name: "Add Mentor", path: "/mentor/add", icon: <FaUserTie /> },
       { name: "Manage Instructors", path: "/instructor/manage", icon: <FaUserTie /> },
       { name: "Assign Courses", path: "/instructor/assign-courses", icon: <FaClipboardList /> },
       { name: "Assignments", path: "/instructor/assignments", icon: <FaClipboardList /> },

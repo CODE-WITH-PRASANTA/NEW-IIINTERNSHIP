@@ -1,20 +1,29 @@
+/* SIDEBAR CONTAINER */
 .course-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  background: #f3f3f3;
+  border-radius: 20px;
+  overflow: hidden;
+
+  /* overlap hero */
+  margin-top: -120px;
+
+  /* sticky scroll */
+  position: sticky;
+  top: 100px;
 }
 
 /* VIDEO */
 .course-sidebar__video {
   position: relative;
-  border-radius: 20px;
+  border-radius: 15px;
   overflow: hidden;
+  margin: 20px;
 }
 
 .course-sidebar__video img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  display: block;
+  border-radius: 15px;
 }
 
 /* PLAY BUTTON */
@@ -23,94 +32,65 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
-  width: 70px;
-  height: 70px;
+  background: #ffd600;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  background: #ffd500;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  font-size: 28px;
-  color: #000;
-  font-weight: bold;
+  font-size: 22px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.course-sidebar__play:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-/* LABEL */
+/* DEMO LABEL */
 .course-sidebar__label {
   position: absolute;
   bottom: 10px;
-  left: 15px;
+  left: 12px;
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
 }
 
-/* CARD */
-.course-sidebar__card {
-  background: #e9e4df;
-  padding: 25px;
-  border-radius: 20px;
+/* CONTENT */
+.course-sidebar__content {
+  padding: 20px;
 }
 
-/* TITLE */
-.course-sidebar__title {
-  font-family: "Playfair Display", serif;
-  font-size: 1.6rem;
+.course-sidebar__content h3 {
+  font-size: 26px;
   margin-bottom: 15px;
 }
 
-/* LIST */
+/* FEATURE LIST */
 .course-sidebar__list {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  padding: 15px 0;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
 }
 
 .course-sidebar__list div {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
+  font-size: 15px;
+  color: #444;
 }
 
-.course-sidebar__list span {
-  color: #333;
-}
-
-.course-sidebar__list strong {
-  color: #777;
-}
-
-/* PRICE */
-.course-sidebar__price {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 0 10px;
+/* PRICE SECTION */
+.course-sidebar__bottom {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
 }
 
 .course-sidebar__price h2 {
-  font-size: 2rem;
-  margin: 0;
+  font-size: 28px;
+  margin-bottom: 5px;
 }
 
-.course-sidebar__share {
-  font-size: 0.95rem;
-  color: #2c8f66;
-  cursor: pointer;
-}
-
-/* EXTRA TEXT */
-.course-sidebar__extra p {
-  margin: 5px 0;
-  font-size: 0.9rem;
+.course-sidebar__price span {
+  display: block;
+  font-size: 13px;
   color: #666;
 }
 
@@ -119,47 +99,23 @@
   width: 100%;
   margin-top: 15px;
   padding: 14px;
-  border: none;
-  border-radius: 12px;
-
-  background: linear-gradient(135deg, #2bb673, #239a63);
+  background: #2e8b57;
   color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .course-sidebar__btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  background: #256f48;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 991px) {
-  .course-sidebar__video img {
-    height: 260px;
-  }
-}
-
-@media (max-width: 600px) {
-  .course-sidebar__video img {
-    height: 200px;
-  }
-
-  .course-sidebar__play {
-    width: 60px;
-    height: 60px;
-    font-size: 22px;
-  }
-
-  .course-sidebar__card {
-    padding: 20px;
-  }
-
-  .course-sidebar__price h2 {
-    font-size: 1.6rem;
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .course-sidebar {
+    position: static;
+    margin-top: 20px;
   }
 }
