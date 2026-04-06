@@ -27,7 +27,7 @@ const FloatingForm = () => {
             <FaTimes />
           </button>
 
-          <h2 className="floatingForm__title">IIT Internship</h2>
+          <h2 className="floatingForm__title">II Internship</h2>
           <p className="floatingForm__subtitle">Admission & Enquiry Form</p>
           <p className="floatingForm__description">
             Fill in the form below and our team will reach out shortly.

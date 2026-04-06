@@ -30,7 +30,8 @@ const OrgBD = () => {
           </div>
 
           <div className="OrgBD__header">
-            <h1 className="OrgBD__title">About Us</h1>
+            {/* ✅ Updated Heading */}
+            <h1 className="OrgBD__title">Organization History</h1>
 
             <div className="OrgBD__breadcrumb">
               <span className="OrgBD__home">🏠 Home</span>
@@ -38,9 +39,14 @@ const OrgBD = () => {
               <span className="OrgBD__current">Organization History</span>
             </div>
           </div>
+
+          {/* ✅ SEO CONTENT */}
+        
+
           <p className="OrgBD__subtitle">
-            Best online education platforms offer flexible learning, quality
-            courses, and expert instructors.
+            The International Institute has built a strong reputation through
+            its commitment to excellence, advanced training programs, and
+            student-focused growth over the years.
           </p>
         </div>
 
@@ -50,7 +56,7 @@ const OrgBD = () => {
 
           <img
             src={studentsImg}
-            alt="Students learning together"
+            alt="International Institute students learning and growing together"
             className="OrgBD__image"
           />
         </div>

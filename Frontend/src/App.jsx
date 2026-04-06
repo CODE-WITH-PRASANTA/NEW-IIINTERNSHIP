@@ -37,7 +37,7 @@ const App = () => {
       {/* 🔥 Routes only */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/coursegrid" element={<CourseGrid/>}/>
+        <Route path="/running-internship" element={<CourseGrid/>}/>
         <Route path="/org/history" element={<OrganisationHistory/>} />
         <Route path="/vision/mission" element={<VisionMission/>} />
         <Route path="/login" element={<Login/>}/>
@@ -47,10 +47,10 @@ const App = () => {
         <Route path="/immersion" element={<Immersion/>} />
         <Route path="/internship" element={<Internship/>} />
         <Route path="/gallery" element={<Gallery/>}/>
-        <Route path="/career" element={<Carrier/>}/>
+        <Route path="/recruitment" element={<Carrier/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/Running-intern/Details" element={<CourseDetails/>} />
-        <Route path="/story" element={<SuccessStory/>} />
+        <Route path="/success-story" element={<SuccessStory/>} />
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/donate" element={<Donate />} />
       </Routes>

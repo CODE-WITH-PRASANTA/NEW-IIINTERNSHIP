@@ -3,17 +3,17 @@ import "./InternshipBD.css";
 import studentsImg from "../../assets/Breadcrum-iit.webp";
 import bgLines from "../../assets/bg-lines.png";
 
-const ImmersionBD = () => {
+const InternshipBD = () => {
   return (
-    <section className="ImmersionBD">
-      <img src={bgLines} alt="" className="ImmersionBD__bg-lines" />
+    <section className="InternshipBD">
+      <img src={bgLines} alt="" className="InternshipBD__bg-lines" />
 
-      <div className="ImmersionBD__inner">
+      <div className="InternshipBD__inner">
         {/* LEFT CONTENT */}
-        <div className="ImmersionBD__content">
-          <div className="ImmersionBD__sparkles" aria-hidden="true">
+        <div className="InternshipBD__content">
+          <div className="InternshipBD__sparkles" aria-hidden="true">
             <svg
-              className="ImmersionBD__spark ImmersionBD__spark--big"
+              className="InternshipBD__spark InternshipBD__spark--big"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -21,7 +21,7 @@ const ImmersionBD = () => {
             </svg>
 
             <svg
-              className="ImmersionBD__spark ImmersionBD__spark--small"
+              className="InternshipBD__spark InternshipBD__spark--small"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -29,39 +29,41 @@ const ImmersionBD = () => {
             </svg>
           </div>
 
-          <div className="ImmersionBD__header">
-            <h1 className="ImmersionBD__title">About Us</h1>
+          <div className="InternshipBD__header">
+            {/* ✅ Updated Heading */}
+            <h1 className="InternshipBD__title">What is Internship</h1>
 
-            <div className="ImmersionBD__breadcrumb">
-              <span className="ImmersionBD__home">🏠 Home</span>
-              <span className="ImmersionBD__divider">›</span>
-              <span className="ImmersionBD__current">What is Internship</span>
+            <div className="InternshipBD__breadcrumb">
+              <span className="InternshipBD__home">🏠 Home</span>
+              <span className="InternshipBD__divider">›</span>
+              <span className="InternshipBD__current">What is Internship</span>
             </div>
           </div>
-          <p className="ImmersionBD__subtitle">
-            Best online education platforms offer flexible learning, quality
-            courses, and expert instructors.
+
+          {/* ✅ SEO CONTENT */}
+          <p className="InternshipBD__subtitle">
+            Understand what an internship is at International Institute, where students gain real-world experience, industry exposure, and practical skills for career success.
           </p>
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="ImmersionBD__visual">
-          <div className="ImmersionBD__shape"></div>
+        <div className="InternshipBD__visual">
+          <div className="InternshipBD__shape"></div>
 
           <img
             src={studentsImg}
-            alt="Students learning together"
-            className="ImmersionBD__image"
+            alt="International Institute internship training and practical learning"
+            className="InternshipBD__image"
           />
         </div>
       </div>
 
       {/* BOTTOM CURVE */}
-      <div className="ImmersionBD__curve" aria-hidden="true">
+      <div className="InternshipBD__curve" aria-hidden="true">
         <svg
           viewBox="0 0 1440 180"
           preserveAspectRatio="none"
-          className="ImmersionBD__curve-svg"
+          className="InternshipBD__curve-svg"
         >
           <path
             d="M0,125 C260,145 520,78 790,92 C1020,104 1225,70 1440,62 L1440,180 L0,180 Z"
@@ -73,4 +75,4 @@ const ImmersionBD = () => {
   );
 };
 
-export default ImmersionBD;
+export default InternshipBD;
