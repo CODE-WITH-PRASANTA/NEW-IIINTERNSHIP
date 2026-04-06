@@ -22,6 +22,7 @@ import SuccessStoryDetails from "./Pages/SuccessStoryDetails/SuccessStoryDetails
 import Gallery from "./Pages/Gallery/Gallery";
 import Carrier from "./Pages/Carrier/Carrier";
 import Contact from "./Pages/Contact/Contact";
+import SignUp from "./Component/SignUp/SignUp";
 
 const App = () => {
   return (
@@ -49,6 +50,7 @@ const App = () => {
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/Course" element={<CourseDetails/>} />
         <Route path="/story" element={<SuccessStory/>} />
+        <Route path="/signup" element={<SignUp/>}/>
       </Routes>
 
       <Footer />
