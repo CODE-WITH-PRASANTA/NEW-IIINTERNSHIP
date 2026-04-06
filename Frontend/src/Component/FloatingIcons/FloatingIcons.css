@@ -1,0 +1,87 @@
+.floatingIcons {
+  position: fixed;
+  right: 16px;          /* move to RIGHT */
+  top: 50%;             /* center vertically */
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+/* WRAPPER */
+.floatingIcons__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* BUTTON */
+.floatingIcons__btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.floatingIcons__btn:hover {
+  transform: translateX(-6px) scale(1.08); /* reverse direction */
+}
+
+/* COLORS */
+.floatingIcons__btn--whatsapp {
+  background: #25d366;
+}
+
+.floatingIcons__btn--call {
+  background: #ff7a00;
+}
+
+.floatingIcons__btn--top {
+  background: #1f4b99;
+}
+
+/* SHOW / HIDE TOP BUTTON */
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .floatingIcons {
+    right: 10px;
+  }
+
+  .floatingIcons__btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .floatingIcons {
+    right: 8px;
+  }
+
+  .floatingIcons__btn {
+    width: 46px;
+    height: 46px;
+    font-size: 18px;
+  }
+}

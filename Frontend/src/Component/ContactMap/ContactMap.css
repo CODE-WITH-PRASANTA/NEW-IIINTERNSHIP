@@ -1,0 +1,177 @@
+.contactMap {
+  width: 100%;
+  background: #f5f4f2;
+  overflow: hidden;
+}
+
+/* =========================
+   TOP SECTION
+========================= */
+.contactMap__top {
+  background: #f5f4f2;
+  padding: 34px 0 0;
+}
+
+.contactMap__container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.contactMap__title {
+  margin: 0 0 18px;
+  text-align: center;
+  color: #15223a;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 500;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.contactMap__worldWrap {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactMap__worldImage {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  opacity: 0.82;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* =========================
+   LOCATION PINS
+========================= */
+.contactMap__pin {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #198754;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 5px rgba(25, 135, 84, 0.08);
+}
+
+.contactMap__pin::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 1px solid rgba(25, 135, 84, 0.18);
+  border-radius: 50%;
+}
+
+.contactMap__pin--northAmerica {
+  top: 34%;
+  left: 28%;
+}
+
+.contactMap__pin--southAmerica {
+  top: 74%;
+  left: 33%;
+}
+
+.contactMap__pin--africa {
+  top: 74%;
+  left: 56%;
+}
+
+.contactMap__pin--asia {
+  top: 29%;
+  left: 89%;
+}
+
+/* =========================
+   GOOGLE MAP
+========================= */
+.contactMap__bottom {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #dddddd;
+}
+
+.contactMap__iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  filter: grayscale(100%);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 991px) {
+  .contactMap__title {
+    font-size: 30px;
+  }
+
+  .contactMap__worldWrap {
+    max-width: 470px;
+    min-height: 220px;
+  }
+
+  .contactMap__bottom {
+    height: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contactMap__top {
+    padding: 26px 0 0;
+  }
+
+  .contactMap__container {
+    padding: 0 16px;
+  }
+
+  .contactMap__title {
+    font-size: 27px;
+    margin-bottom: 14px;
+  }
+
+  .contactMap__worldWrap {
+    max-width: 100%;
+    min-height: 180px;
+  }
+
+  .contactMap__pin {
+    width: 9px;
+    height: 9px;
+  }
+
+  .contactMap__bottom {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactMap__title {
+    font-size: 24px;
+  }
+
+  .contactMap__worldWrap {
+    min-height: 145px;
+  }
+
+  .contactMap__bottom {
+    height: 160px;
+  }
+
+  .contactMap__pin {
+    width: 8px;
+    height: 8px;
+  }
+}

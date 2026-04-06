@@ -1,0 +1,261 @@
+/* ROOT */
+.signupPage {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f7f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* CONTAINER */
+.signupPage__container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* LEFT SIDE */
+.signupPage__left {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.signupPage__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAY FULL CENTER */
+.signupPage__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 40, 40, 0.85),
+    rgba(0, 0, 0, 0.7)
+  );
+  text-align: center;
+}
+
+/* CONTENT */
+.signupPage__overlayContent {
+  max-width: 500px;
+  color: #fff;
+}
+
+/* WELCOME TEXT */
+.signupPage__welcome {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+/* BRAND GRADIENT TEXT */
+.signupPage__brand {
+  font-size: 36px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ffcc00, #ff512f, #ff007f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+/* PORTAL TEXT */
+.signupPage__portal {
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #2ecc71;
+  margin-bottom: 20px;
+}
+
+/* DESCRIPTION */
+.signupPage__description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #ddd;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 992px) {
+  .signupPage__brand {
+    font-size: 28px;
+  }
+
+  .signupPage__welcome {
+    font-size: 22px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  .signupPage__overlay {
+    padding: 20px;
+  }
+
+  .signupPage__brand {
+    font-size: 22px;
+  }
+
+  .signupPage__welcome {
+    font-size: 18px;
+  }
+
+  .signupPage__portal {
+    font-size: 14px;
+  }
+
+  .signupPage__description {
+    font-size: 14px;
+  }
+}
+
+/* RIGHT SIDE */
+.signupPage__right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.signupPage__formBox {
+  width: 100%;
+  max-width: 420px;
+}
+
+.signupPage__title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* FORM */
+.signupPage__form {
+  width: 100%;
+}
+
+.signupPage__input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+.signupPage__input:focus {
+  border-color: #2e8b57;
+  box-shadow: 0 0 5px rgba(46, 139, 87, 0.3);
+}
+
+/* ROW */
+.signupPage__row {
+  display: flex;
+  gap: 10px;
+}
+
+.signupPage__row .signupPage__input {
+  flex: 1;
+}
+
+/* PASSWORD */
+.signupPage__passwordField {
+  position: relative;
+}
+
+.signupPage__eye {
+  position: absolute;
+  right: 15px;
+  top: 40%;
+  cursor: pointer;
+  color: #777;
+}
+
+/* BUTTON */
+.signupPage__button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ff512f, #f09819);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signupPage__button:hover {
+  opacity: 0.9;
+}
+
+/* LOGIN */
+.signupPage__loginText {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signupPage__loginLink {
+  color: #2e8b57;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signupPage__loginLink {
+  color: #2e8b57;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.signupPage__loginLink:hover {
+  text-decoration: underline;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 992px) {
+  .signupPage__container {
+    flex-direction: column;
+  }
+
+  .signupPage__left {
+    height: 250px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  .signupPage__row {
+    flex-direction: column;
+  }
+
+  .signupPage__title {
+    text-align: center;
+  }
+
+  .signupPage__testimonial {
+    font-size: 16px;
+  }
+}
