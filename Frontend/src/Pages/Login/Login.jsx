@@ -142,7 +142,7 @@ const Login = () => {
               </div>
 
               <p className={`${base}__signupText`}>
-                Don’t have an account? <a href="/">Sign Up here</a>
+                Don’t have an account? <a href="/signup">Sign Up here</a>
               </p>
             </form>
           </div>

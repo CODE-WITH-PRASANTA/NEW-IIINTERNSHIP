@@ -14,63 +14,158 @@ import {
   FaUserGraduate,
   FaClipboardList,
   FaQuoteLeft,
+  FaUsers,        // ✅ ADD THIS
+  FaBook,         // ✅ ADD THIS
+  FaTrophy,       // ✅ ADD THIS
+  FaFolderPlus    // ✅ ADD THIS
 } from "react-icons/fa";
 import "./Sidebar.css";
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
-  const menu = [
-    { name: "Dashboard", path: "/", icon: <FaHome /> },
+ const menu = [
+  { name: "Dashboard", path: "/", icon: <FaHome /> },
 
-      { name: "Cold Lead", path: "/admin/cold-lead", icon: <FaChalkboardTeacher /> },   
-      { name: "Cold Lead Table", path: "/admin/cold-lead-table", icon: <FaChalkboardTeacher /> },   
+  { name: "Instructor Profile", path: "/main-instructor", icon: <FaUserTie /> },
 
-        { name: "News Posting", path: "/admin/newsposting", icon: <FaNewspaper /> },
-        { name: "Teacher Posting", path: "/admin/teacherposting", icon: <FaChalkboardTeacher /> },
-        { name: "Testimonial", path: "/admin/testimonial", icon: <FaQuoteLeft /> },
+  { name: "Event Gallery", path: "/events/upload", icon: <FaImages /> },
 
-        { name: "Gallery posting", path: "/admin/gallery", icon: <FaMoneyBillWave /> },
-         { name: "Admission Table", path: "/admin/admission-table", icon: <FaImages /> },
-     
+  { name: "Learning Partners", path: "/learning-partners", icon: <FaUsers /> },
 
-    // {
-    //   name: "Gallery",
-    //   icon: <FaImages />,
-    //   submenu: [
-    //     { name: "Gallery Post", path: "/admin/gallery-post", icon: <FaImages /> },
-    //     { name: "Gallery View", path: "/admin/gallery-view", icon: <FaImages /> },
-    //   ],
-    // },
+  {
+    name: "Course Management",
+    icon: <FaBook />,
+    submenu: [
+      { name: "Create Course", path: "/course/post", icon: <FaClipboardList /> },
+      { name: "Manage Courses", path: "/course/manage", icon: <FaClipboardList /> },
+      { name: "Course Preview", path: "/course/preview", icon: <FaClipboardList /> },
+    ],
+  },
 
-    // { name: "Event", path: "/admin/event", icon: <FaCalendarAlt /> },
-    // { name: "Classes", path: "/admin/classes", icon: <FaChalkboardTeacher /> },
-    // { name: "Contact", path: "/admin/contact", icon: <FaAddressBook /> },
-    // { name: "Admission", path: "/admin/admission", icon: <FaClipboardList /> },
-    // { name: "Fees", path: "/admin/fees", icon: <FaMoneyBillWave /> },
+  {
+    name: "Success Stories",
+    icon: <FaTrophy />,
+    submenu: [
+      { name: "Add Success Story", path: "/success-story/post", icon: <FaQuoteLeft /> },
+      { name: "Story Preview", path: "/success-story/preview", icon: <FaQuoteLeft /> },
+      { name: "Client Reviews", path: "/success-story/review", icon: <FaCommentDots /> },
+    ],
+  },
 
-    {
-      type: "section",
-      label: "ERP Solution",
-    },
+  {
+    name: "Mentor Management",
+    icon: <FaUserTie />,
+    submenu: [
+      { name: "Add Mentor", path: "/mentor/add", icon: <FaUserTie /> },
+      { name: "Manage Instructors", path: "/instructor/manage", icon: <FaUserTie /> },
+      { name: "Assign Courses", path: "/instructor/assign-courses", icon: <FaClipboardList /> },
+      { name: "Assignments", path: "/instructor/assignments", icon: <FaClipboardList /> },
+      { name: "Payments & Payouts", path: "/instructor/payment", icon: <FaMoneyBillWave /> },
+      { name: "Attendance Management", path: "/instructor/attendance", icon: <FaClipboardList /> },
+    ],
+  },
 
-    {
-      name: "Student Hub",
-      icon: <FaUserGraduate />,
-      submenu: [
-        { name: "Student Admission", path: "/student/admission", icon: <FaClipboardList /> },
-        { name: "Student Details", path: "/student/admission/details", icon: <FaUserTie /> },
-      ],
-    },
+  {
+    name: "Category Management",
+    icon: <FaFolderPlus />,
+    submenu: [
+      { name: "Create Category", path: "/category/create", icon: <FaFolderPlus /> },
+      { name: "Category Overview", path: "/category/preview", icon: <FaClipboardList /> },
+    ],
+  },
 
-    {
-      name: "Student Paytrack",
-      icon: <FaCommentDots />,
-      submenu: [
-        { name: "Fee Collect", path: "/fee-collect", icon: <FaMoneyBillWave /> },
-        { name: "Fee Type", path: "/fee-type", icon: <FaMoneyBillWave /> },
-      ],
-    },
-  ];
+  {
+    name: "Testimonials",
+    icon: <FaCommentDots />,
+    submenu: [
+      { name: "Add Testimonial", path: "/testimonial/add", icon: <FaQuoteLeft /> },
+      { name: "View Testimonials", path: "/testimonial/view", icon: <FaQuoteLeft /> },
+    ],
+  },
 
+  {
+    name: "Student Management",
+    icon: <FaUserGraduate />,
+    submenu: [
+      { name: "Enroll Student", path: "/student/enroll", icon: <FaClipboardList /> },
+      { name: "Manage Students", path: "/student/manage", icon: <FaUserGraduate /> },
+      { name: "Internship Progress", path: "/student/progress", icon: <FaClipboardList /> },
+      { name: "Student Assignments", path: "/student/assignments", icon: <FaClipboardList /> },
+      { name: "Payment Tracking", path: "/student/payment", icon: <FaMoneyBillWave /> },
+      { name: "Attendance & Leave", path: "/student/attendance", icon: <FaClipboardList /> },
+    ],
+  },
+
+
+  
+
+  {
+    name: "Financial Management",
+    icon: <FaMoneyBillWave />,
+    submenu: [
+      { name: "Transaction History", path: "/payment/history", icon: <FaMoneyBillWave /> },
+      { name: "Pending Payments", path: "/payment/pending", icon: <FaMoneyBillWave /> },
+      { name: "Generate Invoice", path: "/payment/invoice", icon: <FaMoneyBillWave /> },
+    ],
+  },
+
+  {
+    name: "Feedback Management",
+    icon: <FaCommentDots />,
+    submenu: [
+      { name: "Submit Feedback", path: "/feedback/add", icon: <FaCommentDots /> },
+      { name: "Feedback Overview", path: "/feedback/view", icon: <FaCommentDots /> },
+    ],
+  },
+
+  {
+    name: "Analytics & Reports",
+    icon: <FaClipboardList />,
+    submenu: [
+      { name: "Student Reports", path: "/reports/students", icon: <FaClipboardList /> },
+      { name: "Course Reports", path: "/reports/courses", icon: <FaClipboardList /> },
+      { name: "Instructor Reports", path: "/reports/instructors", icon: <FaClipboardList /> },
+      { name: "Payment Reports", path: "/reports/payments", icon: <FaMoneyBillWave /> },
+      { name: "Attendance Reports", path: "/reports/attendance", icon: <FaClipboardList /> },
+    ],
+  },
+
+  {
+    name: "Notifications",
+    icon: <FaCommentDots />,
+    submenu: [
+      { name: "Send Notification", path: "/notifications/send", icon: <FaCommentDots /> },
+      { name: "Inbox Management", path: "/notifications/manage", icon: <FaCommentDots /> },
+    ],
+  },
+
+  {
+    name: "Notice Management",
+    icon: <FaNewspaper />,
+    submenu: [
+      { name: "Post Notice", path: "/admin/notices/post", icon: <FaNewspaper /> },
+      { name: "Manage Notices", path: "/admin/notices/manage", icon: <FaNewspaper /> },
+    ],
+  },
+
+  {
+    name: "Media Management",
+    icon: <FaImages />,
+    submenu: [
+      { name: "Course Materials", path: "/media/course-materials", icon: <FaImages /> },
+      { name: "Certificates", path: "/media/certificates", icon: <FaImages /> },
+    ],
+  },
+
+  {
+    name: "System Settings",
+    icon: <FaAddressBook />,
+    submenu: [
+      { name: "Platform Settings", path: "/settings/platform", icon: <FaAddressBook /> },
+      { name: "Admin Users", path: "/settings/admin-users", icon: <FaUserTie /> },
+      { name: "System Configuration", path: "/settings/system-config", icon: <FaClipboardList /> },
+    ],
+  },
+];
   const [openMenu, setOpenMenu] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
 

@@ -1,5 +1,6 @@
 import React from "react";
 import "./CourseSidebar.css";
+
 import demoImg from "../../assets/pic1.webp";
 
 const CourseSidebar = () => {
@@ -9,42 +10,33 @@ const CourseSidebar = () => {
       {/* VIDEO */}
       <div className="course-sidebar__video">
         <img src={demoImg} alt="Demo Class" />
-
         <div className="course-sidebar__play">▶</div>
-
         <span className="course-sidebar__label">Demo Class</span>
       </div>
 
-      {/* FEATURES CARD */}
-      <div className="course-sidebar__card">
-
-        <h3 className="course-sidebar__title">Course Features</h3>
+      {/* CONTENT */}
+      <div className="course-sidebar__content">
+        <h3>Course Features</h3>
 
         <div className="course-sidebar__list">
-          <div><span>Lectures</span><strong>235</strong></div>
-          <div><span>Quiz</span><strong>43</strong></div>
-          <div><span>Duration</span><strong>6 Months</strong></div>
-          <div><span>Skill level</span><strong>All levels</strong></div>
-          <div><span>Language</span><strong>English, Spanish</strong></div>
-          <div><span>Students</span><strong>774</strong></div>
-          <div><span>Assessments</span><strong>Yes</strong></div>
+          <div><span>Lectures</span><span>235</span></div>
+          <div><span>Quiz</span><span>43</span></div>
+          <div><span>Duration</span><span>6 Months</span></div>
+          <div><span>Skill level</span><span>All levels</span></div>
+          <div><span>Language</span><span>English, Spanish</span></div>
+          <div><span>Students</span><span>774</span></div>
+          <div><span>Assessments</span><span>Yes</span></div>
         </div>
 
-        {/* PRICE */}
-        <div className="course-sidebar__price">
-          <h2>$5,722</h2>
-          <span className="course-sidebar__share">↗ Share</span>
+        <div className="course-sidebar__bottom">
+          <div className="course-sidebar__price">
+            <h2>$5,722</h2>
+            <span>30-Day Money-Back Guarantee</span>
+            <span>Full Lifetime Access</span>
+          </div>
+
+          <button className="course-sidebar__btn">Buy Now</button>
         </div>
-
-        {/* EXTRA INFO */}
-        <div className="course-sidebar__extra">
-          <p>30-Day Money-Back Guarantee</p>
-          <p>Full Lifetime Access</p>
-        </div>
-
-        {/* BUTTON */}
-        <button className="course-sidebar__btn">Buy Now</button>
-
       </div>
 
     </div>

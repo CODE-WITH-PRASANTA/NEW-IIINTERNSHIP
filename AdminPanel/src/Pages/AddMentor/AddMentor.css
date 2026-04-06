@@ -1,0 +1,154 @@
+.addmentor-container {
+  padding: 20px;
+  background: #f8fafc;
+}
+
+.addmentor-heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* GRID */
+.addmentor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* CARD */
+.addmentor-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* FORM */
+.addmentor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.addmentor-form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.addmentor-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+/* PREVIEW */
+.addmentor-preview {
+  text-align: center;
+}
+
+.addmentor-preview img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+/* TABLE CARD */
+.addmentor-table-card {
+  margin-top: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* SCROLL FIX */
+.table-wrapper {
+  overflow: hidden;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* TABLE */
+.addmentor-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+.addmentor-table th,
+.addmentor-table td {
+  padding: 12px;
+  white-space: nowrap;
+  border-bottom: 1px solid #eee;
+}
+
+.addmentor-table thead {
+  background: #f1f5f9;
+}
+
+.addmentor-table img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* ACTION FIX */
+.action-group {
+  display: flex;
+  gap: 6px;
+  min-width: 140px;
+}
+
+/* BUTTON */
+.btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+/* NO DATA */
+.no-data {
+  text-align: center;
+  color: #94a3b8;
+}
+
+/* SCROLLBAR */
+.table-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .addmentor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .addmentor-table {
+    min-width: 650px;
+  }
+}
