@@ -64,7 +64,7 @@ const getCourse = async (req, res) => {
 const updateCourse = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
-
+    console.log("FILES:", req.files);
     if (!course) {
       return res.status(404).json({ message: "Course not found" });
     }
@@ -91,11 +91,9 @@ const updateCourse = async (req, res) => {
       updateData.profile = req.files.profile[0].path;
     }
 
-    const updated = await Course.findByIdAndUpdate(
-      req.params.id,
-      updateData,
-      { new: true }
-    );
+    const updated = await Course.findByIdAndUpdate(req.params.id, updateData, {
+      new: true,
+    });
 
     res.json({
       success: true,

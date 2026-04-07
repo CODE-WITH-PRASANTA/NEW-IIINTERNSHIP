@@ -3,7 +3,7 @@ import "./GridHero.css";
 import studentsImg from "../../assets/Breadcrum-iit.webp";
 import bgLines from "../../assets/bg-lines.png";
 
-const GridHero = () => {
+const GridHero = ({ search, setSearch, setActivePage }) => {
   const base = "gridHero";
 
   return (
@@ -30,11 +30,14 @@ const GridHero = () => {
             </svg>
           </div>
 
-          <h1 className={`${base}__title`}>All Courses</h1>
+          {/* ✅ Updated Title */}
+          <h1 className={`${base}__title`}>Running Internship</h1>
 
+          {/* ✅ SEO Friendly Line */}
           <p className={`${base}__subtitle`}>
-            Best online education platforms offer flexible learning,
-            quality courses, and expert instructors.
+            Explore running internship programs at International Institute of
+            Internship designed to provide real-world experience, practical
+            skills, and career-ready training.
           </p>
         </div>
 
@@ -42,7 +45,7 @@ const GridHero = () => {
           <div className={`${base}__shape`}></div>
           <img
             src={studentsImg}
-            alt="Students learning together"
+            alt="Students learning together in internship programs"
             className={`${base}__image`}
           />
         </div>
@@ -53,13 +56,23 @@ const GridHero = () => {
           <div className={`${base}__field ${base}__field--course`}>
             <input
               type="text"
-              placeholder="Course Name"
+              placeholder="Internship Name"
               className={`${base}__input`}
+              value={search.text}
+              onChange={(e) =>
+                setSearch((prev) => ({ ...prev, text: e.target.value }))
+              }
             />
           </div>
 
           <div className={`${base}__field ${base}__field--category`}>
-            <select className={`${base}__select`} defaultValue="Default">
+            <select
+              className={`${base}__select`}
+              value={search.category}
+              onChange={(e) =>
+                setSearch((prev) => ({ ...prev, category: e.target.value }))
+              }
+            >
               <option value="Default">Default</option>
               <option value="Web Development">Web Development</option>
               <option value="UI UX Design">UI UX Design</option>
@@ -68,7 +81,13 @@ const GridHero = () => {
             </select>
           </div>
 
-          <button className={`${base}__searchBtn`} type="button">
+          <button
+            className={`${base}__searchBtn`}
+            type="button"
+            onClick={() => {
+              setActivePage(1); // 🔥 reset pagination
+            }}
+          >
             <span className={`${base}__searchBtnText`}>Search</span>
             <span className={`${base}__searchIcon`} aria-hidden="true">
               <svg

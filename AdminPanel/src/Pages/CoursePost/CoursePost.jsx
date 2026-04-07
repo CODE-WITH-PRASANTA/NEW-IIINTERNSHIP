@@ -124,10 +124,10 @@ const CoursePost = () => {
 
           setForm({
             ...data,
-            banner: data.banner
-              ? {
-                  url: data.banner, // 🔥 store original image
-                }
+            banner: data.banner ? { url: data.banner } : null,
+
+            profile: data.profile
+              ? { url: data.profile } // 🔥 ADD THIS
               : null,
           });
         } catch (err) {
@@ -164,10 +164,17 @@ const CoursePost = () => {
   };
 
   const handleFileChange = (e) => {
-    setForm((prev) => ({
-      ...prev,
-      profile: e.target.files[0],
-    }));
+    const file = e.target.files[0];
+
+    if (file) {
+      setForm((prev) => ({
+        ...prev,
+        profile: {
+          file,
+          preview: URL.createObjectURL(file),
+        },
+      }));
+    }
   };
   const handleSubmit = async () => {
     try {
@@ -184,8 +191,8 @@ const CoursePost = () => {
       if (form.banner?.file) {
         formData.append("banner", form.banner.file);
       }
-      if (form.profile) {
-        formData.append("profile", form.profile);
+      if (form.profile?.file) {
+        formData.append("profile", form.profile.file);
       }
 
       if (isEdit) {
@@ -544,6 +551,20 @@ const CoursePost = () => {
           <input type="file" onChange={handleFileChange} />
           <label>Upload Profile</label>
         </div>
+        {form.profile && (
+          <div className="image-preview">
+            <img
+              src={
+                form.profile?.preview
+                  ? form.profile.preview
+                  : form.profile?.url
+                    ? ImageUrl(form.profile.url) + "?t=" + new Date().getTime()
+                    : "/no-image.png"
+              }
+              alt="Profile"
+            />
+          </div>
+        )}
       </Accordion>
 
       <button className="submit-btn" onClick={handleSubmit} disabled={loading}>

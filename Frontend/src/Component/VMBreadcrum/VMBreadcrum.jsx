@@ -30,7 +30,8 @@ const VMBreadcrum = () => {
           </div>
 
           <div className="VMBreadcrum__header">
-            <h1 className="VMBreadcrum__title">About Us</h1>
+            {/* ✅ Updated Heading */}
+            <h2 className="VMBreadcrum__title">Vision & Mission</h2>
 
             <div className="VMBreadcrum__breadcrumb">
               <span className="VMBreadcrum__home">🏠 Home</span>
@@ -38,9 +39,10 @@ const VMBreadcrum = () => {
               <span className="VMBreadcrum__current">Vision & Mission</span>
             </div>
           </div>
+
+          {/* ✅ SEO CONTENT (1 line) */}
           <p className="VMBreadcrum__subtitle">
-            Best online education platforms offer flexible learning, quality
-            courses, and expert instructors.
+            Explore the Vision & Mission of International Institute, focused on delivering quality education, innovation, and global learning excellence.
           </p>
         </div>
 
@@ -50,7 +52,7 @@ const VMBreadcrum = () => {
 
           <img
             src={studentsImg}
-            alt="Students learning together"
+            alt="International Institute students vision and mission learning"
             className="VMBreadcrum__image"
           />
         </div>

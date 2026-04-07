@@ -9,7 +9,6 @@
 
 /* ===== CONTAINER ===== */
 .form-container {
-  max-width: 920px;
   margin: auto;
   padding: 18px;
   font-family: "Inter", sans-serif;
@@ -31,7 +30,7 @@
   border-radius: 16px;
   margin-bottom: 22px;
   font-size: 14px;
-  box-shadow: 0 6px 20px rgba(108,92,231,0.25);
+  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.25);
 }
 
 /* ===== FORM GROUP ===== */
@@ -67,7 +66,7 @@
 .form-group select:focus {
   border-color: var(--primary);
   background: #fff;
-  box-shadow: 0 0 0 4px rgba(108,92,231,0.1);
+  box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
   transform: scale(1.01);
 }
 
@@ -85,12 +84,12 @@
 }
 
 /* FLOAT */
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group textarea:focus + label,
-.form-group textarea:not(:placeholder-shown) + label,
-.form-group select:focus + label,
-.form-group select:not([value=""]) + label {
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label,
+.form-group textarea:focus+label,
+.form-group textarea:not(:placeholder-shown)+label,
+.form-group select:focus+label,
+.form-group select:not([value=""])+label {
   top: -8px;
   font-size: 11px;
   color: var(--primary);
@@ -121,14 +120,14 @@
   margin-bottom: 18px;
   border-radius: 18px;
   background: #fff;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   transition: 0.3s ease;
 }
 
 .accordion:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* HEADER */
@@ -199,7 +198,7 @@
 
 .submit-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(108,92,231,0.35);
+  box-shadow: 0 10px 25px rgba(108, 92, 231, 0.35);
 }
 
 
@@ -226,12 +225,27 @@
   cursor: not-allowed;
 }
 
+
+.image-preview {
+  margin-top: 10px;
+}
+
+.image-preview img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  /* 🔥 circle avatar */
+  object-fit: cover;
+  border: 2px solid #eee;
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes slideDown {
   from {
     opacity: 0;
     transform: translateY(-6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -242,6 +256,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -284,12 +299,5 @@
 @media (min-width: 601px) and (max-width: 1024px) {
   .form-container {
     padding: 20px;
-  }
-}
-
-/* LARGE SCREEN */
-@media (min-width: 1200px) {
-  .form-container {
-    max-width: 1000px;
   }
 }

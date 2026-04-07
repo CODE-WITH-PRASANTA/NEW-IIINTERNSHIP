@@ -30,7 +30,8 @@ const ImmersionBD = () => {
           </div>
 
           <div className="ImmersionBD__header">
-            <h1 className="ImmersionBD__title">About Us</h1>
+            {/* ✅ Updated Heading */}
+            <h2 className="ImmersionBD__title">What is Immersion</h2>
 
             <div className="ImmersionBD__breadcrumb">
               <span className="ImmersionBD__home">🏠 Home</span>
@@ -38,9 +39,10 @@ const ImmersionBD = () => {
               <span className="ImmersionBD__current">What is Immersion</span>
             </div>
           </div>
+
+          {/* ✅ SEO CONTENT */}
           <p className="ImmersionBD__subtitle">
-            Best online education platforms offer flexible learning, quality
-            courses, and expert instructors.
+            Learn what immersion means at International Institute, where practical learning, real-world exposure, and hands-on experience empower students for future success.
           </p>
         </div>
 
@@ -50,7 +52,7 @@ const ImmersionBD = () => {
 
           <img
             src={studentsImg}
-            alt="Students learning together"
+            alt="International Institute immersive learning experience"
             className="ImmersionBD__image"
           />
         </div>
