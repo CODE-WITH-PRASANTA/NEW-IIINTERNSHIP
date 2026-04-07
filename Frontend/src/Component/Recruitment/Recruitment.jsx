@@ -50,31 +50,6 @@ const Recruitment = () => {
 
   return (
     <div className="recruit">
-
-      {/* HERO */}
-      <div className="recruit-contact-wrapper">
-        <div className="recruit-blob carrier-blob1"></div>
-        <div className="recruit-blob carrier-blob2"></div>
-
-        <div className="recruit-contact-container">
-
-          <div className="recruit-contact-left">
-            <h2>Career Opportunities</h2>
-            <p>
-              Explore exciting opportunities with us! Join a growing team that values creativity,
-              innovation, and technical excellence.
-            </p>
-          </div>
-
-          <div className="recruit-contact-right carrier-animate-float">
-            <img src={CarrierBackground} alt="career" />
-          </div>
-
-        </div>
-
-        <div className="recruit-curve"></div>
-      </div>
-
       {/* JOB CARDS */}
       {jobs.map((job) => (
         <div key={job._id} className="recruit-card">

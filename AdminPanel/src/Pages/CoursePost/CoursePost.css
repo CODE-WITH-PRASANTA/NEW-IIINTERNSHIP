@@ -9,7 +9,6 @@
 
 /* ===== CONTAINER ===== */
 .form-container {
-  max-width: 920px;
   margin: auto;
   padding: 18px;
   font-family: "Inter", sans-serif;
@@ -260,12 +259,5 @@
 @media (min-width: 601px) and (max-width: 1024px) {
   .form-container {
     padding: 20px;
-  }
-}
-
-/* LARGE SCREEN */
-@media (min-width: 1200px) {
-  .form-container {
-    max-width: 1000px;
   }
 }
