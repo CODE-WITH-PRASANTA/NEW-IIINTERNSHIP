@@ -1,80 +1,66 @@
 import React from "react";
 import "./CourseContent.css";
+import { ImageUrl } from "../../api/axios";
 
-import ins1 from "../../assets/c1.webp";
-import ins2 from "../../assets/c2.webp";
-import ins3 from "../../assets/c3.webp";
+const CourseContent = ({ course }) => {
+  if (!course) return null;
 
-const CourseContent = () => {
   return (
     <div className="course-content">
-
-      {/* ABOUT COURSE */}
+      {/* ===== ABOUT COURSE ===== */}
       <div className="course-box">
         <h2>About Course</h2>
 
-
-        <div className="course-features">
-          <ul>
-            <li>✔ Fundamentals of Data Science</li>
-            <li>✔ Data Analytics Techniques</li>
-            <li>✔ Programming for Data Science</li>
-            <li>✔ Data Visualization</li>
-          </ul>
-
-          <ul>
-            <li>✔ Machine Learning Basics</li>
-            <li>✔ Big Data and Cloud Computing</li>
-            <li>✔ Real-world Applications</li>
-            <li>✔ Capstone Project</li>
-          </ul>
-        </div>
-
-                {/* NEW HEADING (as you asked) */}
-        <h4 className="course-subtitle">
-          What You Will Learn
-        </h4>
-
+        {/* 🔥 Dynamic Description */}
         <p className="course-desc">
-          This course provides a comprehensive introduction to data science and analytics,
-          covering key concepts, techniques, and tools used in the industry. It is designed
-          for beginners and professionals looking to enhance their data-driven decision-making skills.
+          {course.description || "No description available"}
         </p>
+
+        {/* ===== FEATURES / MODULES ===== */}
+        {course.modules && (
+          <div className="course-features">
+            {course.modules.split("\n").map((item, index) => (
+              <ul key={index}>
+                <li>✔ {item}</li>
+              </ul>
+            ))}
+          </div>
+        )}
+
+        {/* ===== WHAT YOU WILL LEARN ===== */}
+        {course.modules && (
+          <>
+            <h4 className="course-subtitle">What You Will Learn</h4>
+            <p className="course-desc">{course.modules}</p>
+          </>
+        )}
       </div>
 
-      {/* INSTRUCTORS */}
+      {/* ===== INSTRUCTOR ===== */}
       <div className="course-box">
         <h2>Instructor</h2>
 
         <div className="instructor-grid">
-
+          {/* 🔥 Dynamic Instructor */}
           <div className="instructor-card">
-            <img src={ins1} alt="" />
+            <img
+              src={
+                course.profile
+                  ? ImageUrl(course.profile)
+                  : course.banner
+                    ? ImageUrl(course.banner)
+                    : "https://ui-avatars.com/api/?name=" + course.instructor
+              }
+              alt="Instructor"
+            />
+
             <div className="instructor-overlay">
-              <h3>David Martinez</h3>
-              <p>Marketing Mentor</p>
+              <h3>{course.instructor || "Unknown Instructor"}</h3>
+              <p>{course.designation || "Mentor"}</p>
             </div>
           </div>
-
-          <div className="instructor-card">
-            <img src={ins2} alt="" />
-            <div className="instructor-overlay">
-              <h3>Michael Thompson</h3>
-              <p>Data Scientist Mentor</p>
-            </div>
-          </div>
-
-          <div className="instructor-card">
-            <img src={ins3} alt="" />
-            <div className="instructor-overlay">
-              <h3>Alexander Johnson</h3>
-              <p>Coding Instructor</p>
-            </div>
-          </div>
-
         </div>
       </div>
-
     </div>
   );
 };

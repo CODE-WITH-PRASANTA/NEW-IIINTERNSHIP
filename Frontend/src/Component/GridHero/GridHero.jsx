@@ -3,7 +3,7 @@ import "./GridHero.css";
 import studentsImg from "../../assets/Breadcrum-iit.webp";
 import bgLines from "../../assets/bg-lines.png";
 
-const GridHero = () => {
+const GridHero = ({ search, setSearch, setActivePage }) => {
   const base = "gridHero";
 
   return (
@@ -35,7 +35,9 @@ const GridHero = () => {
 
           {/* ✅ SEO Friendly Line */}
           <p className={`${base}__subtitle`}>
-            Explore running internship programs at International Institute of Internship designed to provide real-world experience, practical skills, and career-ready training.
+            Explore running internship programs at International Institute of
+            Internship designed to provide real-world experience, practical
+            skills, and career-ready training.
           </p>
         </div>
 
@@ -56,11 +58,21 @@ const GridHero = () => {
               type="text"
               placeholder="Internship Name"
               className={`${base}__input`}
+              value={search.text}
+              onChange={(e) =>
+                setSearch((prev) => ({ ...prev, text: e.target.value }))
+              }
             />
           </div>
 
           <div className={`${base}__field ${base}__field--category`}>
-            <select className={`${base}__select`} defaultValue="Default">
+            <select
+              className={`${base}__select`}
+              value={search.category}
+              onChange={(e) =>
+                setSearch((prev) => ({ ...prev, category: e.target.value }))
+              }
+            >
               <option value="Default">Default</option>
               <option value="Web Development">Web Development</option>
               <option value="UI UX Design">UI UX Design</option>
@@ -69,7 +81,13 @@ const GridHero = () => {
             </select>
           </div>
 
-          <button className={`${base}__searchBtn`} type="button">
+          <button
+            className={`${base}__searchBtn`}
+            type="button"
+            onClick={() => {
+              setActivePage(1); // 🔥 reset pagination
+            }}
+          >
             <span className={`${base}__searchBtnText`}>Search</span>
             <span className={`${base}__searchIcon`} aria-hidden="true">
               <svg

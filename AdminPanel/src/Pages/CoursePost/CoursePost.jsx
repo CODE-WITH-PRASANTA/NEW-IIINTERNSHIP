@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import Accordion from "../../Components/Accordion/Accordion";
 import "./CoursePost.css";
 import { Editor } from "@tinymce/tinymce-react";
@@ -48,6 +50,10 @@ const Select = React.memo(({ label, name, value, onChange, options }) => (
 
 const CoursePost = () => {
   const [active, setActive] = useState(0);
+
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const isEdit = !!id;
 
   const toggle = (index) => {
     setActive(active === index ? null : index);
@@ -107,6 +113,31 @@ const CoursePost = () => {
     ownerLocation: "",
     profile: null,
   });
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isEdit) {
+      const fetchCourse = async () => {
+        try {
+          const res = await API.get(`/api/courses/${id}`);
+          const data = res.data.data || res.data;
+
+          setForm({
+            ...data,
+            banner: data.banner ? { url: data.banner } : null,
+
+            profile: data.profile
+              ? { url: data.profile } // 🔥 ADD THIS
+              : null,
+          });
+        } catch (err) {
+          console.error(err);
+        }
+      };
+
+      fetchCourse();
+    }
+  }, [id]);
 
   // ✅ FIXED HANDLE CHANGE
   const handleChange = (e) => {
@@ -120,59 +151,70 @@ const CoursePost = () => {
 
   const handleBannerChange = (e) => {
     const file = e.target.files[0];
+
     if (file) {
       setForm((prev) => ({
         ...prev,
         banner: {
           file,
-          preview: URL.createObjectURL(file),
+          preview: URL.createObjectURL(file), // 🔥 instant preview
         },
       }));
     }
   };
 
   const handleFileChange = (e) => {
-    setForm((prev) => ({
-      ...prev,
-      profile: e.target.files[0],
-    }));
-  };
+    const file = e.target.files[0];
 
+    if (file) {
+      setForm((prev) => ({
+        ...prev,
+        profile: {
+          file,
+          preview: URL.createObjectURL(file),
+        },
+      }));
+    }
+  };
   const handleSubmit = async () => {
     try {
+      setLoading(true);
+
       const formData = new FormData();
 
-      // 🔥 Append all fields
       for (let key in form) {
         if (key !== "banner" && key !== "profile") {
           formData.append(key, form[key]);
         }
       }
 
-      // ✅ Banner Image
       if (form.banner?.file) {
         formData.append("banner", form.banner.file);
       }
-
-      // ✅ Profile Image
-      if (form.profile) {
-        formData.append("profile", form.profile);
+      if (form.profile?.file) {
+        formData.append("profile", form.profile.file);
       }
 
-      // 🔥 API CALL
-      const res = await API.post("/api/courses", formData);
+      if (isEdit) {
+        await API.put(`/api/courses/${id}`, formData);
+        alert("Updated Successfully ✅");
+      } else {
+        await API.post("/api/courses", formData);
+        alert("Saved Successfully ✅");
+      }
 
-      console.log(res.data);
-      alert("Saved Successfully ✅");
+      navigate("/course/manage");
     } catch (err) {
       console.error(err);
       alert("Error ❌");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="form-container">
-      <h2>Post Internship / Course</h2>
+      <h2>{isEdit ? "Edit Course" : "Post Internship / Course"}</h2>
 
       <div className="ad-id">
         Advertisement ID: <strong>{form.adId}</strong>
@@ -194,11 +236,10 @@ const CoursePost = () => {
                 src={
                   form.banner?.preview
                     ? form.banner.preview
-                    : form.banner
-                      ? ImageUrl(form.banner)
+                    : form.banner?.url
+                      ? ImageUrl(form.banner.url) + "?t=" + new Date().getTime()
                       : "/no-image.png"
                 }
-                alt="banner"
               />
             </div>
           )}
@@ -510,10 +551,24 @@ const CoursePost = () => {
           <input type="file" onChange={handleFileChange} />
           <label>Upload Profile</label>
         </div>
+        {form.profile && (
+          <div className="image-preview">
+            <img
+              src={
+                form.profile?.preview
+                  ? form.profile.preview
+                  : form.profile?.url
+                    ? ImageUrl(form.profile.url) + "?t=" + new Date().getTime()
+                    : "/no-image.png"
+              }
+              alt="Profile"
+            />
+          </div>
+        )}
       </Accordion>
 
-      <button className="submit-btn" onClick={handleSubmit}>
-        SUBMIT
+      <button className="submit-btn" onClick={handleSubmit} disabled={loading}>
+        {loading ? "Processing..." : isEdit ? "UPDATE COURSE " : "ADD COURSE "}
       </button>
     </div>
   );
