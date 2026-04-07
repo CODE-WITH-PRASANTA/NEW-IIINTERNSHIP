@@ -106,12 +106,19 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="footer__bottom">
-          <p className="footer__copyright">
-            Copyright © 2026 Design & Developed by{" "}
-            <span className="footer__brand">LayoutDrop</span>
-          </p>
-        </div>
+     <div className="footer__bottom">
+        <p className="footer__copyright">
+          © 2026 DPKHRC Trust. Crafted with ❤️ by{" "}
+          <a
+            href="https://prwebstock.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__brand"
+          >
+            PR Webstock
+          </a>
+        </p>
+      </div>
       </div>
     </footer>
   );

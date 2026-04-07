@@ -28,15 +28,15 @@ const navItems = [
     title: "Internships Program",
     link: "/internship/program",
     dropdown: [
-      { name: "Running Internships", path: "/coursegrid" },
-      { name: "Virtual Internships", path: "/coursevideo" },
-      { name: "On Campus Internships", path: "/oncampus" },
+      { name: "Running Internships", path: "/running-internship" },
+      { name: "Virtual Internships", path: "/virtual-internship" },
+      { name: "On Campus Internships", path: "/on-campus" },
     
     ],
   },
   { title: "Gallery", link: "/gallery", dropdown: [] },
-  { title: "Success Story", link: "/story", dropdown: [] },
-  { title: "Recruitment", link: "/career", dropdown: [] },
+  { title: "Success Story", link: "/success-story", dropdown: [] },
+  { title: "Recruitment", link: "/recruitment", dropdown: [] },
   { title: "FAQ", link: "/faq", dropdown: [] },
   { title: "Contact", link: "/contact", dropdown: [] },
 ];

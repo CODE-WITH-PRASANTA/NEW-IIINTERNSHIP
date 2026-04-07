@@ -30,11 +30,12 @@ const GridHero = () => {
             </svg>
           </div>
 
-          <h1 className={`${base}__title`}>All Courses</h1>
+          {/* ✅ Updated Title */}
+          <h1 className={`${base}__title`}>Running Internship</h1>
 
+          {/* ✅ SEO Friendly Line */}
           <p className={`${base}__subtitle`}>
-            Best online education platforms offer flexible learning,
-            quality courses, and expert instructors.
+            Explore running internship programs at International Institute of Internship designed to provide real-world experience, practical skills, and career-ready training.
           </p>
         </div>
 
@@ -42,7 +43,7 @@ const GridHero = () => {
           <div className={`${base}__shape`}></div>
           <img
             src={studentsImg}
-            alt="Students learning together"
+            alt="Students learning together in internship programs"
             className={`${base}__image`}
           />
         </div>
@@ -53,7 +54,7 @@ const GridHero = () => {
           <div className={`${base}__field ${base}__field--course`}>
             <input
               type="text"
-              placeholder="Course Name"
+              placeholder="Internship Name"
               className={`${base}__input`}
             />
           </div>

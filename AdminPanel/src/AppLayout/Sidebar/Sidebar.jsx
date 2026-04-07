@@ -38,6 +38,8 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
       { name: "Create Course", path: "/course/post", icon: <FaClipboardList /> },
       { name: "Manage Courses", path: "/course/manage", icon: <FaClipboardList /> },
       { name: "Course Preview", path: "/course/preview", icon: <FaClipboardList /> },
+      { name: "Virtual Internship", path: "/course/virtual", icon: <FaClipboardList /> },
+      { name: "Manage Virtual Internship", path: "/course/manage/virtual", icon: <FaClipboardList /> },
     ],
   },
 
