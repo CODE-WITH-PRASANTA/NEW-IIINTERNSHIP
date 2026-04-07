@@ -6,7 +6,7 @@ const createCourse = async (req, res) => {
   try {
     const data = { ...req.body };
 
-    // ✅ FILE PATHS FROM MULTER
+    // ✅ SAVE FILE PATH (CONSISTENT)
     if (req.files?.banner) {
       data.banner = req.files.banner[0].path;
     }
@@ -60,6 +60,54 @@ const getCourse = async (req, res) => {
   }
 };
 
+/* ================= UPDATE ================= */
+const updateCourse = async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+
+    if (!course) {
+      return res.status(404).json({ message: "Course not found" });
+    }
+
+    const updateData = { ...req.body };
+
+    // ✅ UPDATE BANNER
+    if (req.files?.banner) {
+      // 🔥 delete old image
+      if (course.banner) {
+        deleteImageFile(course.banner);
+      }
+
+      // 🔥 save new path (same as create)
+      updateData.banner = req.files.banner[0].path;
+    }
+
+    // ✅ UPDATE PROFILE
+    if (req.files?.profile) {
+      if (course.profile) {
+        deleteImageFile(course.profile);
+      }
+
+      updateData.profile = req.files.profile[0].path;
+    }
+
+    const updated = await Course.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      { new: true }
+    );
+
+    res.json({
+      success: true,
+      message: "Course updated successfully",
+      data: updated,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+};
+
 /* ================= DELETE ================= */
 const deleteCourse = async (req, res) => {
   try {
@@ -70,8 +118,8 @@ const deleteCourse = async (req, res) => {
     }
 
     // ✅ DELETE FILES
-    deleteImageFile(course.banner);
-    deleteImageFile(course.profile);
+    if (course.banner) deleteImageFile(course.banner);
+    if (course.profile) deleteImageFile(course.profile);
 
     await course.deleteOne();
 
@@ -89,4 +137,5 @@ module.exports = {
   getCourses,
   getCourse,
   deleteCourse,
+  updateCourse,
 };

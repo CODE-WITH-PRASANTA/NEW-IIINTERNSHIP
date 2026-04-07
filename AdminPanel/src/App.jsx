@@ -7,6 +7,8 @@ import MediaPosting from "./Pages/MediaPosting/MediaPosting";
 import CoursePost from "./Pages/CoursePost/CoursePost"
 import AddMentor from "./Pages/AddMentor/AddMentor";
 import Testimonial from "./Pages/Testimonial/Testimonial";
+import CourseManage from "./Pages/CourseManage/CourseManage";
+import CoursePreview from "./Pages/CoursePreview/CoursePreview";
 
 
 const App = () => {
@@ -16,7 +18,11 @@ const App = () => {
         <Route element={<AdminLayout />}>
         <Route path="/" element={<Dashboard/>}/>
         <Route path="/media/course-materials" element={<MediaPosting/>}/>
-        <Route path="/Course/post" element={<CoursePost/>}/>
+       <Route path="/course/post" element={<CoursePost />} />
+       <Route path="/course/post/:id" element={<CoursePost />} />
+        <Route path="/course/manage" element={<CourseManage/>}/>
+        <Route path="/course/preview" element={<CoursePreview/>}/>
+
         <Route path="/mentor/add" element={<AddMentor/>}/>
         <Route path="/testimonial/add" element={<Testimonial/>}/>
           
