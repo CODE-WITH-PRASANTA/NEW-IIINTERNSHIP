@@ -43,7 +43,7 @@ const ContactBanner = () => {
         <div className="contact-item">
           <p>Get In Touch:</p>
           <h3>
-            <a href="mailto:info@edublink">info@edublink</a>
+            <a href="mailto:Into@IIInternshiplink">Into@IIInternship.com</a>
           </h3>
         </div>
 
@@ -52,7 +52,7 @@ const ContactBanner = () => {
         <div className="contact-item">
           <p>Call Us Via:</p>
           <h3>
-            <a href="tel:+011235641231">+01 123 5641 231</a>
+            <a href="tel:+011235641231">9472351693</a>
           </h3>
         </div>
       </div>

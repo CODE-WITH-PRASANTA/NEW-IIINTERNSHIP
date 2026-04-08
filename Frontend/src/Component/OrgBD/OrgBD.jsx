@@ -11,36 +11,28 @@ const OrgBD = () => {
       <div className="OrgBD__inner">
         {/* LEFT CONTENT */}
         <div className="OrgBD__content">
+          <div className="OrgBD__tag">✨ Our Story</div>
+
           <div className="OrgBD__sparkles" aria-hidden="true">
-            <svg
-              className="OrgBD__spark OrgBD__spark--big"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-            </svg>
-
-            <svg
-              className="OrgBD__spark OrgBD__spark--small"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-            </svg>
+            <span className="spark"></span>
+            <span className="spark small"></span>
           </div>
 
-          <div className="OrgBD__header">
-            <h1 className="OrgBD__title">About Us</h1>
+          <h1 className="OrgBD__title">
+            Crafting Future <br />
+            <span>Through Education</span>
+          </h1>
 
-            <div className="OrgBD__breadcrumb">
-              <span className="OrgBD__home">🏠 Home</span>
-              <span className="OrgBD__divider">›</span>
-              <span className="OrgBD__current">Organization History</span>
-            </div>
+          <div className="OrgBD__breadcrumb">
+            <span className="OrgBD__home">🏠 Home</span>
+            <span className="OrgBD__divider">/</span>
+            <span className="OrgBD__current">About Us</span>
           </div>
+
           <p className="OrgBD__subtitle">
-            Best online education platforms offer flexible learning, quality
-            courses, and expert instructors.
+            We create a powerful learning ecosystem where innovation meets
+            education. Our platform delivers premium courses, flexible learning,
+            and expert mentorship to empower your journey.
           </p>
         </div>
 
@@ -56,13 +48,8 @@ const OrgBD = () => {
         </div>
       </div>
 
-      {/* BOTTOM CURVE */}
-      <div className="OrgBD__curve" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 180"
-          preserveAspectRatio="none"
-          className="OrgBD__curve-svg"
-        >
+      <div className="OrgBD__curve">
+        <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
           <path
             d="M0,125 C260,145 520,78 790,92 C1020,104 1225,70 1440,62 L1440,180 L0,180 Z"
             fill="#f4efea"

@@ -11,36 +11,34 @@ const VMBreadcrum = () => {
       <div className="VMBreadcrum__inner">
         {/* LEFT CONTENT */}
         <div className="VMBreadcrum__content">
+
+          {/* TAG */}
+          <div className="VMBreadcrum__tag">✨ Vision & Mission</div>
+
+          {/* SPARKLES */}
           <div className="VMBreadcrum__sparkles" aria-hidden="true">
-            <svg
-              className="VMBreadcrum__spark VMBreadcrum__spark--big"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-            </svg>
-
-            <svg
-              className="VMBreadcrum__spark VMBreadcrum__spark--small"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-            </svg>
+            <span className="spark"></span>
+            <span className="spark small"></span>
           </div>
 
-          <div className="VMBreadcrum__header">
-            <h1 className="VMBreadcrum__title">About Us</h1>
+          {/* TITLE */}
+          <h1 className="VMBreadcrum__title">
+            Building Purpose <br />
+            <span>With Clear Vision</span>
+          </h1>
 
-            <div className="VMBreadcrum__breadcrumb">
-              <span className="VMBreadcrum__home">🏠 Home</span>
-              <span className="VMBreadcrum__divider">›</span>
-              <span className="VMBreadcrum__current">Vision & Mission</span>
-            </div>
+          {/* BREADCRUMB */}
+          <div className="VMBreadcrum__breadcrumb">
+            <span className="VMBreadcrum__home">🏠 Home</span>
+            <span className="VMBreadcrum__divider">/</span>
+            <span className="VMBreadcrum__current">Vision & Mission</span>
           </div>
+
+          {/* SUBTITLE */}
           <p className="VMBreadcrum__subtitle">
-            Best online education platforms offer flexible learning, quality
-            courses, and expert instructors.
+            Our mission is to empower learners through innovation, quality
+            education, and future-ready skills while shaping a vision that drives
+            excellence and growth.
           </p>
         </div>
 
@@ -56,13 +54,9 @@ const VMBreadcrum = () => {
         </div>
       </div>
 
-      {/* BOTTOM CURVE */}
-      <div className="VMBreadcrum__curve" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 180"
-          preserveAspectRatio="none"
-          className="VMBreadcrum__curve-svg"
-        >
+      {/* CURVE */}
+      <div className="VMBreadcrum__curve">
+        <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
           <path
             d="M0,125 C260,145 520,78 790,92 C1020,104 1225,70 1440,62 L1440,180 L0,180 Z"
             fill="#f4efea"

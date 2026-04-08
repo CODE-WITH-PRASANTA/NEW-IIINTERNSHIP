@@ -216,3 +216,158 @@
   color: #555;
   font-weight: 500;
 }
+
+/* =========================
+   📱 SMALL MOBILE (0–480px)
+========================= */
+@media (max-width: 480px) {
+  .abouttestmonials {
+    padding: 50px 15px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+  }
+
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .video-img {
+    max-width: 100%;
+  }
+
+  .play-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 18px;
+  }
+
+  .testimonial-slide{
+    padding: 20px;
+  }
+}
+
+
+/* =========================
+   📱 MOBILE (481px–767px)
+========================= */
+@media (min-width: 481px) and (max-width: 767px) {
+  .abouttestmonials-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .testimonial-slide {
+    padding: 20px;
+  }
+
+  .profile-img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .video-img {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================
+   📲 TABLET (768px–991px)
+========================= */
+@media (min-width: 768px) and (max-width: 991px) {
+  .abouttestmonials-container {
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .abouttestmonials-left,
+  .abouttestmonials-right {
+    flex: 1 1 100%;
+  }
+
+  .video-img {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================
+   💻 SMALL LAPTOP (992px–1199px)
+========================= */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .abouttestmonials-container {
+    gap: 30px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .abouttestmonials-left {
+    flex: 1 1 480px;
+  }
+
+  .abouttestmonials-right {
+    flex: 1 1 420px;
+  }
+
+  .video-img {
+    max-width: 420px;
+  }
+}
+
+
+/* =========================
+   🖥️ DESKTOP (1200px–1599px)
+========================= */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .section-title {
+    font-size: 34px;
+  }
+
+  .abouttestmonials-container {
+    max-width: 1200px;
+  }
+}
+
+
+/* =========================
+   🖥️ LARGE DESKTOP (1600px+)
+========================= */
+@media (min-width: 1600px) {
+  .abouttestmonials-container {
+    max-width: 1400px;
+  }
+
+  .section-title {
+    font-size: 38px;
+  }
+
+  .testimonial-text {
+    font-size: 18px;
+  }
+
+  .video-img {
+    max-width: 550px;
+  }
+}

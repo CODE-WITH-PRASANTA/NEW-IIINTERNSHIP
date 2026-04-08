@@ -12,36 +12,31 @@ const ImmersionBD = () => {
         {/* LEFT CONTENT */}
         <div className="ImmersionBD__content">
           <div className="ImmersionBD__sparkles" aria-hidden="true">
-            <svg
-              className="ImmersionBD__spark ImmersionBD__spark--big"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-            </svg>
-
-            <svg
-              className="ImmersionBD__spark ImmersionBD__spark--small"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-            </svg>
+            <span className="ImmersionBD__spark ImmersionBD__spark--big"></span>
+            <span className="ImmersionBD__spark ImmersionBD__spark--small"></span>
           </div>
 
           <div className="ImmersionBD__header">
-            <h1 className="ImmersionBD__title">About Us</h1>
+            <h1 className="ImmersionBD__title">
+              What is <span>Immersion</span>
+            </h1>
 
             <div className="ImmersionBD__breadcrumb">
               <span className="ImmersionBD__home">🏠 Home</span>
               <span className="ImmersionBD__divider">›</span>
-              <span className="ImmersionBD__current">What is Immersion</span>
+              <span className="ImmersionBD__current">Immersion</span>
             </div>
           </div>
+
           <p className="ImmersionBD__subtitle">
-            Best online education platforms offer flexible learning, quality
-            courses, and expert instructors.
+            Experience a next-generation learning journey where knowledge meets
+            innovation. Our immersive approach blends technology, creativity,
+            and real-world exposure to build confident, future-ready learners.
           </p>
+
+          <button className="ImmersionBD__btn">
+            Explore More →
+          </button>
         </div>
 
         {/* RIGHT IMAGE */}
@@ -56,16 +51,12 @@ const ImmersionBD = () => {
         </div>
       </div>
 
-      {/* BOTTOM CURVE */}
-      <div className="ImmersionBD__curve" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 180"
-          preserveAspectRatio="none"
-          className="ImmersionBD__curve-svg"
-        >
+      {/* CURVE */}
+      <div className="ImmersionBD__curve">
+        <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
           <path
             d="M0,125 C260,145 520,78 790,92 C1020,104 1225,70 1440,62 L1440,180 L0,180 Z"
-            fill="#f4efea"
+            fill="#f8f5f0"
           />
         </svg>
       </div>
