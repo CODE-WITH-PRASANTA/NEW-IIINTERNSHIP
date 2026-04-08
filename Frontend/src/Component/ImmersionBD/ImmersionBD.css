@@ -56,8 +56,43 @@
   margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
 .ImmersionBD__title span {
   background: linear-gradient(90deg, #ffd700, #fff5cc);
+=======
+.ImmersionBD__spark {
+  position: absolute;
+}
+
+.ImmersionBD__spark--big {
+  width: 28px;
+  height: 28px;
+  left: 0;
+  top: 14px;
+  color: #f6d508;
+}
+
+.ImmersionBD__spark--small {
+  width: 16px;
+  height: 16px;
+  left: 44px;
+  top: 1px;
+  color: rgba(191, 209, 84, 0.78);
+}
+
+/* HEADER WRAPPER */
+.ImmersionBD__header {
+  margin-bottom: 20px;
+}
+
+/* TITLE (Gradient Like Screenshot) */
+.ImmersionBD__title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.1;
+
+  background: white;
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

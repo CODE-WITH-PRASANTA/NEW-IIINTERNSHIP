@@ -17,9 +17,14 @@ const ImmersionBD = () => {
           </div>
 
           <div className="ImmersionBD__header">
+<<<<<<< HEAD
             <h1 className="ImmersionBD__title">
               What is <span>Immersion</span>
             </h1>
+=======
+            {/* ✅ Updated Heading */}
+            <h2 className="ImmersionBD__title">What is Immersion</h2>
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
 
             <div className="ImmersionBD__breadcrumb">
               <span className="ImmersionBD__home">🏠 Home</span>
@@ -28,10 +33,16 @@ const ImmersionBD = () => {
             </div>
           </div>
 
+<<<<<<< HEAD
           <p className="ImmersionBD__subtitle">
             Experience a next-generation learning journey where knowledge meets
             innovation. Our immersive approach blends technology, creativity,
             and real-world exposure to build confident, future-ready learners.
+=======
+          {/* ✅ SEO CONTENT */}
+          <p className="ImmersionBD__subtitle">
+            Learn what immersion means at International Institute, where practical learning, real-world exposure, and hands-on experience empower students for future success.
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
           </p>
 
           <button className="ImmersionBD__btn">
@@ -45,7 +56,7 @@ const ImmersionBD = () => {
 
           <img
             src={studentsImg}
-            alt="Students learning together"
+            alt="International Institute immersive learning experience"
             className="ImmersionBD__image"
           />
         </div>

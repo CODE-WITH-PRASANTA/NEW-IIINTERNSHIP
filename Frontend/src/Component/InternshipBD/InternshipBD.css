@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* IMPORT FONTS (ADD IN INDEX.HTML) */
 /* Poppins + Playfair Display */
 
@@ -11,16 +12,37 @@
 }
 
 /* BACKGROUND GLOW */
+=======
+/* ================= LIST HERO ================= */
+.InternshipBD {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1f8b5d 0%, #228d60 45%, #1d8458 100%);
+  min-height: 475px;
+  padding: 36px 0 120px;
+  isolation: isolate;
+}
+
+/* BACKGROUND EFFECT */
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
 .InternshipBD::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
+<<<<<<< HEAD
     radial-gradient(circle at 20% 25%, rgba(255,255,255,0.05), transparent 40%),
     radial-gradient(circle at 80% 10%, rgba(255,255,255,0.05), transparent 35%);
 }
 
 /* BG LINES */
+=======
+    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.05), transparent 34%),
+    radial-gradient(circle at 81% 12%, rgba(255, 255, 255, 0.05), transparent 30%);
+  z-index: -3;
+}
+
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
 .InternshipBD__bg-lines {
   position: absolute;
   inset: 0;
@@ -28,20 +50,40 @@
   height: 100%;
   opacity: 0.08;
   object-fit: cover;
+<<<<<<< HEAD
 }
 
 /* CONTAINER */
 .InternshipBD__inner {
   width: min(1300px, calc(100% - 40px));
   margin: auto;
+=======
+  opacity: 0.14;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* INNER */
+.InternshipBD__inner {
+  width: min(1300px, calc(100% - 56px));
+  margin: 0 auto;
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
   align-items: center;
+<<<<<<< HEAD
   gap: 50px;
+=======
+  gap: 32px;
+  min-height: 360px;
+  position: relative;
+  z-index: 2;
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
 }
 
 /* CONTENT */
 .InternshipBD__content {
+<<<<<<< HEAD
   color: #fff;
   max-width: 600px;
 }
@@ -58,10 +100,60 @@
   background: linear-gradient(90deg, #ffd700, #fff3b0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+=======
+  max-width: 560px;
+  position: relative;
+  z-index: 3;
+}
+
+/* SPARKLES */
+.InternshipBD__sparkles {
+  position: relative;
+  width: 82px;
+  height: 52px;
+  margin-bottom: 14px;
+}
+
+.InternshipBD__spark {
+  position: absolute;
+}
+
+.InternshipBD__spark--big {
+  width: 28px;
+  height: 28px;
+  left: 0;
+  top: 14px;
+  color: #f6d508;
+}
+
+.InternshipBD__spark--small {
+  width: 16px;
+  height: 16px;
+  left: 44px;
+  top: 1px;
+  color: rgba(191, 209, 84, 0.9);
+}
+
+/* HEADER */
+.InternshipBD__header {
+  margin-bottom: 20px;
+}
+
+/* TITLE */
+.InternshipBD__title {
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
 }
 
 /* BREADCRUMB */
 .InternshipBD__breadcrumb {
+<<<<<<< HEAD
   margin: 12px 0 18px;
   display: flex;
   gap: 8px;
@@ -95,12 +187,52 @@
 }
 
 /* VISUAL */
+=======
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.InternshipBD__home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.InternshipBD__divider {
+  opacity: 0.75;
+}
+
+.InternshipBD__current {
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+/* SUBTITLE */
+.InternshipBD__subtitle {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 500px;
+}
+
+/* IMAGE */
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
 .InternshipBD__visual {
   position: relative;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  min-height: 360px;
 }
 
+<<<<<<< HEAD
 /* SHAPE */
 .InternshipBD__shape {
   position: absolute;
@@ -122,24 +254,69 @@
   position: relative;
   z-index: 2;
   box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+=======
+.InternshipBD__shape {
+  position: absolute;
+  top: 36px;
+  right: 70px;
+  width: clamp(250px, 28vw, 360px);
+  height: clamp(170px, 20vw, 235px);
+  background: #f2d507;
+  border-radius: 24px;
+  transform: rotate(11deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
+  z-index: 1;
+}
+
+.InternshipBD__image {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  display: block;
+  z-index: 2;
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
 }
 
 /* CURVE */
 .InternshipBD__curve {
   position: absolute;
+<<<<<<< HEAD
   bottom: -5px;
+=======
+  left: 0;
+  bottom: -2px;
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
   width: 100%;
+  line-height: 0;
 }
 
+<<<<<<< HEAD
 /* ================= RESPONSIVE ================= */
 
 /* TABLET */
 @media (max-width: 992px) {
+=======
+.InternshipBD__curve-svg {
+  width: 100%;
+  height: 230px;
+  display: block;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 991px) {
+  .InternshipBD {
+    padding: 34px 0 90px;
+  }
+
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
   .InternshipBD__inner {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 18px;
   }
 
+<<<<<<< HEAD
   .InternshipBD__visual {
     justify-content: center;
   }
@@ -148,11 +325,38 @@
     right: auto;
     left: 50%;
     transform: translateX(-50%) rotate(12deg);
+=======
+  .InternshipBD__content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .InternshipBD__sparkles {
+    margin: 0 auto 14px;
+  }
+
+  .InternshipBD__breadcrumb {
+    justify-content: center;
+  }
+
+  .InternshipBD__visual {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .InternshipBD__shape {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) rotate(10deg);
+    width: min(320px, 70vw);
+    height: min(210px, 45vw);
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
   }
 }
 
 /* MOBILE */
 @media (max-width: 600px) {
+<<<<<<< HEAD
   .InternshipBD {
     padding: 50px 0 100px;
   }
@@ -167,6 +371,27 @@
 
   .InternshipBD__btn {
     padding: 10px 22px;
+=======
+  .InternshipBD__title {
+    font-size: 2.3rem;
+  }
+
+  .InternshipBD__subtitle {
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
     font-size: 0.9rem;
+  }
+
+  .InternshipBD__curve-svg {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .InternshipBD__title {
+    font-size: 2rem;
+  }
+
+  .InternshipBD__breadcrumb {
+    font-size: 0.85rem;
   }
 }

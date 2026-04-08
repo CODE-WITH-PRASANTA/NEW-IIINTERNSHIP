@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import "./GridPrice.css";
 
-const GridPrice = () => {
+const GridPrice = ({ filters, setFilters }) => {
   const base = "gridPrice";
-
-  const [filters, setFilters] = useState({
-    price: [],
-    language: [],
-    format: [],
-  });
 
   const filterGroups = [
     {
@@ -50,11 +44,20 @@ const GridPrice = () => {
   return (
     <aside className={base}>
       <div className={`${base}__card`}>
+        <button
+          className="clear-btn"
+          onClick={() =>
+            setFilters({
+              price: [],
+              language: [],
+              format: [],
+            })
+          }
+        >
+          Clear Filters
+        </button>
         {filterGroups.map((group, index) => (
-          <div
-            className={`${base}__group`}
-            key={group.key}
-          >
+          <div className={`${base}__group`} key={group.key}>
             <div className={`${base}__groupHead`}>
               <h3 className={`${base}__title`}>{group.title}</h3>
             </div>

@@ -32,10 +32,18 @@ const GalleryBD = () => {
           {/* TITLE */}
           <h1 className="GalleryBD__title">Gallery</h1>
 
+          {/* ✅ SEO Breadcrumb Line */}
+          <div className="GalleryBD__breadcrumb">
+            <span className="GalleryBD__home">🏠 Home</span>
+            <span className="GalleryBD__divider">›</span>
+            <span className="GalleryBD__current">
+              Gallery
+            </span>
+          </div>
+
           {/* SUBTITLE */}
           <p className="GalleryBD__subtitle">
-            Best online education platforms offer flexible learning, quality
-            courses, and expert instructors.
+            Explore real moments from International Institute of Internship showcasing hands-on training, student activities, and practical learning experiences.
           </p>
         </div>
 
@@ -45,7 +53,7 @@ const GalleryBD = () => {
 
           <img
             src={studentsImg}
-            alt="Students learning together"
+            alt="International Institute internship students learning and training gallery"
             className="GalleryBD__image"
           />
         </div>

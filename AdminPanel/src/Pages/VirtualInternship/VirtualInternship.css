@@ -1,0 +1,285 @@
+/* ROOT */
+.vi {
+  padding: 30px;
+  background: #f4f6fb;
+  min-height: 100vh;
+}
+
+/* TITLE */
+.vi__title {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+/* BANNER */
+.vi__banner {
+  background: linear-gradient(90deg, #4a00e0, #8e2de2);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* ACCORDION */
+.vi__accordion {
+  margin-bottom: 12px;
+}
+
+.vi__accordionHeader {
+  background: #e6e8ee;
+  padding: 15px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vi__accordionHeader:hover {
+  background: #d9dbe3;
+}
+
+/* CONTENT */
+.vi__accordionContent {
+  margin-top: 10px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* FULL WIDTH ELEMENT */
+.vi__full {
+  grid-column: span 2;
+}
+
+/* INPUTS */
+.vi__input,
+.vi__textarea,
+.vi__select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+  transition: 0.2s;
+}
+
+.vi__input:focus,
+.vi__textarea:focus,
+.vi__select:focus {
+  border-color: #6c3bff;
+  box-shadow: 0 0 0 2px rgba(108, 59, 255, 0.1);
+}
+
+.vi__textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* LABEL */
+.vi__label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* MULTI INPUT */
+.vi__multiInput {
+  display: flex;
+  gap: 10px;
+  grid-column: span 2;
+}
+
+/* ADD BUTTON */
+.vi__addBtn {
+  width: fit-content;
+  padding: 8px 14px;
+  border: none;
+  background: #4a00e0;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.vi__addBtn:hover {
+  background: #3700b3;
+}
+
+/* MULTI SELECT */
+.vi__multiSelect {
+  height: 100px;
+}
+
+/* SUBMIT */
+.vi__submitBtn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 16px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #4a00e0, #8e2de2);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.vi__submitBtn:hover {
+  opacity: 0.9;
+}
+
+/* ========================= */
+/* 📱 TABLET RESPONSIVE */
+/* ========================= */
+@media (max-width: 992px) {
+  .vi {
+    padding: 20px;
+  }
+
+  .vi__accordionContent {
+    grid-template-columns: 1fr;
+  }
+
+  .vi__full {
+    grid-column: span 1;
+  }
+}
+
+/* ========================= */
+/* 📱 MOBILE RESPONSIVE */
+/* ========================= */
+@media (max-width: 576px) {
+  .vi {
+    padding: 15px;
+  }
+
+  .vi__title {
+    font-size: 18px;
+  }
+
+  .vi__banner {
+    font-size: 13px;
+    padding: 12px;
+  }
+
+  .vi__accordionHeader {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+
+  .vi__accordionContent {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .vi__input,
+  .vi__textarea,
+  .vi__select {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .vi__submitBtn {
+    padding: 14px;
+    font-size: 14px;
+  }
+}
+
+/* FIELD */
+.vi__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* FULL WIDTH */
+.vi__full {
+  grid-column: span 2;
+}
+
+/* EDITOR WRAPPER */
+.vi__editorWrapper {
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* REMOVE DEFAULT TINYMCE BORDER */
+.tox-tinymce {
+  border: none !important;
+  border-radius: 14px !important;
+}
+
+/* TOOLBAR STYLE */
+.tox .tox-toolbar,
+.tox .tox-toolbar__primary {
+  background: #f5f6fa !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+/* EDITOR BODY */
+.tox .tox-edit-area__iframe {
+  background: #ffffff !important;
+}
+
+/* STATUS BAR */
+.tox .tox-statusbar {
+  border-top: 1px solid #eee !important;
+}
+
+/* INPUT PREMIUM LOOK */
+.vi__input,
+.vi__select {
+  background: #fafbff;
+}
+/* CHECKBOX GROUP */
+.vi__checkboxGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafbff;
+}
+
+/* EACH ITEM */
+.vi__checkboxItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* CHECKBOX */
+.vi__checkboxItem input {
+  accent-color: #4a00e0;
+  cursor: pointer;
+}
+
+/* TAGS */
+.vi__selectedList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.vi__tag {
+  background: #e0d4ff;
+  color: #4a00e0;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}

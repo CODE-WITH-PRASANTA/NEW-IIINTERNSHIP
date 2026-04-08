@@ -18,10 +18,16 @@ const OrgBD = () => {
             <span className="spark small"></span>
           </div>
 
+<<<<<<< HEAD
           <h1 className="OrgBD__title">
             Crafting Future <br />
             <span>Through Education</span>
           </h1>
+=======
+          <div className="OrgBD__header">
+            {/* ✅ Updated Heading */}
+            <h1 className="OrgBD__title">Organization History</h1>
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
 
           <div className="OrgBD__breadcrumb">
             <span className="OrgBD__home">🏠 Home</span>
@@ -29,10 +35,20 @@ const OrgBD = () => {
             <span className="OrgBD__current">About Us</span>
           </div>
 
+<<<<<<< HEAD
           <p className="OrgBD__subtitle">
             We create a powerful learning ecosystem where innovation meets
             education. Our platform delivers premium courses, flexible learning,
             and expert mentorship to empower your journey.
+=======
+          {/* ✅ SEO CONTENT */}
+        
+
+          <p className="OrgBD__subtitle">
+            The International Institute has built a strong reputation through
+            its commitment to excellence, advanced training programs, and
+            student-focused growth over the years.
+>>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
           </p>
         </div>
 
@@ -42,7 +58,7 @@ const OrgBD = () => {
 
           <img
             src={studentsImg}
-            alt="Students learning together"
+            alt="International Institute students learning and growing together"
             className="OrgBD__image"
           />
         </div>
