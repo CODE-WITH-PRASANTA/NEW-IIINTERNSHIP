@@ -44,6 +44,10 @@ const InternshipBD = () => {
           <p className="InternshipBD__subtitle">
             Understand what an internship is at International Institute, where students gain real-world experience, industry exposure, and practical skills for career success.
           </p>
+
+          <button className="InternshipBD__btn">
+            Start Your Journey →
+          </button>
         </div>
 
         {/* RIGHT IMAGE */}
@@ -67,7 +71,7 @@ const InternshipBD = () => {
         >
           <path
             d="M0,125 C260,145 520,78 790,92 C1020,104 1225,70 1440,62 L1440,180 L0,180 Z"
-            fill="#f4efea"
+            fill="#f8f5f0"
           />
         </svg>
       </div>

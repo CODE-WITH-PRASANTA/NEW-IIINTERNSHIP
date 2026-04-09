@@ -11,22 +11,11 @@ const OrgBD = () => {
       <div className="OrgBD__inner">
         {/* LEFT CONTENT */}
         <div className="OrgBD__content">
-          <div className="OrgBD__sparkles" aria-hidden="true">
-            <svg
-              className="OrgBD__spark OrgBD__spark--big"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-            </svg>
+          <div className="OrgBD__tag">✨ Our Story</div>
 
-            <svg
-              className="OrgBD__spark OrgBD__spark--small"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-            </svg>
+          <div className="OrgBD__sparkles" aria-hidden="true">
+            <span className="spark"></span>
+            <span className="spark small"></span>
           </div>
 
           <div className="OrgBD__header">
@@ -35,20 +24,19 @@ const OrgBD = () => {
 
             <div className="OrgBD__breadcrumb">
               <span className="OrgBD__home">🏠 Home</span>
-              <span className="OrgBD__divider">›</span>
-              <span className="OrgBD__current">Organization History</span>
+              <span className="OrgBD__divider">/</span>
+              <span className="OrgBD__current">About Us</span>
             </div>
-          </div>
 
-          {/* ✅ SEO CONTENT */}
-        
+            {/* ✅ SEO CONTENT */}
+            <p className="OrgBD__subtitle">
+              The International Institute has built a strong reputation through
+              its commitment to excellence, advanced training programs, and
+              student-focused growth over the years.
+            </p>
+          </div> {/* ✅ FIX: CLOSED HEADER */}
 
-          <p className="OrgBD__subtitle">
-            The International Institute has built a strong reputation through
-            its commitment to excellence, advanced training programs, and
-            student-focused growth over the years.
-          </p>
-        </div>
+        </div> {/* ✅ CLOSE CONTENT */}
 
         {/* RIGHT IMAGE */}
         <div className="OrgBD__visual">
@@ -62,13 +50,8 @@ const OrgBD = () => {
         </div>
       </div>
 
-      {/* BOTTOM CURVE */}
-      <div className="OrgBD__curve" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 180"
-          preserveAspectRatio="none"
-          className="OrgBD__curve-svg"
-        >
+      <div className="OrgBD__curve">
+        <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
           <path
             d="M0,125 C260,145 520,78 790,92 C1020,104 1225,70 1440,62 L1440,180 L0,180 Z"
             fill="#f4efea"

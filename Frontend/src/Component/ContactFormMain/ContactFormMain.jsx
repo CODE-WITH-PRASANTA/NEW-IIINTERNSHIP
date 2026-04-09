@@ -1,6 +1,6 @@
 import React from "react";
 import "./ContactFormMain.css";
-import pattern from "../../assets/bg-lines.png"; // import image
+import pattern from "../../assets/bg-lines.png";
 
 import {
   FiPhoneCall,
@@ -13,8 +13,8 @@ import {
 const ContactFormMain = () => {
   return (
     <section className="contactFormMain">
-      
-      {/* TOP SECTION */}
+
+      {/* TOP */}
       <div
         className="contactFormMain__breadcrumb"
         style={{ backgroundImage: `url(${pattern})` }}
@@ -30,11 +30,13 @@ const ContactFormMain = () => {
                 <span>✦</span>
               </div>
 
-              <h2 className="contactFormMain__title">Contact Us</h2>
+              <h2 className="contactFormMain__title">
+                Connect With <span>IIInternship</span>
+              </h2>
 
               <p className="contactFormMain__subtitle">
-                Best online education platforms offer flexible learning,
-                quality courses, and expert instructors.
+                Start your journey with IIInternship — explore internships,
+                build real-world skills, and connect with industry experts.
               </p>
             </div>
 
@@ -44,45 +46,37 @@ const ContactFormMain = () => {
         <div className="contactFormMain__curve"></div>
       </div>
 
-      {/* BODY SAME AS BEFORE */}
+      {/* BODY */}
       <div className="contactFormMain__body">
         <div className="contactFormMain__container">
           <div className="contactFormMain__content">
 
-            {/* LEFT CARDS */}
+            {/* LEFT */}
             <div className="contactFormMain__infoSection">
               <div className="contactFormMain__infoGrid">
 
                 <div className="contactFormMain__infoCard">
-                  <h3>Call us</h3>
-                  <p>Call our team Mon-Fri 9am to 7pm</p>
-                  <div>
-                    <FiPhoneCall /> +(985) 000-0000
-                  </div>
+                  <h3>Call Us</h3>
+                  <p>Speak with our internship advisors</p>
+                  <div><FiPhoneCall /> +91 9472351693</div>
                 </div>
 
                 <div className="contactFormMain__infoCard">
-                  <h3>Chat Us</h3>
-                  <p>Chat our team 24X7</p>
-                  <div>
-                    <FiMessageSquare /> +(985) 000-0000
-                  </div>
+                  <h3>Live Chat</h3>
+                  <p>Instant help from our support team</p>
+                  <div><FiMessageSquare /> Chat Available 24/7</div>
                 </div>
 
                 <div className="contactFormMain__infoCard">
-                  <h3>Supports</h3>
-                  <p>We’re here to help</p>
-                  <div>
-                    <FiMail /> info@example.com
-                  </div>
+                  <h3>Email Us</h3>
+                  <p>Send us your queries anytime</p>
+                  <div><FiMail /> supportInto@IIInternship.com</div>
                 </div>
 
                 <div className="contactFormMain__infoCard">
-                  <h3>Visit us</h3>
-                  <p>Visit our office HQ.</p>
-                  <div>
-                    <FiMapPin /> 1234 Elm Street, ZZ 12345
-                  </div>
+                  <h3>Visit Office</h3>
+                  <p>Meet us in person</p>
+                  <div><FiMapPin /> Chennai, India</div>
                 </div>
 
               </div>
@@ -92,24 +86,24 @@ const ContactFormMain = () => {
             <div className="contactFormMain__formWrap">
               <div className="contactFormMain__formCard">
 
-                <h3>Contact our Friendly Team</h3>
-                <p>Let us know how can help.</p>
+                <h3>Let’s Build Your Future 🚀</h3>
+                <p>Tell us your goals — we’ll guide you to the right internship.</p>
 
                 <form>
                   <div className="contactFormMain__formRow">
-                    <input placeholder="e.g. Michael" />
-                    <input placeholder="e.g. Thompson" />
+                    <input placeholder="First Name" />
+                    <input placeholder="Last Name" />
                   </div>
 
                   <div className="contactFormMain__formRow">
-                    <input placeholder="info@example.com" />
-                    <input placeholder="Topic" />
+                    <input placeholder="Email Address" />
+                    <input placeholder="Interested Domain" />
                   </div>
 
-                  <textarea placeholder="Type Message"></textarea>
+                  <textarea placeholder="Tell us about your goals..."></textarea>
 
                   <button className="contactFormMain__submitBtn">
-                    Submit Now <FiArrowRight />
+                    Get Started <FiArrowRight />
                   </button>
                 </form>
 

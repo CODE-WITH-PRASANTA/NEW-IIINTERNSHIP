@@ -51,12 +51,18 @@ const App = () => {
         <Route path="/gallery" element={<Gallery/>}/>
         <Route path="/recruitment" element={<Carrier/>}/>
         <Route path="/contact" element={<Contact/>}/>
+        <Route path="/Course" element={<CourseDetails/>} />
+        <Route path="/story" element={<SuccessStory/>} />
+        <Route path="/signup" element={<SignUp/>}/>
+        <Route path="/donate" element={<Donate />} />
         <Route path="/running-internship" element={<CourseGrid/>}/>
         <Route path="/Running-internship/:id" element={<CourseDetails/>} />
         <Route path="/success-story" element={<SuccessStory/>} />
         <Route path="/signup" element={<SignUp/>}/>
-        <Route path="/donate" element={<Donate />} />
-        <Route path="/notice" element={<Notice/>}/> 
+        <Route path="/donate" element={<Donate />} 
+        
+          
+        /> 
         <Route path="/virtual-internship" element={<CourseVideo />} /> 
       </Routes>
       

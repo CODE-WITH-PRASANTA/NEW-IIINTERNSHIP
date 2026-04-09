@@ -17,6 +17,8 @@ import CategoryPost from "./Pages/CategoryPost/CategoryPost";
 import CategoryPreview from "./Pages/CategoryPreview/CategoryPreview";
 import NoticePost from "./Pages/NoticePost/NoticePost";
 import NoticeManage from "./Pages/NoticeManage/NoticeManage";
+import SucessStory from "./Pages/SucessStory/SucessStory";
+import StoryPreview from "./Pages/StoryPreview/StoryPreview";
 
 
 const App = () => {
@@ -44,6 +46,8 @@ const App = () => {
 
         <Route path="/admin/notices/post" element={<NoticePost/>}/>
         <Route path="/admin/notices/manage" element={<NoticeManage/>}/>
+        <Route path="/success-story/post" element={<SucessStory/>}/>
+        <Route path="/success-story/preview" element={<StoryPreview/>}/>
           
         </Route>
       </Routes>

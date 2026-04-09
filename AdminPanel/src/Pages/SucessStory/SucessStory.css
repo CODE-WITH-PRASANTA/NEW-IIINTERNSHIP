@@ -1,0 +1,163 @@
+.successStory-container {
+  padding: 40px;
+  background: #f4f7fb;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* ACCORDION */
+.accordion-box {
+  margin-bottom: 25px;
+}
+
+.accordion-header {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  padding: 18px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* CARD */
+.card-box {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  margin-top: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* SECTION */
+.section-box {
+  margin-bottom: 25px;
+}
+
+.section-box h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+/* GRID */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* INPUT */
+input,
+select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* IMAGE */
+.preview-img {
+  width: 180px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* TABLE */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+thead {
+  background: #007bff;
+  color: white;
+}
+
+th,
+td {
+  padding: 14px;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: 0.3s;
+}
+
+tbody tr:hover {
+  background: #f1f7ff;
+}
+
+/* ACTION */
+.edit-btn {
+  background: #28a745;
+  border: none;
+  padding: 7px 14px;
+  color: white;
+  border-radius: 6px;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: #dc3545;
+  border: none;
+  padding: 7px 14px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.no-data {
+  text-align: center;
+  padding: 25px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .successStory-container {
+    padding: 20px;
+  }
+
+  .accordion-header {
+    font-size: 16px;
+  }
+
+  table {
+    min-width: 700px;
+  }
+}
