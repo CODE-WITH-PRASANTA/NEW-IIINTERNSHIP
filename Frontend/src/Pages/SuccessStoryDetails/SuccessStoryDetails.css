@@ -1,0 +1,70 @@
+/* ===== ROOT ===== */
+.ssd-container {
+  width: 100%;
+  background: #f5f7fb;
+}
+
+/* HERO FULL WIDTH */
+.ssd-hero {
+  width: 100%;
+}
+
+/* MAIN WRAPPER */
+.ssd-main {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  gap: 24px;
+  padding: 40px 20px;
+  align-items: flex-start;
+}
+
+/* LEFT (60%) */
+.ssd-left {
+  flex: 0 0 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* RIGHT (40%) */
+.ssd-right {
+  flex: 0 0 25%;
+  position: sticky;
+  top: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* LAPTOP */
+@media (max-width: 1200px) {
+  .ssd-main {
+    gap: 20px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 992px) {
+  .ssd-main {
+    flex-direction: column;
+  }
+
+  .ssd-left,
+  .ssd-right {
+    flex: 100%;
+    width: 100%;
+  }
+
+  .ssd-right {
+    position: static; /* remove sticky on tablet */
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .ssd-main {
+    padding: 20px 14px;
+  }
+}

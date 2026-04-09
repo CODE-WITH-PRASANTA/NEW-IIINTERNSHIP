@@ -37,6 +37,7 @@ const navItems = [
   { title: "Gallery", link: "/gallery", dropdown: [] },
   { title: "Success Story", link: "/success-story", dropdown: [] },
   { title: "Recruitment", link: "/recruitment", dropdown: [] },
+  { title: "Notice", link: "/notice", dropdown: [] },
   { title: "FAQ", link: "/faq", dropdown: [] },
   { title: "Contact", link: "/contact", dropdown: [] },
 ];

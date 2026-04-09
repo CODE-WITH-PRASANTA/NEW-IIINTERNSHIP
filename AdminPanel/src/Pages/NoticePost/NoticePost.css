@@ -1,0 +1,152 @@
+/* ===== CONTAINER ===== */
+.np-container {
+  padding: 24px;
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+
+.np-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* ===== FORM ===== */
+.np-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.np-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.np-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.np-full {
+  grid-column: span 2;
+}
+
+.np-field input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* MULTI INPUT */
+.np-multiRow {
+  margin-bottom: 10px;
+}
+
+.np-addBtn {
+  background: #6366f1;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* SUBMIT */
+.np-submitBtn {
+  margin-top: 16px;
+  padding: 12px;
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== TABLE ===== */
+.np-tableWrapper {
+  overflow-x: auto;
+}
+
+.np-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.np-table th {
+  background: #eef2f7;
+  padding: 12px;
+  text-align: left;
+}
+
+.np-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.np-thumb {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ACTION BUTTONS */
+.np-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.np-edit {
+  background: #3b82f6;
+  border: none;
+  padding: 8px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.np-delete {
+  background: #ef4444;
+  border: none;
+  padding: 8px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* TABLET */
+@media (max-width: 992px) {
+  .np-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .np-full {
+    grid-column: span 1;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .np-title {
+    font-size: 18px;
+  }
+
+  .np-form {
+    padding: 14px;
+  }
+
+  .np-submitBtn {
+    width: 100%;
+  }
+}
