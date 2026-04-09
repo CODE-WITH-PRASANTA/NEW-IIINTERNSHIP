@@ -59,10 +59,11 @@ const App = () => {
         <Route path="/Running-internship/:id" element={<CourseDetails/>} />
         <Route path="/success-story" element={<SuccessStory/>} />
         <Route path="/signup" element={<SignUp/>}/>
-        <Route path="/donate" element={<Donate />} 
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/notice" element={<Notice/>}/>
         
           
-        /> 
+
         <Route path="/virtual-internship" element={<CourseVideo />} /> 
       </Routes>
       
