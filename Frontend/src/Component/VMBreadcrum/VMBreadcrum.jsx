@@ -21,37 +21,23 @@ const VMBreadcrum = () => {
             <span className="spark small"></span>
           </div>
 
-<<<<<<< HEAD
-          {/* TITLE */}
-          <h1 className="VMBreadcrum__title">
-            Building Purpose <br />
-            <span>With Clear Vision</span>
-          </h1>
-=======
           <div className="VMBreadcrum__header">
             {/* ✅ Updated Heading */}
             <h2 className="VMBreadcrum__title">Vision & Mission</h2>
->>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
 
-          {/* BREADCRUMB */}
-          <div className="VMBreadcrum__breadcrumb">
-            <span className="VMBreadcrum__home">🏠 Home</span>
-            <span className="VMBreadcrum__divider">/</span>
-            <span className="VMBreadcrum__current">Vision & Mission</span>
-          </div>
+            {/* BREADCRUMB */}
+            <div className="VMBreadcrum__breadcrumb">
+              <span className="VMBreadcrum__home">🏠 Home</span>
+              <span className="VMBreadcrum__divider">/</span>
+              <span className="VMBreadcrum__current">Vision & Mission</span>
+            </div>
 
-<<<<<<< HEAD
-          {/* SUBTITLE */}
-          <p className="VMBreadcrum__subtitle">
-            Our mission is to empower learners through innovation, quality
-            education, and future-ready skills while shaping a vision that drives
-            excellence and growth.
-=======
-          {/* ✅ SEO CONTENT (1 line) */}
-          <p className="VMBreadcrum__subtitle">
-            Explore the Vision & Mission of International Institute, focused on delivering quality education, innovation, and global learning excellence.
->>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
-          </p>
+            {/* ✅ SEO CONTENT (1 line) */}
+            <p className="VMBreadcrum__subtitle">
+              Explore the Vision & Mission of International Institute, focused on delivering quality education, innovation, and global learning excellence.
+            </p>
+          </div> {/* ✅ FIX ADDED HERE (CLOSING HEADER) */}
+
         </div>
 
         {/* RIGHT IMAGE */}

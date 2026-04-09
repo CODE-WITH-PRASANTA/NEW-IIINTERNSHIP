@@ -11,6 +11,8 @@ import VirtualInternship from "./Pages/VirtualInternship/VirtualInternship";
 import VirtualManage from "./Pages/VirtualManage/VirtualManage";
 import CourseManage from "./Pages/CourseManage/CourseManage";
 import CoursePreview from "./Pages/CoursePreview/CoursePreview";
+import SucessStory from "./Pages/SucessStory/SucessStory";
+import StoryPreview from "./Pages/StoryPreview/StoryPreview";
 
 
 const App = () => {
@@ -29,6 +31,8 @@ const App = () => {
         <Route path="/testimonial/add" element={<Testimonial/>}/>
         <Route path="/course/virtual" element={<VirtualInternship/>}/>
         <Route path="/course/manage/virtual" element={<VirtualManage/>}/>
+        <Route path="/success-story/post" element={<SucessStory/>}/>
+        <Route path="/success-story/preview" element={<StoryPreview/>}/>
           
         </Route>
       </Routes>
