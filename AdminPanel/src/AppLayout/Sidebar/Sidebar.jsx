@@ -25,7 +25,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
  const menu = [
   { name: "Dashboard", path: "/", icon: <FaHome /> },
 
-  { name: "Event Gallery", path: "/events/upload", icon: <FaImages /> },
+  // { name: "Event Gallery", path: "/events/upload", icon: <FaImages /> },
 
   { name: "Learning Partners", path: "/learning-partners", icon: <FaUsers /> },
 
