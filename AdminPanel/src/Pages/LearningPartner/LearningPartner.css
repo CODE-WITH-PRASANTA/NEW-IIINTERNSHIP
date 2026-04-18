@@ -1,0 +1,159 @@
+/* ROOT */
+.lp-container {
+  padding: 20px;
+  background: #f6f8fc;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+/* HEADER */
+.lp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.lp-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.lp-toggle-btn {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+}
+
+/* FORM */
+.lp-form-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s ease;
+}
+
+.lp-form-wrapper.open {
+  max-height: 500px;
+}
+
+.lp-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.lp-form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.lp-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.lp-input-group label {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.lp-input-group input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* PREVIEW */
+.lp-preview img {
+  margin-top: 12px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+/* BUTTON */
+.lp-submit-btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border: none;
+  background: #4f46e5;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* TABLE */
+.lp-table-wrapper {
+  overflow-x: auto;
+}
+
+.lp-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.lp-table th,
+.lp-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.lp-table th {
+  background: #f1f5f9;
+}
+
+.lp-table-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* ACTION */
+.lp-action-btn {
+  border: none;
+  padding: 6px 10px;
+  margin-right: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lp-action-btn.edit {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.lp-action-btn.delete {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* EMPTY */
+.lp-empty {
+  text-align: center;
+  padding: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .lp-form-row {
+    flex-direction: column;
+  }
+
+  .lp-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

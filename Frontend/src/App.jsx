@@ -27,6 +27,8 @@ import FloatingForm from "./Component/FloatingForm/FloatingForm";
 import FloatingIcons from "./Component/FloatingIcons/FloatingIcons";
 import Donate from "./Component/Donate/Donate";
 import CourseVideo from "./Pages/CourseVideo/CourseVideo";
+import Notice from "./Pages/Notice/Notice";
+
 
 const App = () => {
   return (
@@ -57,10 +59,11 @@ const App = () => {
         <Route path="/Running-internship/:id" element={<CourseDetails/>} />
         <Route path="/success-story" element={<SuccessStory/>} />
         <Route path="/signup" element={<SignUp/>}/>
-        <Route path="/donate" element={<Donate />} 
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/notice" element={<Notice/>}/>
         
           
-        /> 
+
         <Route path="/virtual-internship" element={<CourseVideo />} /> 
       </Routes>
       

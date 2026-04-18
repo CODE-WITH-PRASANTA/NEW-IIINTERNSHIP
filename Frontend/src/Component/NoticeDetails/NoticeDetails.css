@@ -1,0 +1,183 @@
+/* ===== CONTAINER ===== */
+.nd-container {
+  padding: 24px;
+  background: #f5f7fb;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===== CARD ===== */
+.nd-card {
+  display: flex;
+  gap: 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border-left: 5px solid #ff4d6d;
+  transition: 0.3s ease;
+}
+
+.nd-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== IMAGE ===== */
+.nd-imageWrapper {
+  position: relative;
+  flex: 0 0 260px;
+}
+
+.nd-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ===== DATE BADGE ===== */
+.nd-dateBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4d6d;
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 1.2;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== CONTENT ===== */
+.nd-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* TOP ROW */
+.nd-topRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.nd-author {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nd-serial {
+  font-weight: 500;
+}
+
+/* TITLE */
+.nd-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+  line-height: 1.4;
+}
+
+/* DESCRIPTION */
+.nd-desc {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* BUTTONS */
+.nd-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nd-btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* LINK BUTTON */
+.nd-linkBtn {
+  background: #fff;
+  color: #ff4d6d;
+  border: 1px solid #ff4d6d;
+}
+
+.nd-linkBtn:hover {
+  background: #ff4d6d;
+  color: #fff;
+}
+
+/* DOWNLOAD BUTTON */
+.nd-downloadBtn {
+  background: #16a34a;
+  color: #fff;
+}
+
+.nd-downloadBtn:hover {
+  background: #15803d;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* TABLET */
+@media (max-width: 992px) {
+  .nd-card {
+    flex-direction: column;
+  }
+
+  .nd-imageWrapper {
+    width: 100%;
+  }
+
+  .nd-image {
+    height: 220px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .nd-container {
+    padding: 12px;
+  }
+
+  .nd-card {
+    padding: 14px;
+  }
+
+  .nd-title {
+    font-size: 16px;
+  }
+
+  .nd-desc {
+    font-size: 14px;
+  }
+
+  .nd-actions {
+    flex-direction: column;
+  }
+
+  .nd-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

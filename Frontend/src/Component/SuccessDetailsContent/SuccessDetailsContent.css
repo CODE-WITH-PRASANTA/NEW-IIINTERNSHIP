@@ -1,0 +1,152 @@
+/* ===== CONTAINER ===== */
+.ssdc-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* ===== CARD ===== */
+.ssdc-card {
+  background: transparent;
+}
+
+/* ===== IMAGE ===== */
+.ssdc-imageWrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ssdc-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  transition: 0.4s ease;
+}
+
+.ssdc-imageWrap:hover .ssdc-image {
+  transform: scale(1.05);
+}
+
+/* BADGE */
+.ssdc-badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: #facc15;
+  color: #111;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ===== META ===== */
+.ssdc-meta {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ssdc-dot {
+  color: #9ca3af;
+}
+
+.ssdc-tag {
+  color: #f97316;
+  font-weight: 500;
+}
+
+/* ===== TITLE ===== */
+.ssdc-title {
+  margin-top: 10px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ssdc-bullet {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, #f97316, #facc15);
+  border-radius: 50%;
+}
+
+/* ===== DESC ===== */
+.ssdc-desc {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+/* ===== READ ===== */
+.ssdc-read {
+  display: inline-block;
+  margin-top: 12px;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ssdc-read:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* LAPTOP */
+@media (max-width: 1200px) {
+  .ssdc-image {
+    height: 360px;
+  }
+
+  .ssdc-title {
+    font-size: 28px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 992px) {
+  .ssdc-image {
+    height: 300px;
+  }
+
+  .ssdc-title {
+    font-size: 24px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .ssdc-container {
+    gap: 30px;
+  }
+
+  .ssdc-image {
+    height: 220px;
+  }
+
+  .ssdc-title {
+    font-size: 20px;
+  }
+
+  .ssdc-desc {
+    font-size: 14px;
+  }
+
+  .ssdc-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
