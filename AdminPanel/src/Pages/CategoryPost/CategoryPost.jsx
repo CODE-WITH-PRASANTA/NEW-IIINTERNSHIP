@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./CategoryPost.css";
 import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
 import Swal from "sweetalert2";
+import API, { ImageUrl } from "../../api/axios";
+import { useEffect } from "react";
 
 const CategoryPost = () => {
   const [categories, setCategories] = useState([]);
@@ -11,6 +13,19 @@ const CategoryPost = () => {
     title: "",
     images: [], // multiple images
   });
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  const fetchCategories = async () => {
+    try {
+      const res = await API.get("/api/categories");
+      setCategories(res.data.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   // TITLE CHANGE
   const handleChange = (e) => {
@@ -31,40 +46,70 @@ const CategoryPost = () => {
       images: [...formData.images, ...newImages],
     });
   };
-
+  useEffect(() => {
+    return () => {
+      formData.images.forEach((img) => {
+        if (img.file && img.preview) {
+          URL.revokeObjectURL(img.preview);
+        }
+      });
+    };
+  }, [formData.images]);
   // REMOVE IMAGE
   const removeImage = (index) => {
     const updated = formData.images.filter((_, i) => i !== index);
     setFormData({ ...formData, images: updated });
   };
 
-  // SUBMIT
-  const handleSubmit = () => {
+  // EDIT
+  const handleEdit = (item) => {
+    setFormData({
+      title: item.title,
+      images: item.images.map((img) => ({
+        preview: ImageUrl(img), // show existing image
+      })),
+    });
+
+    setEditingId(item._id);
+  };
+
+  const handleSubmit = async () => {
     if (!formData.title || formData.images.length === 0) {
-      Swal.fire("Error", "All fields required", "error");
+      Swal.fire("Error", "Title & at least one image required", "error");
       return;
     }
 
-    if (editingId !== null) {
-      const updated = categories.map((item) =>
-        item.id === editingId ? { ...formData, id: editingId } : item
-      );
-      setCategories(updated);
+    try {
+      const fd = new FormData();
+      fd.append("title", formData.title);
+
+      formData.images.forEach((img) => {
+        if (img.file) {
+          // ✅ new uploaded image
+          fd.append("images", img.file);
+        } else if (img.preview) {
+          // ✅ existing image
+          fd.append("existingImages", img.preview);
+        }
+      });
+
+      if (editingId) {
+        await API.put(`/api/categories/${editingId}`, fd);
+        Swal.fire("Updated", "Category updated", "success");
+      } else {
+        await API.post("/api/categories", fd);
+        Swal.fire("Success", "Category added", "success");
+      }
+
+      setFormData({ title: "", images: [] });
       setEditingId(null);
-    } else {
-      setCategories([...categories, { ...formData, id: Date.now() }]);
+      fetchCategories();
+    } catch (err) {
+      console.error(err);
+      Swal.fire("Error", "Something went wrong", "error");
     }
-
-    setFormData({ title: "", images: [] });
   };
 
-  // EDIT
-  const handleEdit = (item) => {
-    setFormData(item);
-    setEditingId(item.id);
-  };
-
-  // DELETE
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -73,10 +118,15 @@ const CategoryPost = () => {
       showCancelButton: true,
       confirmButtonColor: "#ef4444",
       confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        setCategories(categories.filter((item) => item.id !== id));
-        Swal.fire("Deleted!", "Category removed.", "success");
+        try {
+          await API.delete(`/api/categories/${id}`);
+          fetchCategories();
+          Swal.fire("Deleted!", "Category removed.", "success");
+        } catch (err) {
+          console.error(err);
+        }
       }
     });
   };
@@ -107,7 +157,12 @@ const CategoryPost = () => {
             <div className="cp-upload-box">
               {formData.images.map((img, index) => (
                 <div key={index} className="cp-preview-item">
-                  <img src={img.preview} alt="" />
+                  <img
+                    src={img.preview}
+                    style={{
+                      border: img.file ? "2px solid green" : "2px solid blue",
+                    }}
+                  />
                   <span onClick={() => removeImage(index)}>×</span>
                 </div>
               ))}
@@ -115,12 +170,7 @@ const CategoryPost = () => {
               {/* ADD BUTTON */}
               <label className="cp-add-btn">
                 <FaPlus />
-                <input
-                  type="file"
-                  multiple
-                  onChange={handleImage}
-                  hidden
-                />
+                <input type="file" multiple onChange={handleImage} hidden />
               </label>
             </div>
           </div>
@@ -154,11 +204,11 @@ const CategoryPost = () => {
                 </tr>
               ) : (
                 categories.map((item) => (
-                  <tr key={item.id}>
+                  <tr key={item._id}>
                     <td>
                       <div className="cp-table-images">
                         {item.images.map((img, i) => (
-                          <img key={i} src={img.preview} alt="" />
+                          <img key={i} src={ImageUrl(img)} alt="" />
                         ))}
                       </div>
                     </td>
@@ -175,7 +225,7 @@ const CategoryPost = () => {
 
                       <button
                         className="cp-action-btn delete"
-                        onClick={() => handleDelete(item.id)}
+                        onClick={() => handleDelete(item._id)}
                       >
                         <FaTrash />
                       </button>

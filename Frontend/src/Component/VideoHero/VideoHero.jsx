@@ -3,7 +3,7 @@ import "./VideoHero.css";
 import studentsImg from "../../assets/Breadcrum-iit.webp";
 import bgLines from "../../assets/bg-lines.png";
 
-const VideoHero = () => {
+const VideoHero = ({ setSearch, categories, setCategory }) => {
   const base = "videoHero";
 
   return (
@@ -33,8 +33,8 @@ const VideoHero = () => {
           <h1 className={`${base}__title`}>Video Courses</h1>
 
           <p className={`${base}__subtitle`}>
-            Best online education platforms offer flexible learning,
-            quality courses, and expert instructors.
+            Best online education platforms offer flexible learning, quality
+            courses, and expert instructors.
           </p>
         </div>
 
@@ -55,16 +55,22 @@ const VideoHero = () => {
               type="text"
               placeholder="Course Name"
               className={`${base}__input`}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 
           <div className={`${base}__field ${base}__field--category`}>
-            <select className={`${base}__select`} defaultValue="Default">
-              <option value="Default">Default</option>
-              <option value="Web Development">Web Development</option>
-              <option value="UI UX Design">UI UX Design</option>
-              <option value="Programming">Programming</option>
-              <option value="Marketing">Marketing</option>
+            <select
+              className={`${base}__select`}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="">All Categories</option>
+
+              {categories.map((cat) => (
+                <option key={cat._id} value={cat._id}>
+                  {cat.title}
+                </option>
+              ))}
             </select>
           </div>
 
