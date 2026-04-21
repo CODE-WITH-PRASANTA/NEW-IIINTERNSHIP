@@ -14,6 +14,7 @@ const courseSchema = new mongoose.Schema(
     tools: String,
 
     internshipType: String,
+    internshipMode: String, // ✅ NEW FIELD
     credits: String,
     location: String,
     duration: String,

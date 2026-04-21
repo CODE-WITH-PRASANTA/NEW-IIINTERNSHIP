@@ -1,0 +1,79 @@
+.course-details {
+  background: #efe7df;
+}
+
+/* MAIN GRID */
+.course-details__container {
+  width: min(1300px, 92%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 30px;
+
+  align-items: start;
+
+  /* ✅ IMPORTANT */
+  position: relative;
+}
+/* LEFT */
+.course-details__left {
+  margin-top: 40px;
+}
+
+/* RIGHT */
+.course-details__right {
+  position: relative;
+}
+
+/* ✅ REAL STICKY SIDEBAR */
+.course-details__right .course-sidebar {
+  position: sticky;
+  top: 100px;
+
+  /* ✅ HERO OVERLAP (NO TRANSFORM) */
+  margin-top: -180px;
+
+  z-index: 10;
+}
+
+/* ✅ IMPORTANT: makes both end at same line */
+.course-details__container {
+  align-items: stretch;
+}
+
+.course-details__left,
+.course-details__right {
+  display: flex;
+  flex-direction: column;
+}
+.course-details,
+.course-details__container,
+.course-details__right {
+  overflow: visible; /* must be this */
+}
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+  .course-details__container {
+    grid-template-columns: 1fr 320px;
+  }
+}
+
+@media (max-width: 991px) {
+  .course-details__container {
+    grid-template-columns: 1fr;
+  }
+
+  .course-details__right .course-sidebar {
+    position: relative;
+    top: 0;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .course-details__container {
+    width: 95%;
+  }
+}

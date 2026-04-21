@@ -515,6 +515,16 @@
 }
 
 
+.videoSection__listCard {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.videoSection__listCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+
 
 @media (max-width: 1199px) {
   .videoSection__featuredWrap {
