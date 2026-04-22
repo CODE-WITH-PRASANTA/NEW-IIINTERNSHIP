@@ -4,160 +4,103 @@ import { BsGrid3X3GapFill } from "react-icons/bs";
 import { FaListUl, FaStar, FaUserAlt } from "react-icons/fa";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { FiFileText } from "react-icons/fi";
+import API, { ImageUrl } from "../../api/axios";
+import { useEffect } from "react";
 
-const VideoSection = () => {
+const VideoSection = ({ searchTerm, category, filters = {} }) => {
   const base = "videoSection";
   const [viewMode, setViewMode] = useState("grid");
   const [sortBy, setSortBy] = useState("Default");
   const [activePage, setActivePage] = useState(1);
-  const [selectedCourse, setSelectedCourse] = useState(1);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const courses = useMemo(
-    () => [
-      {
-        id: 1,
-        title: "Introduction to Data Science and Analytics",
-        category: "Science and Analytics",
-        image:
-          "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-        price: "Free",
-        oldPrice: "$99",
-        students: "270 Students",
-        lessons: "28 Lessons",
-        rating: "(4.8 / 2.6k Ratings)",
-        description:
-          "Learn key data science and analytics concepts, tools, and techniques to make data-driven decisions.",
-      },
-      {
-        id: 2,
-        title: "Digital Marketing Strategies and Tools",
-        category: "Science and Analytics",
-        image:
-          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-        price: "$49",
-        oldPrice: "$59",
-        students: "270 Students",
-        lessons: "40 Lessons",
-        rating: "(4.8 / 2.6k Ratings)",
-        description:
-          "Develop digital marketing strategies to enhance brand visibility, engage audiences, and drive business growth online.",
-      },
-      {
-        id: 3,
-        title: "Cybersecurity Essentials Protecting Digital Systems",
-        category: "Science and Analytics",
-        image:
-          "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80",
-        price: "$720",
-        oldPrice: "$999",
-        students: "82 Students",
-        lessons: "24 Lessons",
-        rating: "(4.8 / 2.6k Ratings)",
-        description:
-          "Understand the foundations of cybersecurity, system safety, digital threats, and practical protection methods.",
-      },
-      {
-        id: 4,
-        title: "Web Development From Beginner to Expert",
-        category: "Science and Analytics",
-        image:
-          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-        price: "$20",
-        oldPrice: "$28",
-        students: "270 Students",
-        lessons: "40 Lessons",
-        rating: "(4.8 / 2.6k Ratings)",
-        description:
-          "Master frontend and backend concepts with responsive layouts, reusable components, and real-world web projects.",
-      },
-      {
-        id: 5,
-        title: "Mastering Graphic Design Fundamentals",
-        category: "Science and Analytics",
-        image:
-          "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
-        price: "$119",
-        oldPrice: "$149",
-        students: "270 Students",
-        lessons: "40 Lessons",
-        rating: "(4.8 / 2.6k Ratings)",
-        description:
-          "Explore composition, typography, branding, layouts, and visual storytelling for modern design systems.",
-      },
-      {
-        id: 6,
-        title: "Business Analytics for Decision Making",
-        category: "Science and Analytics",
-        image:
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
-        price: "Free",
-        oldPrice: "$99",
-        students: "270 Students",
-        lessons: "40 Lessons",
-        rating: "(4.8 / 2.6k Ratings)",
-        description:
-          "Use analytics and reporting frameworks to support business planning, forecasting, and operational decisions.",
-      },
-      {
-        id: 7,
-        title: "Essentials Protecting Modern Networks",
-        category: "Science and Analytics",
-        image:
-          "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-        price: "$89",
-        oldPrice: "$129",
-        students: "180 Students",
-        lessons: "22 Lessons",
-        rating: "(4.7 / 1.8k Ratings)",
-        description:
-          "Get started with secure systems, network fundamentals, and protective monitoring workflows.",
-      },
-      {
-        id: 8,
-        title: "Data Visualization With Modern Tools",
-        category: "Science and Analytics",
-        image:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-        price: "$65",
-        oldPrice: "$90",
-        students: "310 Students",
-        lessons: "31 Lessons",
-        rating: "(4.9 / 3.1k Ratings)",
-        description:
-          "Present insights beautifully using charts, dashboards, storytelling patterns, and actionable metrics.",
-      },
-      {
-        id: 9,
-        title: "Practical Product Research and Growth",
-        category: "Science and Analytics",
-        image:
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-        price: "$54",
-        oldPrice: "$84",
-        students: "230 Students",
-        lessons: "26 Lessons",
-        rating: "(4.8 / 2.2k Ratings)",
-        description:
-          "Learn product discovery, user behavior insights, audience targeting, and growth experimentation.",
-      },
-    ],
-    []
-  );
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
+  const fetchCourses = async () => {
+    try {
+      const res = await API.get("/api/virtual-internships");
+      setCourses(res.data.data);
+      console.log("Fetched courses:", res.data.data);
+    } catch (err) {
+      console.error("Fetch error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getEmbedUrl = (url) => {
+    if (!url) return "";
+
+    // youtube.com/watch?v=
+    if (url.includes("watch?v=")) {
+      return url.replace("watch?v=", "embed/");
+    }
+
+    // youtu.be/
+    if (url.includes("youtu.be/")) {
+      return url.replace("youtu.be/", "youtube.com/embed/");
+    }
+
+    // already embed
+    if (url.includes("embed/")) {
+      return url;
+    }
+
+    return "";
+  };
 
   const sortedCourses = useMemo(() => {
+    let data = [...courses];
+
+    // 🔍 SEARCH
+    if (searchTerm) {
+      data = data.filter((item) =>
+        item.title?.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
+    }
+
+    // 📂 CATEGORY
+    if (category) {
+      data = data.filter(
+        (item) =>
+          item.category?._id === category ||
+          item.category?.toString() === category,
+      );
+    }
+
+    // 🎯 FILTERS (NEW)
+    if (filters?.price?.length) {
+      data = data.filter((item) => filters.price.includes(item.price));
+    }
+
+    if (filters?.language?.length) {
+      data = data.filter((item) => filters.language.includes(item.language));
+    }
+
+    if (filters?.format?.length) {
+      data = data.filter((item) => filters.format.includes(item.format));
+    }
+
+    // 🔽 SORTING
     const priceToNumber = (price) => {
       if (price === "Free") return 0;
-      return Number(price.replace("$", ""));
+      return Number(price?.replace("$", "") || 0);
     };
 
-    const data = [...courses];
-
     if (sortBy === "Price Low") {
-      return data.sort((a, b) => priceToNumber(a.price) - priceToNumber(b.price));
+      return data.sort(
+        (a, b) => priceToNumber(a.price) - priceToNumber(b.price),
+      );
     }
 
     if (sortBy === "Price High") {
-      return data.sort((a, b) => priceToNumber(b.price) - priceToNumber(a.price));
+      return data.sort(
+        (a, b) => priceToNumber(b.price) - priceToNumber(a.price),
+      );
     }
 
     if (sortBy === "Title") {
@@ -165,18 +108,20 @@ const VideoSection = () => {
     }
 
     return data;
-  }, [courses, sortBy]);
+  }, [courses, sortBy, searchTerm, category, filters]);
 
   const itemsPerPage = viewMode === "grid" ? 6 : 2;
   const totalPages = Math.ceil(sortedCourses.length / itemsPerPage);
 
   const paginatedCourses = sortedCourses.slice(
     (activePage - 1) * itemsPerPage,
-    activePage * itemsPerPage
+    activePage * itemsPerPage,
   );
 
   const activeCourse =
-    courses.find((course) => course.id === selectedCourse) || courses[0];
+    sortedCourses.find((c) => c._id === selectedCourse) ||
+    sortedCourses[0] ||
+    {};
 
   const renderStars = () => (
     <div className={`${base}__stars`}>
@@ -191,11 +136,15 @@ const VideoSection = () => {
     setActivePage(1);
   };
 
+  if (loading) return <p>Loading courses...</p>;
+
   return (
     <section className={base}>
       <div className={`${base}__container`}>
         <div className={`${base}__topbar`}>
-          <p className={`${base}__results`}>Showing 1–9 of 24 results</p>
+          <p className={`${base}__results`}>
+            Showing {paginatedCourses.length} of {sortedCourses.length} results
+          </p>
 
           <div className={`${base}__topbarRight`}>
             <div className={`${base}__viewSwitch`}>
@@ -246,22 +195,32 @@ const VideoSection = () => {
             <div className={`${base}__featuredWrap`}>
               <div className={`${base}__featuredMain`}>
                 <div className={`${base}__featuredImageWrap`}>
-                  <img
-                    src={activeCourse.image}
-                    alt={activeCourse.title}
-                    className={`${base}__featuredImage`}
-                  />
-                  <button
-                    type="button"
-                    className={`${base}__playBtn`}
-                    aria-label="Play video"
-                  >
-                    <span className={`${base}__playTriangle`}></span>
-                  </button>
+                  {activeCourse.youtubeLinks?.[0] ? (
+                    <iframe
+                      width="100%"
+                      height="300"
+                      src={getEmbedUrl(activeCourse.youtubeLinks[0])}
+                      title="Video"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <img
+                      src={
+                        activeCourse.thumbnail
+                          ? ImageUrl(activeCourse.thumbnail)
+                          : "https://via.placeholder.com/600x300?text=No+Image"
+                      }
+                      alt={activeCourse.title}
+                    />
+                  )}
                 </div>
 
                 <div className={`${base}__featuredContent`}>
-                  <h3 className={`${base}__featuredTitle`}>{activeCourse.title}</h3>
+                  <h3 className={`${base}__featuredTitle`}>
+                    {activeCourse.title}
+                  </h3>
 
                   <div className={`${base}__ratingRow`}>
                     {renderStars()}
@@ -269,55 +228,74 @@ const VideoSection = () => {
                       {activeCourse.rating}
                     </span>
                   </div>
+                  <div
+                    className={`${base}__featuredDesc`}
+                    dangerouslySetInnerHTML={{
+                      __html: activeCourse.courseDescription || "",
+                    }}
+                  ></div>
 
                   <div className={`${base}__priceRow`}>
                     <span
                       className={`${base}__price ${
-                        activeCourse.price === "Free" ? `${base}__price--free` : ""
+                        activeCourse.price === "Free"
+                          ? `${base}__price--free`
+                          : ""
                       }`}
                     >
                       {activeCourse.price}
                     </span>
-                    <span className={`${base}__oldPrice`}>{activeCourse.oldPrice}</span>
+                    <span className={`${base}__oldPrice`}>
+                      {activeCourse.oldPrice}
+                    </span>
                   </div>
                 </div>
               </div>
 
               <div className={`${base}__playlist`}>
                 <div className={`${base}__playlistHead`}>
-                  <h4 className={`${base}__playlistTitle`}>{activeCourse.category}</h4>
+                  <h4 className={`${base}__playlistTitle`}>
+                    {activeCourse.category?.title}
+                  </h4>
 
                   <div className={`${base}__playlistLessons`}>
                     <FiFileText />
-                    <span>{activeCourse.lessons}</span>
+                    <span>{activeCourse.lectures}</span>
                   </div>
                 </div>
 
                 <div className={`${base}__playlistList`}>
-                  {courses.slice(0, 6).map((item, index) => (
+                  {sortedCourses.slice(0, 6).map((item, index) => (
                     <button
                       type="button"
-                      key={item.id}
+                      key={item._id}
                       className={`${base}__playlistItem ${
-                        selectedCourse === item.id
+                        selectedCourse === item._id
                           ? `${base}__playlistItem--active`
                           : ""
                       }`}
-                      onClick={() => setSelectedCourse(item.id)}
+                      onClick={() => setSelectedCourse(item._id)}
                     >
                       <span className={`${base}__playlistNumber`}>
                         {index + 1}.
                       </span>
 
                       <img
-                        src={item.image}
-                        alt={item.title}
-                        className={`${base}__playlistThumb`}
+                        src={
+                          item.thumbnail
+                            ? ImageUrl(item.thumbnail)
+                            : "https://via.placeholder.com/300x200?text=No+Image"
+                        }
+                        className={`${base}__cardImage`}
                       />
 
                       <div className={`${base}__playlistContent`}>
-                        <h5 className={`${base}__playlistItemTitle`}>{item.title}</h5>
-                        <p className={`${base}__playlistItemMeta`}>{item.category}</p>
+                        <h5 className={`${base}__playlistItemTitle`}>
+                          {item.title}
+                        </h5>
+                        <p className={`${base}__playlistItemMeta`}>
+                          {item.category?.title}
+                        </p>
                       </div>
                     </button>
                   ))}
@@ -327,17 +305,20 @@ const VideoSection = () => {
 
             <div className={`${base}__grid`}>
               {paginatedCourses.map((item) => (
-                <article className={`${base}__card`} key={item.id}>
+                <article className={`${base}__card`} key={item._id}>
                   <div className={`${base}__cardImageWrap`}>
                     <img
-                      src={item.image}
-                      alt={item.title}
+                      src={
+                        item.thumbnail
+                          ? ImageUrl(item.thumbnail)
+                          : "https://via.placeholder.com/300x200?text=No+Image"
+                      }
                       className={`${base}__cardImage`}
                     />
 
                     <button
                       type="button"
-                      className={`${base}__playBtn} ${base}__playBtn--card`}
+                      className={`${base}__playBtn ${base}__playBtn--card`}
                       aria-label="Play video"
                     >
                       <span className={`${base}__playTriangle`}></span>
@@ -349,10 +330,23 @@ const VideoSection = () => {
 
                     <div className={`${base}__ratingRow`}>
                       {renderStars()}
-                      <span className={`${base}__ratingText`}>{item.rating}</span>
+                      <span className={`${base}__ratingText`}>
+                        {item.rating}
+                      </span>
                     </div>
+                    <div
+                      className={`${base}__cardDescription`}
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          item.courseDescription ||
+                          item.description ||
+                          "No description available",
+                      }}
+                    ></div>
 
-                    <div className={`${base}__priceRow ${base}__priceRow--card`}>
+                    <div
+                      className={`${base}__priceRow ${base}__priceRow--card`}
+                    >
                       <span
                         className={`${base}__price ${
                           item.price === "Free" ? `${base}__price--free` : ""
@@ -360,7 +354,9 @@ const VideoSection = () => {
                       >
                         {item.price}
                       </span>
-                      <span className={`${base}__oldPrice`}>{item.oldPrice}</span>
+                      <span className={`${base}__oldPrice`}>
+                        {item.oldPrice}
+                      </span>
                     </div>
                   </div>
 
@@ -372,7 +368,7 @@ const VideoSection = () => {
 
                     <div className={`${base}__metaItem`}>
                       <HiOutlineDocumentText />
-                      <span>{item.lessons}</span>
+                      <span>{item.lectures}</span>
                     </div>
                   </div>
                 </article>
@@ -384,11 +380,15 @@ const VideoSection = () => {
         {viewMode === "list" && (
           <div className={`${base}__listWrap`}>
             {paginatedCourses.map((item) => (
-              <article className={`${base}__listCard`} key={item.id}>
+              <article className={`${base}__listCard`} key={item._id}>
                 <div className={`${base}__listImageWrap`}>
                   <img
-                    src={item.image}
-                    alt={item.title}
+                    src={ImageUrl(item.thumbnail)}
+                    src={
+                      item.thumbnail
+                        ? ImageUrl(item.thumbnail)
+                        : "https://via.placeholder.com/300x200?text=No+Image"
+                    }
                     className={`${base}__listImage`}
                   />
                 </div>
@@ -400,8 +400,15 @@ const VideoSection = () => {
                     {renderStars()}
                     <span className={`${base}__ratingText`}>{item.rating}</span>
                   </div>
-
-                  <p className={`${base}__listDescription`}>{item.description}</p>
+                  <div
+                    className={`${base}__listDescription`}
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        item.courseDescription ||
+                        item.description ||
+                        "No description available",
+                    }}
+                  ></div>
 
                   <div className={`${base}__priceRow ${base}__priceRow--list`}>
                     <span
@@ -422,7 +429,7 @@ const VideoSection = () => {
 
                     <div className={`${base}__metaItem`}>
                       <HiOutlineDocumentText />
-                      <span>{item.lessons}</span>
+                      <span>{item.lectures}</span>
                     </div>
                   </div>
                 </div>

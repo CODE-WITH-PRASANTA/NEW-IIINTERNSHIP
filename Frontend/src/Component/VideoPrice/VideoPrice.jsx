@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./VideoPrice.css";
 
-const VideoPrice = () => {
+const VideoPrice = ({ onFilterChange }) => {
   const base = "videoPrice";
 
   const [filters, setFilters] = useState({
@@ -38,14 +38,23 @@ const VideoPrice = () => {
     setFilters((prev) => {
       const exists = prev[groupKey].includes(value);
 
-      return {
+      const updated = {
         ...prev,
         [groupKey]: exists
           ? prev[groupKey].filter((item) => item !== value)
           : [...prev[groupKey], value],
       };
+
+      return updated;
     });
   };
+
+  // ✅ SEND FILTERS TO PARENT
+  useEffect(() => {
+    if (onFilterChange) {
+      onFilterChange(filters);
+    }
+  }, [filters, onFilterChange]);
 
   return (
     <aside className={base}>

@@ -4,90 +4,23 @@
   background: #f5f7fb;
 }
 
-/* HERO */
-.recruit-contact-wrapper {
-  position: relative;
-  padding: 100px 8%;
-  background: linear-gradient(135deg, #d9e3ef, #cfd9e6);
-  border-bottom-left-radius: 120px;
-  overflow: hidden;
-}
-
-.recruit-blob1 {
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 50%;
-  top: -80px;
-  left: -80px;
-}
-
-.recruit-blob2 {
-  position: absolute;
-  width: 500px;
-  height: 300px;
-  background: rgba(120,160,200,0.2);
-  border-radius: 50%;
-  bottom: -100px;
-  right: -120px;
-}
-
-.recruit-contact-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.recruit-contact-left h2 {
-  font-size: 40px;
-  color: #2b4a8b;
-}
-
-.recruit-contact-left p {
-  max-width: 500px;
-  color: #444;
-}
-
-.recruit-contact-right img {
-  max-width: 400px;
-}
-
-.recruit-animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  50% { transform: translateY(-10px); }
-}
-
-.recruit-curve {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 300px;
-  height: 150px;
-  border-bottom: 4px solid #1f3c88;
-  border-left: 4px solid #1f3c88;
-  border-radius: 0 0 150px 150px;
-}
-
 /* CARD */
 .recruit-card {
-  max-width: 1000px;
-  margin: 40px auto;
+  max-width: 900px;
+  margin: 30px auto;
   background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  overflow: hidden;
 }
 
 .recruit-card-header {
   background: #e8f0fe;
-  padding: 20px;
+  padding: 16px;
 }
 
 .recruit-card-body {
-  padding: 20px;
+  padding: 16px;
 }
 
 /* TABLE */
@@ -99,22 +32,29 @@
 .recruit-table th,
 .recruit-table td {
   border: 1px solid #eee;
-  padding: 12px;
+  padding: 10px;
+  font-size: 14px;
 }
 
 /* BUTTON */
 .recruit-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .recruit-btn {
-  padding: 10px 25px;
-  border-radius: 30px;
+  padding: 7px 18px;
+  border-radius: 20px;
   border: none;
   cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.recruit-btn:hover {
+  transform: translateY(-2px);
 }
 
 .whatsapp {
@@ -127,52 +67,75 @@
   color: white;
 }
 
-/* MODAL */
+/* ================= MODAL ================= */
 .recruit-modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  z-index: 9999;
 }
 
 .recruit-modal {
   background: #fff;
-  padding: 25px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 800px;
+  padding: 18px;
+  border-radius: 12px;
+
+  width: 95%;
+  max-width: 520px;
+
+  max-height: 85vh;
+  overflow-y: auto;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  animation: popup 0.25s ease;
 }
 
+.recruit-modal h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* FORM */
 .recruit-form-grid {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .recruit-form-row {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+}
+
+.recruit-form-row.single {
+  flex-direction: column;
 }
 
 .recruit-form-row input,
 .recruit-form-row select,
-textarea {
+.recruit-form-row textarea {
   width: 100%;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  border-radius: 6px;
   border: 1px solid #ddd;
 }
 
-textarea {
-  min-height: 80px;
+.recruit-form-row textarea {
+  min-height: 70px;
 }
 
+/* ACTION */
 .recruit-modal-actions {
   display: flex;
   justify-content: center;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .submit {
@@ -185,14 +148,21 @@ textarea {
   color: white;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .recruit-contact-container{
-    flex-direction:column;
-    text-align:center;
+/* ANIMATION */
+@keyframes popup {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
   }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
+/* MOBILE */
+@media(max-width:768px){
   .recruit-form-row{
-    flex-direction:column;
+    flex-direction: column;
   }
 }

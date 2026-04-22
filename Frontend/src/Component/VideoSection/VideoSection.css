@@ -514,6 +514,8 @@
   cursor: not-allowed;
 }
 
+
+
 @media (max-width: 1199px) {
   .videoSection__featuredWrap {
     grid-template-columns: 1.5fr 320px;
