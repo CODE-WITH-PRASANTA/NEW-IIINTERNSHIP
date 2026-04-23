@@ -23,7 +23,6 @@ const CoursesView = ({ filters, search, activePage, setActivePage }) => {
         const res = await API.get("/api/courses?mode=running"); // ✅ FIXED
         setCourses(res.data.data || []);
 
-        console.log("FETCHED COURSES:", res.data.data || []);
       } catch (err) {
         console.error(err);
       } finally {

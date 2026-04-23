@@ -13,6 +13,8 @@ const ensureDir = (dir) => {
 /* ================= ROUTE → FOLDER MAP ================= */
 const routeFolderMap = {
    "/api/courses": "uploads/courses",
+    "/api/virtual-internships": "uploads/virtual-internships",
+    
 };
 
 /* ================= GET UPLOAD PATH ================= */

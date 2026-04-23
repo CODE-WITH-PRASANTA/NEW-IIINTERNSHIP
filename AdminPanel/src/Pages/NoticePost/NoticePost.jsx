@@ -1,7 +1,8 @@
-import React, { useState } from "react";
 import "./NoticePost.css";
 import { FaPlus, FaEdit, FaTrash } from "react-icons/fa";
 import { Editor } from "@tinymce/tinymce-react";
+import React, { useState, useEffect } from "react";
+import API from "../../api/axios";
 
 const NoticePost = () => {
   const [form, setForm] = useState({
@@ -18,6 +19,19 @@ const NoticePost = () => {
   const [data, setData] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
 
+  useEffect(() => {
+    loadNotices();
+  }, []);
+
+  const loadNotices = async () => {
+    try {
+      const res = await API.get("/api/notices");
+      setData(res.data.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   // INPUT HANDLER
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,7 +42,7 @@ const NoticePost = () => {
     setForm({ ...form, image: e.target.files[0] });
   };
 
-  // FILES (MULTIPLE)
+  // FILES
   const handleFiles = (e) => {
     setForm({ ...form, files: [...form.files, ...e.target.files] });
   };
@@ -44,19 +58,8 @@ const NoticePost = () => {
     setForm({ ...form, links: [...form.links, ""] });
   };
 
-  // SUBMIT
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (editIndex !== null) {
-      const updated = [...data];
-      updated[editIndex] = form;
-      setData(updated);
-      setEditIndex(null);
-    } else {
-      setData([...data, form]);
-    }
-
+  // RESET FORM
+  const resetForm = () => {
     setForm({
       image: null,
       date: "",
@@ -67,17 +70,74 @@ const NoticePost = () => {
       links: [""],
       files: [],
     });
+    setEditIndex(null);
+  };
+
+  // SUBMIT (CREATE + UPDATE)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData();
+
+      // only send image if selected
+      if (form.image) {
+        formData.append("image", form.image);
+      }
+
+      formData.append("date", form.date);
+      formData.append("title", form.title);
+      formData.append("description", form.description);
+      formData.append("author", form.author);
+      formData.append("designation", form.designation);
+      formData.append("links", JSON.stringify(form.links));
+
+      form.files.forEach((file) => {
+        formData.append("files", file);
+      });
+
+      if (editIndex !== null) {
+        const id = data[editIndex]._id;
+        await API.put(`/api/notices/${id}`, formData);
+        alert("Notice Updated ✅");
+      } else {
+        await API.post("/api/notices", formData);
+        alert("Notice Created ✅");
+      }
+
+      loadNotices();
+      resetForm();
+    } catch (err) {
+      console.error(err);
+      alert("Error saving notice");
+    }
   };
 
   // DELETE
-  const handleDelete = (index) => {
-    const updated = data.filter((_, i) => i !== index);
-    setData(updated);
+  const handleDelete = async (id) => {
+    try {
+      await API.delete(`/api/notices/${id}`);
+      loadNotices();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   // EDIT
   const handleEdit = (index) => {
-    setForm(data[index]);
+    const item = data[index];
+
+    setForm({
+      image: null,
+      date: item.date || "",
+      title: item.title || "",
+      description: item.description || "",
+      author: item.author || "",
+      designation: item.designation || "",
+      links: item.links?.length ? item.links : [""],
+      files: [],
+    });
+
     setEditIndex(index);
   };
 
@@ -88,10 +148,25 @@ const NoticePost = () => {
       {/* ================= FORM ================= */}
       <form className="np-form" onSubmit={handleSubmit}>
         <div className="np-grid">
+
           {/* IMAGE */}
           <div className="np-field">
             <label>Upload Image</label>
-            <input type="file" onChange={handleImage} />
+            <input
+              type="file"
+              onChange={handleImage}
+              key={form.image ? "hasImage" : "noImage"}
+            />
+
+            {/* ✅ PREVIEW IMAGE WHEN EDIT */}
+            {editIndex !== null && data[editIndex]?.image && (
+              <img
+                src={`http://localhost:5000${data[editIndex].image}`}
+                alt="preview"
+                className="np-thumb"
+                style={{ marginTop: "10px" }}
+              />
+            )}
           </div>
 
           {/* DATE */}
@@ -143,7 +218,7 @@ const NoticePost = () => {
         <div className="np-field np-full">
           <label>Description</label>
           <Editor
-            apiKey="jeq7g2k84sqpi9364o8x9ptqf09aoesaq8jxmp49dl4sh57z"
+            apiKey="your-api-key"
             value={form.description}
             init={{
               height: 250,
@@ -178,9 +253,22 @@ const NoticePost = () => {
           <input type="file" multiple onChange={handleFiles} />
         </div>
 
+        {/* SUBMIT */}
         <button className="np-submitBtn">
           {editIndex !== null ? "Update Notice" : "Submit Notice"}
         </button>
+
+        {/* ✅ CANCEL EDIT */}
+        {editIndex !== null && (
+          <button
+            type="button"
+            className="np-submitBtn"
+            onClick={resetForm}
+            style={{ marginLeft: "10px", background: "#aaa" }}
+          >
+            Cancel Edit
+          </button>
+        )}
       </form>
 
       {/* ================= TABLE ================= */}
@@ -201,37 +289,55 @@ const NoticePost = () => {
           </thead>
 
           <tbody>
-            {data.map((item, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>
-                  {item.image && (
-                    <img
-                      src={URL.createObjectURL(item.image)}
-                      alt=""
-                      className="np-thumb"
-                    />
-                  )}
-                </td>
-                <td>{item.date}</td>
-                <td>{item.title}</td>
-                <td>{item.author}</td>
-                <td>{item.designation}</td>
-                <td>{item.links.length}</td>
-                <td>{item.files.length}</td>
-                <td className="np-actions">
-                  <button onClick={() => handleEdit(index)} className="np-edit">
-                    <FaEdit />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(index)}
-                    className="np-delete"
-                  >
-                    <FaTrash />
-                  </button>
+            {data.length === 0 ? (
+              <tr>
+                <td colSpan="9" style={{ textAlign: "center", padding: "20px" }}>
+                  No notices available
                 </td>
               </tr>
-            ))}
+            ) : (
+              data.map((item, index) => (
+                <tr key={item._id || index}>
+                  <td>{index + 1}</td>
+
+                  <td>
+                    <img
+                      src={
+                        item.image
+                          ? `http://localhost:5000${item.image}`
+                          : "/no-image.png"
+                      }
+                      alt="notice"
+                      className="np-thumb"
+                    />
+                  </td>
+
+                  <td>{item.date || "-"}</td>
+                  <td>{item.title || "Untitled"}</td>
+                  <td>{item.author || "-"}</td>
+                  <td>{item.designation || "-"}</td>
+
+                  <td>{item.links?.length || 0}</td>
+                  <td>{item.files?.length || 0}</td>
+
+                  <td className="np-actions">
+                    <button
+                      onClick={() => handleEdit(index)}
+                      className="np-edit"
+                    >
+                      <FaEdit />
+                    </button>
+
+                    <button
+                      onClick={() => handleDelete(item._id)}
+                      className="np-delete"
+                    >
+                      <FaTrash />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
