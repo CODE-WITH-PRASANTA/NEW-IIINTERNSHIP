@@ -19,6 +19,10 @@ import NoticePost from "./Pages/NoticePost/NoticePost";
 import NoticeManage from "./Pages/NoticeManage/NoticeManage";
 import SucessStory from "./Pages/SucessStory/SucessStory";
 import StoryPreview from "./Pages/StoryPreview/StoryPreview";
+import Carreier from "./Pages/Carreier/Carreier";
+import ApplyForm from "./Pages/ApplyForm/ApplyForm";
+import GalleryPosting from "./Pages/GalleryPosting/GalleryPosting";
+import ProjectPosting from "./Pages/ProjectPosting/ProjectPosting";
 
 const App = () => {
   return (
@@ -48,6 +52,10 @@ const App = () => {
           <Route path="/admin/notices/manage" element={<NoticeManage />} />
           <Route path="/success-story/post" element={<SucessStory />} />
           <Route path="/success-story/preview" element={<StoryPreview />} />
+          <Route path="/admin/carreier" element={<Carreier/>}/>
+          <Route path="/admin/carreierapplyform" element={<ApplyForm/>}/>
+          <Route path="/admin/gallery" element={<GalleryPosting/>}/>
+          <Route path="/admin/projectposting" element={<ProjectPosting/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

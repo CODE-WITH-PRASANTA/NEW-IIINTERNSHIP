@@ -9,7 +9,7 @@ const connectDB = require("./src/config/db");
 const courseRoutes = require("./src/routes/course.routes");
 const viRoutes = require("./src/routes/virtualInternship.routes");
 const categoryRoutes = require("./src/routes/category.routes");
-
+const projectRoutes = require("./src/routes/project.routes");
 
 const app = express();
 
@@ -27,7 +27,8 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api/courses", courseRoutes);
 app.use("/api/virtual-internships", viRoutes);
-app.use("/api", categoryRoutes);
+app.use("/api/categories", categoryRoutes); // ✅ better naming
+app.use("/api/projects",projectRoutes);
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");

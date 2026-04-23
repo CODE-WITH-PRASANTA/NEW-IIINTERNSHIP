@@ -29,6 +29,8 @@ import Donate from "./Component/Donate/Donate";
 import CourseVideo from "./Pages/CourseVideo/CourseVideo";
 import Notice from "./Pages/Notice/Notice";
 
+import ConditionTerm from "./Pages/ConditionTerm/ConditionTerm";
+
 
 const App = () => {
   return (
@@ -61,10 +63,8 @@ const App = () => {
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/donate" element={<Donate />} />
         <Route path="/notice" element={<Notice/>}/>
-        
-          
-
-        <Route path="/virtual-internship" element={<CourseVideo />} /> 
+        <Route path="/termcondition" element={<ConditionTerm/>}/>
+         <Route path="/virtual-internship" element={<CourseVideo />} /> 
       </Routes>
       
       <FloatingForm />

@@ -12,7 +12,9 @@ const ensureDir = (dir) => {
 
 /* ================= ROUTE → FOLDER MAP ================= */
 const routeFolderMap = {
-   "/api/courses": "uploads/courses",
+  "/api/courses": "uploads/courses",
+  "/api/projects": "uploads/projects",
+  "/api/virtual-internships": "uploads/virtual-internships",
 };
 
 /* ================= GET UPLOAD PATH ================= */
@@ -76,9 +78,7 @@ const fileFilter = (req, file, cb) => {
     }
 
     if (pdfFields.includes(field)) {
-      return isPDF
-        ? cb(null, true)
-        : cb(new Error(`${field} must be a PDF`));
+      return isPDF ? cb(null, true) : cb(new Error(`${field} must be a PDF`));
     }
 
     if (pdfOrImageFields.includes(field)) {

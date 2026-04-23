@@ -1,0 +1,179 @@
+.projectPosting {
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  background: #f5f7fb;
+}
+
+/* TOP SECTION */
+.projectPosting__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* FORM */
+.projectPosting__form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.projectPosting__form h2 {
+  margin-bottom: 10px;
+}
+
+.projectPosting__form input,
+.projectPosting__form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.projectPosting__form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.projectPosting__form button {
+  padding: 12px;
+  border: none;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.projectPosting__form button:hover {
+  transform: translateY(-2px);
+}
+
+/* UPLOAD BOX */
+.uploadBox {
+  height: 150px;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.uploadBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* PREVIEW */
+.projectPosting__preview {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.previewCard {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f9fafc;
+  padding: 15px;
+}
+
+.previewCard img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+/* LIST */
+.projectPosting__list {
+  margin-top: 30px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.projectCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+}
+
+.projectCard img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.projectCard h3 {
+  margin: 5px 0;
+}
+
+.projectCard p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ACTIONS */
+.cardActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cardActions button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.cardActions button:nth-child(1) {
+  background: #3b82f6;
+  color: white;
+}
+
+.cardActions button:nth-child(2) {
+  background: #ef4444;
+  color: white;
+}
+
+.cardActions button:nth-child(3) {
+  background: #f59e0b;
+  color: white;
+}
+
+/* HIDDEN CARD */
+.hiddenCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .projectPosting__top {
+    grid-template-columns: 1fr;
+  }
+}

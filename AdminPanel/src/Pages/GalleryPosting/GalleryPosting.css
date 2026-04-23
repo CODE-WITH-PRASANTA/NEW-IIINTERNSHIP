@@ -1,0 +1,130 @@
+.galleryPosting {
+  padding: 30px;
+  background: #f4f6fb;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HEADINGS */
+.galleryPosting__heading {
+  margin: 20px 0 15px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ROW */
+.galleryPosting__row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* CARD */
+.galleryPosting__card {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.galleryPosting__card h3 {
+  margin-bottom: 15px;
+}
+
+/* INPUT */
+.galleryPosting__card input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+.galleryPosting__card input:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+/* BUTTON */
+.galleryPosting__card button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.galleryPosting__card button:hover {
+  transform: translateY(-2px);
+}
+
+/* TABLE */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #2563eb;
+  color: #fff;
+}
+
+th, td {
+  padding: 10px;
+  font-size: 14px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+  background: #f9fafc;
+}
+
+/* IMAGE */
+td img {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* EMPTY */
+.empty {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
+
+/* ACTION */
+.delete {
+  background: #ef4444 !important;
+  padding: 6px 10px !important;
+  width: auto !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .galleryPosting__row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  th, td {
+    font-size: 12px;
+  }
+
+  .galleryPosting {
+    padding: 15px;
+  }
+}
