@@ -1,41 +1,30 @@
 import React, { useState, useEffect } from "react";
 import "./OnlineMedia.css";
+import API, { ImageUrl } from "../../api/axios";
 
 const OnlineMedia = () => {
   const base = "onlineMedia";
 
+  const [projects, setProjects] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(3);
   const [flippedIndex, setFlippedIndex] = useState(null);
 
-  const data = [
-    {
-      title: "Wedding Moments",
-      img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      title: "Fashion Shoot",
-      img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      title: "Architecture",
-      img: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      title: "Food Styling",
-      img: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      title: "Portrait",
-      img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      title: "Fitness",
-      img: "https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=800&q=80",
-    },
-  ];
+  // ✅ FETCH DATA FROM BACKEND
+  const fetchProjects = async () => {
+    try {
+      const res = await API.get("/projects");
+      setProjects(res.data);
+    } catch (err) {
+      console.error("Error fetching projects:", err);
+    }
+  };
 
-  // Responsive
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  // ✅ RESPONSIVE
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 600) {
@@ -49,11 +38,11 @@ const OnlineMedia = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Pagination
+  // ✅ PAGINATION
   const indexOfLast = currentPage * cardsPerPage;
   const indexOfFirst = indexOfLast - cardsPerPage;
-  const currentItems = data.slice(indexOfFirst, indexOfLast);
-  const totalPages = Math.ceil(data.length / cardsPerPage);
+  const currentItems = projects.slice(indexOfFirst, indexOfLast);
+  const totalPages = Math.ceil(projects.length / cardsPerPage);
 
   return (
     <section className={base}>
@@ -62,7 +51,7 @@ const OnlineMedia = () => {
       <div className={`${base}__grid`}>
         {currentItems.map((item, index) => (
           <div
-            key={index}
+            key={item._id}
             className={`${base}__card ${
               flippedIndex === index ? "flip" : ""
             }`}
@@ -71,15 +60,17 @@ const OnlineMedia = () => {
             }
           >
             <div className={`${base}__inner`}>
-              
+
               {/* FRONT */}
               <div
                 className={`${base}__front`}
-                style={{ backgroundImage: `url(${item.img})` }}
+                style={{
+                  backgroundImage: `url(${ImageUrl(item.image)})`,
+                }}
               >
                 <img
-                  src={item.img}
-                  alt=""
+                  src={ImageUrl(item.image)}
+                  alt={item.title}
                   style={{ display: "none" }}
                   onError={(e) => {
                     e.target.parentElement.style.backgroundImage =
@@ -93,9 +84,7 @@ const OnlineMedia = () => {
                 <div className={`${base}__backContent`}>
                   <div className={`${base}__icon`}>❤</div>
                   <h3>{item.title}</h3>
-                  <p>
-                    High-quality professional work with a creative touch.
-                  </p>
+                  <p>{item.description}</p>
                 </div>
               </div>
 
@@ -104,7 +93,7 @@ const OnlineMedia = () => {
         ))}
       </div>
 
-      {/* 🔥 BUTTON PAGINATION */}
+      {/* PAGINATION */}
       <div className={`${base}__pagination`}>
         <button
           className="nav-btn"
@@ -115,7 +104,7 @@ const OnlineMedia = () => {
         </button>
 
         <span className="page-indicator">
-          Page {currentPage} / {totalPages}
+          Page {currentPage} / {totalPages || 1}
         </span>
 
         <button

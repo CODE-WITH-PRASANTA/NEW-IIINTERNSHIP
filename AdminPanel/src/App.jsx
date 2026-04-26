@@ -32,6 +32,10 @@ import NoticeManage from "./Pages/NoticeManage/NoticeManage";
 
 import SucessStory from "./Pages/SucessStory/SucessStory";
 import StoryPreview from "./Pages/StoryPreview/StoryPreview";
+import Carreier from "./Pages/Carreier/Carreier";
+import ApplyForm from "./Pages/ApplyForm/ApplyForm";
+import GalleryPosting from "./Pages/GalleryPosting/GalleryPosting";
+import ProjectPosting from "./Pages/ProjectPosting/ProjectPosting";
 
 /* ===== PROTECTED ROUTE ===== */
 const ProtectedRoute = ({ children }) => {
@@ -63,6 +67,14 @@ const App = () => {
           {/* MEDIA */}
           <Route path="media/course-materials" element={<MediaPosting />} />
 
+          <Route path="/admin/notices/post" element={<NoticePost />} />
+          <Route path="/admin/notices/manage" element={<NoticeManage />} />
+          <Route path="/success-story/post" element={<SucessStory />} />
+          <Route path="/success-story/preview" element={<StoryPreview />} />
+          <Route path="/admin/carreier" element={<Carreier/>}/>
+          <Route path="/admin/carreierapplyform" element={<ApplyForm/>}/>
+          <Route path="/admin/gallery" element={<GalleryPosting/>}/>
+          <Route path="/admin/projectposting" element={<ProjectPosting/>}/>
           {/* COURSE */}
           <Route path="course/post" element={<CoursePost />} />
           <Route path="course/post/:id" element={<CoursePost />} />

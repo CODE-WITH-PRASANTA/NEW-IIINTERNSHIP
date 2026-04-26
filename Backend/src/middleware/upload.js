@@ -12,9 +12,11 @@ const ensureDir = (dir) => {
 
 /* ================= ROUTE → FOLDER MAP ================= */
 const routeFolderMap = {
-   "/api/courses": "uploads/courses",
-    "/api/virtual-internships": "uploads/virtual-internships",
-    
+  "/api/courses": "uploads/courses",
+  "/api/projects": "uploads/projects",
+  "/api/virtual-internships": "uploads/virtual-internships",
+  "/api/applications": "uploads/applications", // ✅ added for your route
+  "/api/galleryposting": "uploads/galleryposting",
 };
 
 /* ================= GET UPLOAD PATH ================= */
@@ -78,9 +80,7 @@ const fileFilter = (req, file, cb) => {
     }
 
     if (pdfFields.includes(field)) {
-      return isPDF
-        ? cb(null, true)
-        : cb(new Error(`${field} must be a PDF`));
+      return isPDF ? cb(null, true) : cb(new Error(`${field} must be a PDF`));
     }
 
     if (pdfOrImageFields.includes(field)) {
@@ -98,6 +98,7 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
+/* ================= MULTER INSTANCE ================= */
 const upload = multer({
   storage,
   fileFilter,

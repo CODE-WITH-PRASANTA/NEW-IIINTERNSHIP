@@ -1,15 +1,17 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api";
-
 const API = axios.create({
-  baseURL: BASE_URL,
+  baseURL: "http://localhost:5000/api",
 });
 
-// 🔥 helper for image URL
-export const ImageUrl = (path) => {
-  if (!path) return "";
-  return `${BASE_URL}${path}`;
+// ✅ IMAGE HELPER (FINAL)
+export const ImageUrl = (img) => {
+  if (!img) return "";
+
+  if (img.startsWith("http")) return img;   // already full
+  if (img.startsWith("blob:")) return img;  // local preview
+
+  return `http://localhost:5000${img}`;     // backend image
 };
 
 export default API;
