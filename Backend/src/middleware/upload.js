@@ -15,6 +15,7 @@ const routeFolderMap = {
   "/api/courses": "uploads/courses",
   "/api/projects": "uploads/projects",
   "/api/virtual-internships": "uploads/virtual-internships",
+  "/api/applications": "uploads/applications", // ✅ added for your route
 };
 
 /* ================= GET UPLOAD PATH ================= */
@@ -96,6 +97,7 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
+/* ================= MULTER INSTANCE ================= */
 const upload = multer({
   storage,
   fileFilter,

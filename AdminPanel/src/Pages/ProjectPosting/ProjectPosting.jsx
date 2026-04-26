@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ProjectPosting.css";
-import API ,{ImageUrl} from "../../api/axios";
+import API, { ImageUrl } from "../../api/axios";
 
 const ProjectPosting = () => {
   const [projects, setProjects] = useState([]);
@@ -11,29 +11,31 @@ const ProjectPosting = () => {
     preview: "",
   });
 
-  const [editIndex, setEditIndex] = useState(null);
+  const [editId, setEditId] = useState(null);
 
+  // ================= FETCH =================
   const fetchProjects = async () => {
     try {
-      const res = await API.get("/api/projects");
-      
+      const res = await API.get("/projects");
       setProjects(res.data);
     } catch (err) {
       console.log(err);
     }
   };
+
   useEffect(() => {
     fetchProjects();
   }, []);
 
-  // Handle Input
+  // ================= INPUT =================
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Handle Image
+  // ================= IMAGE =================
   const handleImage = (e) => {
     const file = e.target.files[0];
+
     if (file) {
       setForm({
         ...form,
@@ -43,28 +45,45 @@ const ProjectPosting = () => {
     }
   };
 
-  // Save Project
- const handleSave = async () => {
-  const formData = new FormData();
+  // ================= SAVE / UPDATE =================
+  const handleSave = async () => {
+    const formData = new FormData();
 
-  formData.append("title", form.title);
-  formData.append("description", form.description);
+    formData.append("title", form.title);
+    formData.append("description", form.description);
 
-  if (form.image instanceof File) {
-    formData.append("image", form.image);
-  }
+    if (form.image instanceof File) {
+      formData.append("image", form.image);
+    }
 
-  try {
-    await API.post("/api/projects", formData);
+    try {
+      if (editId) {
+        // ✅ UPDATE
+        await API.put(`/projects/${editId}`, formData);
+      } else {
+        // ✅ CREATE
+        await API.post("/projects", formData);
+      }
 
-    fetchProjects();
-    setForm({ title: "", description: "", image: null, preview: "" });
-  } catch (err) {
-    console.log(err);
-  }
-};
+      fetchProjects();
+      resetForm();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-  // Edit
+  // ================= RESET =================
+  const resetForm = () => {
+    setForm({
+      title: "",
+      description: "",
+      image: null,
+      preview: "",
+    });
+    setEditId(null);
+  };
+
+  // ================= EDIT =================
   const handleEdit = (index) => {
     const item = projects[index];
 
@@ -72,30 +91,30 @@ const ProjectPosting = () => {
       title: item.title,
       description: item.description,
       image: null,
-      preview: item.image, // backend image
+      preview: item.image ? ImageUrl(item.image) : "",
     });
 
-    setEditIndex(item._id);
+    setEditId(item._id);
   };
 
-  // Delete
+  // ================= DELETE =================
   const handleDelete = async (index) => {
     const id = projects[index]._id;
 
     try {
-      await API.delete(`/api/projects/${id}`);
+      await API.delete(`/projects/${id}`);
       fetchProjects();
     } catch (err) {
       console.log(err);
     }
   };
 
-  // Toggle Visibility
+  // ================= TOGGLE =================
   const handleToggle = async (index) => {
     const id = projects[index]._id;
 
     try {
-      await API.patch(`/api/projects/${id}/toggle`);
+      await API.patch(`/projects/${id}/toggle`);
       fetchProjects();
     } catch (err) {
       console.log(err);
@@ -104,16 +123,17 @@ const ProjectPosting = () => {
 
   return (
     <div className="projectPosting">
-      {/* TOP SECTION */}
+      {/* ================= TOP ================= */}
       <div className="projectPosting__top">
-        {/* LEFT FORM */}
+
+        {/* ===== FORM ===== */}
         <div className="projectPosting__form">
-          <h2>Project Form</h2>
+          <h2>{editId ? "Update Project" : "Add Project"}</h2>
 
           <label className="uploadBox">
             <input type="file" onChange={handleImage} hidden />
             {form.preview ? (
-              <img src={form.preview} alt="preview" />
+              <img src={ImageUrl(form.preview)} alt="preview" />
             ) : (
               <span>Upload Image</span>
             )}
@@ -135,31 +155,42 @@ const ProjectPosting = () => {
           />
 
           <button onClick={handleSave}>
-            {editIndex !== null ? "Update Project" : "Save Project"}
+            {editId ? "Update Project" : "Save Project"}
           </button>
+
+          {editId && (
+            <button className="cancelBtn" onClick={resetForm}>
+              Cancel
+            </button>
+          )}
         </div>
 
-        {/* RIGHT LIVE PREVIEW */}
+        {/* ===== LIVE PREVIEW ===== */}
         <div className="projectPosting__preview">
           <h2>Live Preview</h2>
 
           <div className="previewCard">
-            {form.preview && <img src={form.preview} alt="" />}
+            {form.preview && (
+              <img src={ImageUrl(form.preview)} alt="preview" />
+            )}
             <h3>{form.title || "Project Title"}</h3>
             <p>{form.description || "Project Description"}</p>
           </div>
         </div>
       </div>
 
-      {/* BOTTOM LIST */}
+      {/* ================= LIST ================= */}
       <div className="projectPosting__list">
         <h2>Projects List</h2>
 
         <div className="cardGrid">
           {projects.map((item, index) =>
             item.visible ? (
-              <div className="projectCard" key={index}>
-                {item.image && <img src={ImageUrl(item.image)} alt="" />}
+              <div className="projectCard" key={item._id}>
+                {item.image && (
+                  <img src={ImageUrl(item.image)} alt="project" />
+                )}
+
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
 
@@ -170,11 +201,11 @@ const ProjectPosting = () => {
                 </div>
               </div>
             ) : (
-              <div className="projectCard hiddenCard" key={index}>
+              <div className="projectCard hiddenCard" key={item._id}>
                 <p>Hidden Project</p>
                 <button onClick={() => handleToggle(index)}>Show</button>
               </div>
-            ),
+            )
           )}
         </div>
       </div>

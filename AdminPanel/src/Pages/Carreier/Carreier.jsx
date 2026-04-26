@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import API from "../../api/axios";
 import "./Carreier.css";
 
 const Carreier = () => {
@@ -20,22 +21,44 @@ const Carreier = () => {
   const [jobs, setJobs] = useState([]);
   const [active, setActive] = useState(null);
 
+  /* ================= GET ALL JOBS ================= */
+  const fetchJobs = async () => {
+    try {
+      const res = await API.get("/carreier"); // ✅ FIXED
+      setJobs(res.data);
+    } catch (err) {
+      console.error("GET ERROR:", err.response?.data || err.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+
+  /* ================= HANDLE INPUT ================= */
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setForm({ ...form, [name]: type === "checkbox" ? checked : value });
   };
 
-  const handleSubmit = () => {
-    if (!form.title) return alert("Enter Job Title");
+  /* ================= CREATE JOB ================= */
+ const handleSubmit = async () => {
+  if (!form.title) return alert("Enter Job Title");
 
-    setJobs([
-      ...jobs,
-      {
-        ...form,
-        status: "Active",
-        date: new Date().toLocaleDateString(),
-      },
-    ]);
+  // ✅ validation
+  if (isNaN(form.salaryMin) || isNaN(form.salaryMax) || isNaN(form.vacancy)) {
+    return alert("Salary & Vacancy must be numbers");
+  }
+
+  try {
+    await API.post("/carreier", {
+      ...form,
+      vacancy: Number(form.vacancy),
+      salaryMin: Number(form.salaryMin),
+      salaryMax: Number(form.salaryMax),
+    });
+
+    fetchJobs();
 
     setForm({
       title: "",
@@ -51,27 +74,46 @@ const Carreier = () => {
       whatsapp: true,
       apply: true,
     });
+  } catch (err) {
+    console.error("POST ERROR:", err.response?.data || err.message);
+  }
+};
+
+  /* ================= DELETE ================= */
+  const handleDelete = async (id) => {
+    try {
+      await API.delete(`/carreier/${id}`);
+      fetchJobs();
+    } catch (err) {
+      console.error("DELETE ERROR:", err.response?.data || err.message);
+    }
   };
 
-  const handleDelete = (i) => {
-    setJobs(jobs.filter((_, index) => index !== i));
-    setActive(null);
+  /* ================= TOGGLE STATUS ================= */
+  const handleToggle = async (id) => {
+    try {
+      await API.patch(`/carreier/toggle/${id}`);
+      fetchJobs();
+    } catch (err) {
+      console.error("TOGGLE ERROR:", err.response?.data || err.message);
+    }
   };
 
-  // close dropdown on outside click
+  /* ================= CLOSE DROPDOWN ================= */
   useEffect(() => {
     const close = () => setActive(null);
     document.addEventListener("click", close);
     return () => document.removeEventListener("click", close);
   }, []);
 
+  /* ================= UI ================= */
   return (
     <div className="carreier">
 
       {/* TOP SECTION */}
       <div className="carreier__top">
 
-        {/* LEFT FORM */}
+        {/* FORM */}
         <div className="carreier__form">
 
           <div className="form-card">
@@ -134,7 +176,7 @@ const Carreier = () => {
 
         </div>
 
-        {/* RIGHT PREVIEW */}
+        {/* LIVE PREVIEW */}
         <div className="carreier__preview">
           <h2>Live Preview</h2>
 
@@ -185,14 +227,18 @@ const Carreier = () => {
 
             <tbody>
               {jobs.map((j, i) => (
-                <tr key={i}>
+                <tr key={j._id}>
                   <td>{j.title}</td>
                   <td>{j.experience}</td>
                   <td>{j.location}</td>
                   <td>₹{j.salaryMin}-{j.salaryMax}</td>
                   <td>{j.vacancy}</td>
-                  <td>{j.status}</td>
-                  <td>{j.date}</td>
+                  <td>
+                    <span onClick={() => handleToggle(j._id)} style={{ cursor: "pointer" }}>
+                      {j.status}
+                    </span>
+                  </td>
+                  <td>{new Date(j.createdAt).toLocaleDateString()}</td>
 
                   <td className="action-cell">
                     <button
@@ -212,7 +258,7 @@ const Carreier = () => {
                       >
                         <button onClick={() => alert("View Job")}>👁 View</button>
                         <button onClick={() => alert("Edit Job")}>✏️ Edit</button>
-                        <button onClick={() => handleDelete(i)}>🗑 Delete</button>
+                        <button onClick={() => handleDelete(j._id)}>🗑 Delete</button>
                       </div>
                     )}
                   </td>

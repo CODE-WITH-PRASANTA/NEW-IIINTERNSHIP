@@ -1,197 +1,103 @@
-.applyForm {
-  padding: 40px;
-  background: #f5f7fb;
-  font-family: "Poppins", sans-serif;
+.apply-form {
+  padding: 20px;
+  background: #f4f6fb;
+  min-height: 100vh;
 }
 
-/* CONTAINER */
-.applyForm__container {
-  display: flex;
-  gap: 30px;
-  margin-bottom: 40px;
-}
-
-/* LEFT FORM */
-.applyForm__left {
-  flex: 1;
+/* Container */
+.apply-form__container {
   background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.applyForm__left h2 {
-  margin-bottom: 10px;
+/* Title */
+.apply-form__title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #222;
+  font-weight: 600;
 }
 
-.applyForm__left input,
-.applyForm__left textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-.applyForm__left input:focus,
-.applyForm__left textarea:focus {
-  border-color: #4f46e5;
-  outline: none;
-}
-
-.applyForm__left textarea {
-  min-height: 100px;
-  resize: none;
-}
-
-/* TOGGLE */
-.applyForm__toggle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.applyForm__toggle button {
-  background: #4f46e5;
-  color: #fff;
-  border: none;
-  padding: 5px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-/* FILE */
-.applyForm__file label {
-  font-size: 13px;
-  margin-bottom: 5px;
-  display: block;
-}
-
-/* SUBMIT */
-.applyForm__submit {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  color: #fff;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.applyForm__submit:hover {
-  transform: translateY(-2px);
-}
-
-/* RIGHT */
-.applyForm__right {
-  flex: 1;
-  background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-.previewBox p {
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-/* TABLE */
-.applyForm__tableSection {
-  background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-.tableWrapper {
+/* Table */
+.apply-form__table-wrapper {
   overflow-x: auto;
 }
 
-table {
+.apply-form__table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
 }
 
-thead {
-  background: #4f46e5;
-  color: #fff;
+/* Table Heading */
+.apply-form__table thead {
+  background: #f1f3f6;
 }
 
-th, td {
+.apply-form__table th {
+  color: #222;
+  font-weight: 600;
   padding: 12px;
   text-align: left;
   font-size: 14px;
+  border-bottom: 2px solid #ddd;
 }
 
-tbody tr {
+/* Table Body */
+.apply-form__table td {
+  padding: 10px;
   border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
 }
 
-tbody tr:hover {
+/* Hover */
+.apply-form__table tbody tr:hover {
   background: #f9fafc;
 }
 
-/* STATUS */
-.status {
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 12px;
+/* STATUS DROPDOWN */
+.status-dropdown {
+  padding: 6px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 
-.status.active {
-  background: #dcfce7;
-  color: #15803d;
-}
-
-.status.draft {
-  background: #fef3c7;
-  color: #b45309;
-}
-
-/* ACTIONS */
-.actions button {
+/* BUTTONS */
+.btn {
+  padding: 6px 10px;
   margin-right: 5px;
   border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
 }
 
-.actions .view {
-  background: #0ea5e9;
+/* Edit Button */
+.edit-btn {
+  background: #4caf50;
   color: #fff;
 }
 
-.actions .edit {
-  background: #22c55e;
+/* Delete Button */
+.delete-btn {
+  background: #f44336;
   color: #fff;
 }
 
-.actions .delete {
-  background: #ef4444;
-  color: #fff;
+/* Hover Effects */
+.edit-btn:hover {
+  background: #43a047;
 }
 
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .applyForm__container {
-    flex-direction: column;
-  }
+.delete-btn:hover {
+  background: #d32f2f;
 }
 
-@media (max-width: 600px) {
-  th, td {
-    font-size: 12px;
-    padding: 8px;
-  }
-
-  .applyForm {
-    padding: 15px;
+/* Responsive */
+@media (max-width: 768px) {
+  .apply-form__table {
+    min-width: 900px;
   }
 }

@@ -20,8 +20,9 @@ const CoursesView = ({ filters, search, activePage, setActivePage }) => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await API.get("/api/courses");
+        const res = await API.get("/api/courses?mode=running"); // ✅ FIXED
         setCourses(res.data.data || []);
+
       } catch (err) {
         console.error(err);
       } finally {
@@ -30,7 +31,7 @@ const CoursesView = ({ filters, search, activePage, setActivePage }) => {
     };
 
     fetchCourses();
-  }, []);
+  }, []); // ✅ no dependency needed
 
   const filteredCourses = useMemo(() => {
     let data = [...courses];

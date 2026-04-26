@@ -72,6 +72,7 @@ const CoursePost = () => {
     modules: "",
     project: "",
     tools: "",
+    internshipMode: "", // ✅ NEW DROPDOWN FIELD
 
     internshipType: "",
     credits: "",
@@ -289,6 +290,14 @@ const CoursePost = () => {
           value={form.tools}
           onChange={handleChange}
         />
+
+      <Select
+        label="Internship Mode"
+        name="internshipMode"
+        value={form.internshipMode}
+        onChange={handleChange}
+        options={["Running Internship", "On-Campus Internship"]}
+      />
       </Accordion>
 
       {/* 3️⃣ REQUIREMENTS */}
