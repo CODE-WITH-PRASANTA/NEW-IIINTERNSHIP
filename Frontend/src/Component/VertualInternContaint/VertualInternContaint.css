@@ -1,0 +1,123 @@
+/* WRAPPER */
+.course-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* BOX */
+.course-box {
+  background: #f4f4f4;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.course-box h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+/* NEW HEADING */
+.course-subtitle {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #2e8b57;
+}
+
+/* FEATURES LIST */
+.course-features {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+.course-features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.course-features li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* DESCRIPTION */
+.course-desc {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* INSTRUCTOR GRID */
+.instructor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.instructor-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* IMAGE */
+.instructor-card img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  transition: transform 0.4s ease;
+}
+
+/* OVERLAY */
+.instructor-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  color: #fff;
+  border-radius: 0 0 20px 20px;
+}
+
+/* TEXT */
+.instructor-overlay h3 {
+  margin: 0;
+}
+
+.instructor-overlay p {
+  margin: 5px 0 0;
+  color: #ffd600;
+}
+
+/* 🔥 HOVER EFFECT (like your video) */
+.instructor-card:hover img {
+  transform: scale(1.1);
+}
+
+.instructor-card:hover .instructor-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,1), transparent);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .instructor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .course-features {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .instructor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-box {
+    padding: 20px;
+  }
+}

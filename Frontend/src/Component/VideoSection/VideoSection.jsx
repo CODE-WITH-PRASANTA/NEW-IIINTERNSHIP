@@ -6,6 +6,7 @@ import { HiOutlineDocumentText } from "react-icons/hi";
 import { FiFileText } from "react-icons/fi";
 import API, { ImageUrl } from "../../api/axios";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const VideoSection = ({ searchTerm, category, filters = {} }) => {
   const base = "videoSection";
@@ -15,6 +16,7 @@ const VideoSection = ({ searchTerm, category, filters = {} }) => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchCourses();
@@ -305,7 +307,12 @@ const VideoSection = ({ searchTerm, category, filters = {} }) => {
 
             <div className={`${base}__grid`}>
               {paginatedCourses.map((item) => (
-                <article className={`${base}__card`} key={item._id}>
+                <article
+                  className={`${base}__card`}
+                  key={item._id}
+                  onClick={() => navigate(`/virtual-internship/${item._id}`)}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className={`${base}__cardImageWrap`}>
                     <img
                       src={
@@ -319,7 +326,7 @@ const VideoSection = ({ searchTerm, category, filters = {} }) => {
                     <button
                       type="button"
                       className={`${base}__playBtn ${base}__playBtn--card`}
-                      aria-label="Play video"
+                      onClick={(e) => e.stopPropagation()} // ✅ prevent redirect
                     >
                       <span className={`${base}__playTriangle`}></span>
                     </button>
@@ -380,7 +387,12 @@ const VideoSection = ({ searchTerm, category, filters = {} }) => {
         {viewMode === "list" && (
           <div className={`${base}__listWrap`}>
             {paginatedCourses.map((item) => (
-              <article className={`${base}__listCard`} key={item._id}>
+              <article
+                className={`${base}__listCard`}
+                key={item._id}
+                onClick={() => navigate(`/virtual-internship/${item._id}`)}
+                style={{ cursor: "pointer" }}
+              >
                 <div className={`${base}__listImageWrap`}>
                   <img
                     src={ImageUrl(item.thumbnail)}

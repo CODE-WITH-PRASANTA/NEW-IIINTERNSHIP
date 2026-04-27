@@ -31,7 +31,18 @@ const createCourse = async (req, res) => {
 /* ================= GET ALL ================= */
 const getCourses = async (req, res) => {
   try {
-    const data = await Course.find().sort({ createdAt: -1 });
+    const { mode } = req.query;
+
+    let filter = {};
+
+    if (mode) {
+      filter.internshipMode = {
+        $regex: mode,   // 🔥 remove ^$
+        $options: "i",
+      };
+    }
+
+    const data = await Course.find(filter).sort({ createdAt: -1 });
 
     res.json({
       success: true,
@@ -41,7 +52,6 @@ const getCourses = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 /* ================= GET SINGLE ================= */
 const getCourse = async (req, res) => {
   try {

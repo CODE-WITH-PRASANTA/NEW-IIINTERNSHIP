@@ -1,0 +1,124 @@
+/* SIDEBAR CONTAINER */
+.course-sidebar {
+  background: #f3f3f3;
+  border-radius: 20px;
+  overflow: hidden;
+
+  /* overlap hero */
+  margin-top: -120px;
+
+  /* sticky scroll */
+  position: sticky;
+  top: 100px;
+}
+
+/* VIDEO */
+.course-sidebar__video {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.course-sidebar__video img {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+}
+
+/* PLAY BUTTON */
+.course-sidebar__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffd600;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* DEMO LABEL */
+.course-sidebar__label {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* CONTENT */
+.course-sidebar__content {
+  padding: 20px;
+}
+
+.course-sidebar__content h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+/* FEATURE LIST */
+.course-sidebar__list {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.course-sidebar__list div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+/* PRICE SECTION */
+.course-sidebar__bottom {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.course-sidebar__price h2 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.course-sidebar__price span {
+  display: block;
+  font-size: 13px;
+  color: #666;
+}
+
+/* BUTTON */
+.course-sidebar__btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 14px;
+  background: #2e8b57;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.course-sidebar__btn:hover {
+  background: #256f48;
+}
+.course-sidebar__play {
+  pointer-events: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .course-sidebar {
+    position: static;
+    margin-top: 20px;
+  }
+}

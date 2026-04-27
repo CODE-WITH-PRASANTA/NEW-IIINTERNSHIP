@@ -28,6 +28,7 @@ import FloatingIcons from "./Component/FloatingIcons/FloatingIcons";
 import Donate from "./Component/Donate/Donate";
 import CourseVideo from "./Pages/CourseVideo/CourseVideo";
 import Notice from "./Pages/Notice/Notice";
+import VertualIntrnDetails from "./Component/VertualIntrnDetails/VertualIntrnDetails";
 
 
 const App = () => {
@@ -62,9 +63,9 @@ const App = () => {
         <Route path="/donate" element={<Donate />} />
         <Route path="/notice" element={<Notice/>}/>
         
-          
-
+        
         <Route path="/virtual-internship" element={<CourseVideo />} /> 
+        <Route path="/virtual-internship/:id" element={<VertualIntrnDetails />} /> 
       </Routes>
       
       <FloatingForm />

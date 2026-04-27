@@ -14,7 +14,7 @@ const CourseLike = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await API.get("/api/courses");
+        const res = await API.get("/api/courses?mode=running");
         setCourses(res.data.data || []);
       } catch (err) {
         console.error(err);
