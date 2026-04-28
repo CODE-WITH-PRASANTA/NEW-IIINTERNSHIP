@@ -36,6 +36,7 @@ import Carreier from "./Pages/Carreier/Carreier";
 import ApplyForm from "./Pages/ApplyForm/ApplyForm";
 import GalleryPosting from "./Pages/GalleryPosting/GalleryPosting";
 import ProjectPosting from "./Pages/ProjectPosting/ProjectPosting";
+import ProfileManage from "./Pages/ProfileManage/ProfileManage";
 
 /* ===== PROTECTED ROUTE ===== */
 const ProtectedRoute = ({ children }) => {
@@ -65,6 +66,7 @@ const App = () => {
           <Route index element={<Dashboard />} />
 
           {/* MEDIA */}
+          <Route path="/admin/profile" element={<ProfileManage/>}/>
           <Route path="media/course-materials" element={<MediaPosting />} />
 
           <Route path="/admin/notices/post" element={<NoticePost />} />

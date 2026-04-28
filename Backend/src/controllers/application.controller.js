@@ -73,8 +73,38 @@ const getApplicationsByJob = async (req, res) => {
   }
 };
 
+/* ================= UPDATE ================= */
+const updateApplication = async (req, res) => {
+  try {
+    const updated = await Application.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    res.json(updated);
+  } catch (err) {
+    console.error("UPDATE ERROR:", err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
+/* ================= DELETE ================= */
+const deleteApplication = async (req, res) => {
+  try {
+    await Application.findByIdAndDelete(req.params.id);
+
+    res.json({ message: "Application deleted successfully" });
+  } catch (err) {
+    console.error("DELETE ERROR:", err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
 module.exports = {
   createApplication,
   getAllApplications,
   getApplicationsByJob,
+  updateApplication,    
+  deleteApplication,     
 };

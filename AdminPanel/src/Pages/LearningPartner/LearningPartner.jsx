@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./LearningPartner.css";
-import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import API, { ImageUrl } from "../../api/axios";
 
 const LearningPartner = () => {
   const [formOpen, setFormOpen] = useState(true);
@@ -12,6 +13,20 @@ const LearningPartner = () => {
     logo: null,
     preview: "",
   });
+
+  // ✅ FETCH FROM BACKEND
+  const fetchPartners = async () => {
+    try {
+      const res = await API.get("/learningpartners");
+      setPartners(res.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchPartners();
+  }, []);
 
   // Handle input
   const handleChange = (e) => {
@@ -30,55 +45,67 @@ const LearningPartner = () => {
     }
   };
 
-  // Submit
-  const handleSubmit = () => {
-    if (!formData.name || !formData.preview) return;
+  // ✅ SUBMIT (CREATE + UPDATE)
+  const handleSubmit = async () => {
+    if (!formData.name) return;
 
-    if (editingId !== null) {
-      const updated = partners.map((item) =>
-        item.id === editingId ? { ...formData, id: editingId } : item
-      );
-      setPartners(updated);
+    try {
+      const form = new FormData();
+      form.append("name", formData.name);
+      if (formData.logo) form.append("logo", formData.logo);
+
+      if (editingId) {
+        // UPDATE
+        await API.put(`/learningpartners/${editingId}`, form);
+      } else {
+        // CREATE
+        await API.post("/learningpartners", form);
+      }
+
+      fetchPartners();
+
+      // RESET
+      setFormData({ name: "", logo: null, preview: "" });
       setEditingId(null);
-    } else {
-      setPartners([
-        ...partners,
-        { ...formData, id: Date.now() },
-      ]);
-    }
 
-    setFormData({ name: "", logo: null, preview: "" });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  // Edit
+  // ✅ EDIT
   const handleEdit = (item) => {
-    setFormData(item);
-    setEditingId(item.id);
+    setFormData({
+      name: item.name,
+      logo: null,
+      preview: ImageUrl(item.logo),
+    });
+    setEditingId(item._id);
     setFormOpen(true);
   };
 
-  // Delete
-  const handleDelete = (id) => {
-    const filtered = partners.filter((item) => item.id !== id);
-    setPartners(filtered);
+  // ✅ DELETE
+  const handleDelete = async (id) => {
+    try {
+      await API.delete(`/learningpartners/${id}`);
+      fetchPartners();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div className="lp-container">
+
       {/* HEADER */}
       <div className="lp-header">
         <h2>Learning Partner</h2>
-        {/* <button
-          className="lp-toggle-btn"
-          onClick={() => setFormOpen(!formOpen)}
-        >
-          <FaPlus /> {formOpen ? "Close Form" : "Add Partner"}
-        </button> */}
       </div>
 
       {/* FORM */}
       <div className={`lp-form-wrapper ${formOpen ? "open" : ""}`}>
         <div className="lp-form">
+
           <div className="lp-form-row">
             <div className="lp-input-group">
               <label>Organisation Name</label>
@@ -105,6 +132,7 @@ const LearningPartner = () => {
           <button className="lp-submit-btn" onClick={handleSubmit}>
             {editingId ? "Update" : "Submit"}
           </button>
+
         </div>
       </div>
 
@@ -128,10 +156,10 @@ const LearningPartner = () => {
               </tr>
             ) : (
               partners.map((item) => (
-                <tr key={item.id}>
+                <tr key={item._id}>
                   <td>
                     <img
-                      src={item.preview}
+                      src={ImageUrl(item.logo)}
                       alt="logo"
                       className="lp-table-img"
                     />
@@ -146,7 +174,7 @@ const LearningPartner = () => {
                     </button>
                     <button
                       className="lp-action-btn delete"
-                      onClick={() => handleDelete(item.id)}
+                      onClick={() => handleDelete(item._id)}
                     >
                       <FaTrash />
                     </button>
@@ -157,6 +185,7 @@ const LearningPartner = () => {
           </tbody>
         </table>
       </div>
+
     </div>
   );
 };

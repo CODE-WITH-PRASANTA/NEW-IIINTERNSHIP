@@ -17,6 +17,10 @@ const routeFolderMap = {
   "/api/virtual-internships": "uploads/virtual-internships",
   "/api/applications": "uploads/applications", // ✅ added for your route
   "/api/galleryposting": "uploads/galleryposting",
+  "/api/mentors": "uploads/mentors",
+  "/api/testimonials": "uploads/testimonials",
+  "/api/learningpartners": "uploads/learningpartners",
+
 };
 
 /* ================= GET UPLOAD PATH ================= */

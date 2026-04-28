@@ -8,6 +8,8 @@ const {
   createApplication,
   getAllApplications,
   getApplicationsByJob,
+  updateApplication,     // ✅ ADD
+  deleteApplication,     // ✅ ADD
 } = require("../controllers/application.controller");
 
 /* ================= ROUTES ================= */
@@ -25,5 +27,11 @@ router.get("/", getAllApplications);
 
 // GET BY JOB
 router.get("/job/:jobId", getApplicationsByJob);
+
+// UPDATE STATUS
+router.put("/:id", updateApplication);
+
+// DELETE APPLICATION
+router.delete("/:id", deleteApplication);
 
 module.exports = router;

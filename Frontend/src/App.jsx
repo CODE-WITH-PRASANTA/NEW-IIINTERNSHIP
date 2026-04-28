@@ -31,6 +31,7 @@ import Notice from "./Pages/Notice/Notice";
 import VertualIntrnDetails from "./Component/VertualIntrnDetails/VertualIntrnDetails";
 
 import ConditionTerm from "./Pages/ConditionTerm/ConditionTerm";
+import OnCampusInternship from "./Pages/OnCampusInternship/OnCampusInternship";
 
 
 const App = () => {
@@ -65,7 +66,8 @@ const App = () => {
         <Route path="/donate" element={<Donate />} />
         <Route path="/notice" element={<Notice/>}/>
         <Route path="/termcondition" element={<ConditionTerm/>}/>
-         <Route path="/virtual-internship" element={<CourseVideo />} /> 
+         <Route path="/virtual-internship" element={<CourseVideo />} />
+         <Route path="/on-campus" element={<OnCampusInternship/>}/>
         
           
 

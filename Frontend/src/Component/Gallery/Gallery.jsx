@@ -1,56 +1,40 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Gallery.css";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
+import API, { ImageUrl } from "../../api/axios";
 
 const Gallery = () => {
   const base = "gallerySection";
   const scrollRef = useRef(null);
   const autoScrollRef = useRef(null);
+
+  const [galleryImages, setGalleryImages] = useState([]);
   const [activeImage, setActiveImage] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  const galleryImages = [
-    {
-      id: 1,
-      src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
-      alt: "Fashion model portrait",
-    },
-    {
-      id: 2,
-      src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
-      alt: "Winter fashion portrait",
-    },
-    {
-      id: 3,
-      src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
-      alt: "Colorful duo portrait",
-    },
-    {
-      id: 4,
-      src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80",
-      alt: "Stylish portrait",
-    },
-    {
-      id: 5,
-      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80",
-      alt: "Snow mountain travel",
-    },
-    {
-      id: 6,
-      src: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80",
-      alt: "Premium sunglasses portrait",
-    },
-    {
-      id: 7,
-      src: "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=900&q=80",
-      alt: "Creative street look",
-    },
-    {
-      id: 8,
-      src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
-      alt: "Modern portrait pose",
-    },
-  ];
+  // ✅ FETCH ONLY IMAGES FROM BACKEND
+  const fetchGallery = async () => {
+    try {
+      const res = await API.get("/galleryposting");
+
+      // filter only photos
+      const images = res.data.data
+        .filter((item) => item.type === "photo")
+        .map((item) => ({
+          id: item._id,
+          src: ImageUrl(item.image),
+          alt: "Gallery Image",
+        }));
+
+      setGalleryImages(images);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchGallery();
+  }, []);
 
   const scrollGallery = (direction) => {
     if (!scrollRef.current) return;
@@ -78,39 +62,28 @@ const Gallery = () => {
     setIsPaused(false);
   };
 
+  // ✅ AUTO SCROLL (UNCHANGED)
   useEffect(() => {
     const track = scrollRef.current;
     if (!track) return;
 
-    const startAutoScroll = () => {
-      autoScrollRef.current = setInterval(() => {
-        if (!track || isPaused) return;
+    autoScrollRef.current = setInterval(() => {
+      if (!track || isPaused) return;
 
-        const maxScrollLeft = track.scrollWidth - track.clientWidth;
-        const card = track.querySelector(`.${base}__card`);
-        const cardWidth = card?.offsetWidth || 280;
-        const gap = window.innerWidth <= 767 ? 14 : 18;
-        const scrollStep = cardWidth + gap;
+      const maxScrollLeft = track.scrollWidth - track.clientWidth;
+      const card = track.querySelector(`.${base}__card`);
+      const cardWidth = card?.offsetWidth || 280;
+      const gap = window.innerWidth <= 767 ? 14 : 18;
+      const scrollStep = cardWidth + gap;
 
-        if (track.scrollLeft + scrollStep >= maxScrollLeft - 5) {
-          track.scrollTo({
-            left: 0,
-            behavior: "smooth",
-          });
-        } else {
-          track.scrollBy({
-            left: scrollStep,
-            behavior: "smooth",
-          });
-        }
-      }, 2500);
-    };
+      if (track.scrollLeft + scrollStep >= maxScrollLeft - 5) {
+        track.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        track.scrollBy({ left: scrollStep, behavior: "smooth" });
+      }
+    }, 2500);
 
-    startAutoScroll();
-
-    return () => {
-      if (autoScrollRef.current) clearInterval(autoScrollRef.current);
-    };
+    return () => clearInterval(autoScrollRef.current);
   }, [isPaused]);
 
   useEffect(() => {
@@ -135,37 +108,41 @@ const Gallery = () => {
           <button
             className={`${base}__nav ${base}__nav--left`}
             onClick={() => scrollGallery("left")}
-            aria-label="Scroll left"
           >
             <FiChevronLeft />
           </button>
 
           <div className={`${base}__track`} ref={scrollRef}>
-            {galleryImages.map((image, index) => (
-              <div
-                className={`${base}__card`}
-                key={image.id}
-                style={{ animationDelay: `${index * 0.08}s` }}
-                onClick={() => openPreview(image)}
-              >
-                <div className={`${base}__imageWrap`}>
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className={`${base}__image`}
-                  />
-                  <div className={`${base}__overlay`}>
-                    <span className={`${base}__viewText`}>View Image</span>
+            {galleryImages.length === 0 ? (
+              <p style={{ padding: "20px" }}>No images available</p>
+            ) : (
+              galleryImages.map((image, index) => (
+                <div
+                  className={`${base}__card`}
+                  key={image.id}
+                  style={{ animationDelay: `${index * 0.08}s` }}
+                  onClick={() => openPreview(image)}
+                >
+                  <div className={`${base}__imageWrap`}>
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className={`${base}__image`}
+                    />
+                    <div className={`${base}__overlay`}>
+                      <span className={`${base}__viewText`}>
+                        View Image
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
 
           <button
             className={`${base}__nav ${base}__nav--right`}
             onClick={() => scrollGallery("right")}
-            aria-label="Scroll right"
           >
             <FiChevronRight />
           </button>
@@ -181,7 +158,6 @@ const Gallery = () => {
             <button
               className={`${base}__closeBtn`}
               onClick={closePreview}
-              aria-label="Close preview"
             >
               <FiX />
             </button>
