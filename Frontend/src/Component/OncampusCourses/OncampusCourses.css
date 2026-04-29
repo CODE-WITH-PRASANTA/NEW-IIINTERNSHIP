@@ -1,0 +1,201 @@
+.occ {
+  width: 100%;
+}
+
+/* HEADER */
+.occ__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.occ__controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.occ__view svg {
+  font-size: 18px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: #888;
+}
+
+.occ__view .active {
+  color: #2db783;
+}
+
+/* GRID */
+.occ__courses--grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* LIST */
+.occ__courses--list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* CARD */
+.occ__card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LIST STYLE */
+.occ__courses--list .occ__card {
+  flex-direction: row;
+  gap: 20px;
+  padding: 15px;
+}
+
+.occ__img {
+  position: relative;
+}
+
+.occ__img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* LIST IMAGE */
+.occ__courses--list .occ__img img {
+  width: 260px;
+  height: 180px;
+}
+
+/* OVERLAY */
+.occ__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1c9c6d, #2db783);
+  color: #fff;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s;
+  border-radius: 14px;
+}
+
+.occ__card:hover .occ__overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.occ__overlay h3 {
+  font-size: 16px;
+}
+
+.occ__overlay p {
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+.occ__overlay button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #2db783;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* CONTENT */
+.occ__content {
+  padding: 15px;
+}
+
+.occ__rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: orange;
+  font-size: 14px;
+}
+
+.occ__rating span {
+  color: #555;
+  margin-left: 5px;
+}
+
+.occ__price {
+  margin: 10px 0;
+}
+
+.occ__price .new {
+  color: #2db783;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.occ__price .old {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.occ__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #444;
+}
+
+/* PAGINATION */
+.occ__pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.occ__pagination button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #eee;
+  cursor: pointer;
+}
+
+.occ__pagination .active {
+  background: #2db783;
+  color: #fff;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .occ__courses--grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .occ__courses--grid {
+    grid-template-columns: 1fr;
+  }
+
+  .occ__courses--list .occ__card {
+    flex-direction: column;
+  }
+
+  .occ__courses--list .occ__img img {
+    width: 100%;
+    height: 200px;
+  }
+}
