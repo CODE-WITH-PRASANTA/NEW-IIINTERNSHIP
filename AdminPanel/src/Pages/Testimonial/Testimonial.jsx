@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Testimonial.css";
+import API, { ImageUrl } from "../../api/axios";
 
 const Testimonial = () => {
   const [name, setName] = useState("");
@@ -13,6 +14,21 @@ const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [editId, setEditId] = useState(null);
 
+  // ✅ FETCH FROM DB
+  const fetchTestimonials = async () => {
+    try {
+      const res = await API.get("/testimonials");
+      setTestimonials(res.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  // ✅ IMAGE HANDLE
   const handleImage = (file) => {
     if (file) {
       setImage(file);
@@ -20,69 +36,72 @@ const Testimonial = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  // ✅ SUBMIT (CREATE + UPDATE)
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!name || !designation || !rating || !feedback || !location) return;
 
-    if (editId) {
-      setTestimonials(
-        testimonials.map((item) =>
-          item.id === editId
-            ? {
-                ...item,
-                name,
-                designation,
-                rating,
-                feedback,
-                location,
-                image: image ? preview : item.image,
-              }
-            : item
-        )
-      );
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("designation", designation);
+      formData.append("rating", rating);
+      formData.append("feedback", feedback);
+      formData.append("location", location);
+
+      if (image) {
+        formData.append("image", image);
+      }
+
+      if (editId) {
+        // 🔄 UPDATE
+        await API.put(`/testimonials/${editId}`, formData);
+      } else {
+        // ➕ CREATE
+        await API.post("/testimonials", formData);
+      }
+
+      fetchTestimonials();
+
+      // RESET
+      setName("");
+      setDesignation("");
+      setRating(0);
+      setFeedback("");
+      setLocation("");
+      setImage(null);
+      setPreview(null);
       setEditId(null);
-    } else {
-      setTestimonials([
-        ...testimonials,
-        {
-          id: Date.now(),
-          name,
-          designation,
-          rating,
-          feedback,
-          location,
-          image: preview,
-        },
-      ]);
+
+    } catch (err) {
+      console.log(err);
     }
-
-    setName("");
-    setDesignation("");
-    setRating(0);
-    setFeedback("");
-    setLocation("");
-    setImage(null);
-    setPreview(null);
   };
 
-  const handleDelete = (id) => {
-    setTestimonials(testimonials.filter((item) => item.id !== id));
+  // ❌ DELETE
+  const handleDelete = async (id) => {
+    try {
+      await API.delete(`/testimonials/${id}`);
+      fetchTestimonials();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
+  // ✏️ EDIT
   const handleEdit = (item) => {
     setName(item.name);
     setDesignation(item.designation);
     setRating(item.rating);
     setFeedback(item.feedback);
     setLocation(item.location);
-    setPreview(item.image);
-    setEditId(item.id);
+    setPreview(ImageUrl(item.image));
+    setEditId(item._id);
   };
 
   return (
     <div className="testimonial-container">
-
       <h2 className="testimonial-heading">Testimonial Posting</h2>
 
       {/* FORM */}
@@ -117,7 +136,7 @@ const Testimonial = () => {
             />
           </div>
 
-          {/* RATING */}
+          {/* ⭐ RATING */}
           <div className="rating-section">
             <label>Rating</label>
             <div className="stars">
@@ -148,12 +167,10 @@ const Testimonial = () => {
 
       {/* TABLE */}
       <div className="testimonial-table-card">
-
         <div className="table-header">
           <h3>Testimonial List</h3>
         </div>
 
-        {/* SCROLL WRAPPER */}
         <div className="table-wrapper">
           <table className="testimonial-table">
             <thead>
@@ -172,11 +189,11 @@ const Testimonial = () => {
             <tbody>
               {testimonials.length > 0 ? (
                 testimonials.map((item, index) => (
-                  <tr key={item.id}>
+                  <tr key={item._id}>
                     <td>{index + 1}</td>
 
                     <td>
-                      <img src={item.image} alt="profile" />
+                      <img src={ImageUrl(item.image)} alt="profile" />
                     </td>
 
                     <td>{item.name}</td>
@@ -187,9 +204,7 @@ const Testimonial = () => {
                       {"★".repeat(item.rating)}
                     </td>
 
-                    <td className="feedback-cell">
-                      {item.feedback}
-                    </td>
+                    <td className="feedback-cell">{item.feedback}</td>
 
                     <td>{item.location}</td>
 
@@ -204,7 +219,7 @@ const Testimonial = () => {
 
                         <button
                           className="btn delete-btn"
-                          onClick={() => handleDelete(item.id)}
+                          onClick={() => handleDelete(item._id)}
                         >
                           Delete
                         </button>
@@ -223,9 +238,7 @@ const Testimonial = () => {
             </tbody>
           </table>
         </div>
-
       </div>
-
     </div>
   );
 };

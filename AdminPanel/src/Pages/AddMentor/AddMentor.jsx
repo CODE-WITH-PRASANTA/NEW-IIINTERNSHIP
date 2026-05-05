@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AddMentor.css";
+import API, { ImageUrl } from "../../api/axios";
 
 const AddMentor = () => {
   const [name, setName] = useState("");
@@ -10,6 +11,21 @@ const AddMentor = () => {
   const [mentors, setMentors] = useState([]);
   const [editId, setEditId] = useState(null);
 
+  // ✅ FETCH MENTORS FROM DB
+  const fetchMentors = async () => {
+    try {
+      const res = await API.get("/mentors");
+      setMentors(res.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchMentors();
+  }, []);
+
+  // ✅ HANDLE IMAGE
   const handleImage = (file) => {
     if (file) {
       setImage(file);
@@ -17,51 +33,57 @@ const AddMentor = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  // ✅ SUBMIT (CREATE + UPDATE)
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !designation || (!image && !preview)) return;
 
-    if (editId) {
-      setMentors(
-        mentors.map((item) =>
-          item.id === editId
-            ? {
-                ...item,
-                name,
-                designation,
-                image: image ? preview : item.image,
-              }
-            : item
-        )
-      );
+    if (!name || !designation) return;
+
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("designation", designation);
+      if (image) formData.append("image", image);
+
+      if (editId) {
+        // 🔄 UPDATE
+        await API.put(`/mentors/${editId}`, formData);
+      } else {
+        // ➕ CREATE
+        await API.post("/mentors", formData);
+      }
+
+      // 🔁 REFRESH LIST
+      fetchMentors();
+
+      // RESET
+      setName("");
+      setDesignation("");
+      setImage(null);
+      setPreview(null);
       setEditId(null);
-    } else {
-      setMentors([
-        ...mentors,
-        {
-          id: Date.now(),
-          name,
-          designation,
-          image: preview,
-        },
-      ]);
+
+    } catch (err) {
+      console.log(err);
     }
-
-    setName("");
-    setDesignation("");
-    setImage(null);
-    setPreview(null);
   };
 
-  const handleDelete = (id) => {
-    setMentors(mentors.filter((item) => item.id !== id));
+  // ❌ DELETE
+  const handleDelete = async (id) => {
+    try {
+      await API.delete(`/mentors/${id}`);
+      fetchMentors();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
+  // ✏️ EDIT
   const handleEdit = (item) => {
     setName(item.name);
     setDesignation(item.designation);
-    setPreview(item.image);
-    setEditId(item.id);
+    setPreview(ImageUrl(item.image));
+    setEditId(item._id);
   };
 
   return (
@@ -143,10 +165,10 @@ const AddMentor = () => {
                   </tr>
                 ) : (
                   mentors.map((item, index) => (
-                    <tr key={item.id}>
+                    <tr key={item._id}>
                       <td>{index + 1}</td>
                       <td>
-                        <img src={item.image} alt="" />
+                        <img src={ImageUrl(item.image)} alt="" />
                       </td>
                       <td>{item.name}</td>
                       <td>{item.designation}</td>
@@ -161,7 +183,7 @@ const AddMentor = () => {
 
                           <button
                             className="btn delete-btn"
-                            onClick={() => handleDelete(item.id)}
+                            onClick={() => handleDelete(item._id)}
                           >
                             Delete
                           </button>
@@ -174,7 +196,6 @@ const AddMentor = () => {
             </table>
           </div>
         </div>
-
       </div>
     </div>
   );

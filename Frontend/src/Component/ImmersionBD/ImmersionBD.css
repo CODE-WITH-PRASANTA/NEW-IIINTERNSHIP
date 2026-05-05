@@ -56,10 +56,6 @@
   margin-bottom: 10px;
 }
 
-<<<<<<< HEAD
-.ImmersionBD__title span {
-  background: linear-gradient(90deg, #ffd700, #fff5cc);
-=======
 .ImmersionBD__spark {
   position: absolute;
 }
@@ -92,7 +88,6 @@
   line-height: 1.1;
 
   background: white;
->>>>>>> 03fb6ca3ccca318bfb1532a3d8f03035f369ff3d
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

@@ -8,7 +8,7 @@ const Recruitment = () => {
   const [showForm, setShowForm] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
 
-  const [form, setForm] = useState({
+  const initialForm = {
     firstName: "",
     lastName: "",
     whatsapp: "",
@@ -18,7 +18,9 @@ const Recruitment = () => {
     location: "",
     file: null,
     message: "",
-  });
+  };
+
+  const [form, setForm] = useState(initialForm);
 
   /* ================= FETCH JOBS ================= */
   useEffect(() => {
@@ -30,7 +32,7 @@ const Recruitment = () => {
       const res = await API.get("/carreier");
       setJobs(res.data);
     } catch (err) {
-      console.log(err);
+      console.log("Fetch Jobs Error:", err);
     }
   };
 
@@ -52,10 +54,13 @@ const Recruitment = () => {
     window.open(url, "_blank");
   };
 
-  /* ================= SUBMIT ================= */
- const handleSubmit = async (e) => {
+/* ================= SUBMIT APPLICATION ================= */
+const handleSubmit = async (e) => {
   e.preventDefault();
-  console.log("SUBMIT CLICKED");
+
+  if (!selectedJob) {
+    return Swal.fire("Error", "No job selected", "error");
+  }
 
   if (!form.file) {
     return Swal.fire("Error", "Please upload resume", "error");
@@ -64,34 +69,58 @@ const Recruitment = () => {
   try {
     const data = new FormData();
 
-    Object.keys(form).forEach((key) => {
-      if (form[key] !== null) {
-        data.append(key, form[key]);
+    // ✅ Append all fields safely
+    Object.entries(form).forEach(([key, value]) => {
+      if (value !== null && value !== "") {
+        data.append(key, value);
       }
     });
 
+    // ✅ IMPORTANT: Send jobId
     data.append("jobId", selectedJob._id);
 
-    console.log("Sending Data...");
+    // ✅ DEBUG (optional but useful)
+    console.log("Sending FormData:");
+    for (let pair of data.entries()) {
+      console.log(pair[0], pair[1]);
+    }
 
-    await API.post("/api/application", data, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+    // ✅ API CALL (correct route)
+    const res = await API.post("/application", data);
+
+    console.log("Response:", res.data);
+
+    Swal.fire("Success", "Application Submitted Successfully", "success");
+
+    // ✅ Reset form
+    setForm({
+      firstName: "",
+      lastName: "",
+      whatsapp: "",
+      phone: "",
+      email: "",
+      qualification: "",
+      location: "",
+      file: null,
+      message: "",
     });
 
-    Swal.fire("Success", "Application Submitted", "success");
-
     setShowForm(false);
+    setSelectedJob(null);
 
   } catch (err) {
-    console.log("ERROR:", err.response?.data || err.message);
-    Swal.fire("Error", "Submission failed", "error");
+    console.log("Submit Error:", err.response?.data || err.message);
+
+    Swal.fire(
+      "Error",
+      err.response?.data?.message || "Submission failed",
+      "error"
+    );
   }
 };
-
   return (
     <div className="recruit">
+
       {/* ================= JOB LIST ================= */}
       {jobs.map((job) => (
         <div key={job._id} className="recruit-card">
@@ -154,48 +183,106 @@ const Recruitment = () => {
             <h3>Apply for {selectedJob?.title}</h3>
 
             <form onSubmit={handleSubmit} className="recruit-form-grid">
+              
               <div className="recruit-form-row">
-                <input name="firstName" value={form.firstName} onChange={handleChange} placeholder="First Name" required />
-                <input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last Name" required />
+                <input
+                  name="firstName"
+                  value={form.firstName}
+                  onChange={handleChange}
+                  placeholder="First Name"
+                  required
+                />
+                <input
+                  name="lastName"
+                  value={form.lastName}
+                  onChange={handleChange}
+                  placeholder="Last Name"
+                  required
+                />
               </div>
 
               <div className="recruit-form-row">
-                <input name="whatsapp" value={form.whatsapp} onChange={handleChange} placeholder="WhatsApp Number" required />
-                <input name="phone" value={form.phone} onChange={handleChange} placeholder="Call Number" required />
+                <input
+                  name="whatsapp"
+                  value={form.whatsapp}
+                  onChange={handleChange}
+                  placeholder="WhatsApp Number"
+                  required
+                />
+                <input
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="Call Number"
+                  required
+                />
               </div>
 
               <div className="recruit-form-row">
-                <input name="email" value={form.email} onChange={handleChange} placeholder="Email ID" required />
-                <select name="qualification" value={form.qualification} onChange={handleChange} required>
+                <input
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="Email ID"
+                  required
+                />
+                <select
+                  name="qualification"
+                  value={form.qualification}
+                  onChange={handleChange}
+                  required
+                >
                   <option value="">Select Qualification</option>
-                  <option>BTech</option>
-                  <option>MCA</option>
+                  <option value="BTech">BTech</option>
+                  <option value="MCA">MCA</option>
                 </select>
               </div>
 
               <div className="recruit-form-row single">
-                <input name="location" value={form.location} onChange={handleChange} placeholder="Location" required />
+                <input
+                  name="location"
+                  value={form.location}
+                  onChange={handleChange}
+                  placeholder="Location"
+                  required
+                />
               </div>
 
               <div className="recruit-form-row single">
-                <input type="file" name="file" onChange={handleChange} required />
+                <input
+                  type="file"
+                  name="file"
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="recruit-form-row single">
-                <textarea name="message" value={form.message} onChange={handleChange} placeholder="Explain yourself..." />
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="Explain yourself..."
+                />
               </div>
 
               <div className="recruit-modal-actions">
-                <button type="submit" className="recruit-btn submit">Submit</button>
+                <button type="submit" className="recruit-btn submit">
+                  Submit
+                </button>
 
                 <button
                   type="button"
                   className="recruit-btn cancel"
-                  onClick={() => setShowForm(false)}
+                  onClick={() => {
+                    setShowForm(false);
+                    setSelectedJob(null);
+                  }}
                 >
                   Cancel
                 </button>
               </div>
+
             </form>
           </div>
         </div>

@@ -4,7 +4,7 @@ const applicationSchema = new mongoose.Schema(
   {
     jobId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Career", // change to your job model name if different
+      ref: "Carreier", // change to your job model name if different
       required: true,
     },
 
@@ -20,7 +20,7 @@ const applicationSchema = new mongoose.Schema(
     },
 
     whatsapp: {
-      type: Boolean,
+      type: String,
       default: false,
     },
 

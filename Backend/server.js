@@ -15,6 +15,10 @@ const authRoutes = require("./src/routes/adminAuth.routes")
 const carreierRoutes = require("./src/routes/carreier.routes");
 const applicationRoutes = require("./src/routes/application.routes");
 const galleryPostingRoutes = require("./src/routes/galleryposting.routes");
+const mentorRoutes = require("./src/routes/addmentor.routes");
+const testimonialRoutes = require("./src/routes/testimonial.routes");
+const learningPartnerRoutes = require("./src/routes/learningpartner.routes");
+
 
 const app = express();
 
@@ -40,6 +44,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/carreier", carreierRoutes);
 app.use("/api/application", applicationRoutes);
 app.use("/api/galleryposting", galleryPostingRoutes);
+app.use("/api/mentors", mentorRoutes);
+app.use("/api/testimonials", testimonialRoutes);
+app.use("/api/learningpartners", learningPartnerRoutes);
+
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
