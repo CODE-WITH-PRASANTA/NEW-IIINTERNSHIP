@@ -1,0 +1,103 @@
+.apply-form {
+  padding: 20px;
+  background: #f4f6fb;
+  min-height: 100vh;
+}
+
+/* Container */
+.apply-form__container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Title */
+.apply-form__title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #222;
+  font-weight: 600;
+}
+
+/* Table */
+.apply-form__table-wrapper {
+  overflow-x: auto;
+}
+
+.apply-form__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table Heading */
+.apply-form__table thead {
+  background: #f1f3f6;
+}
+
+.apply-form__table th {
+  color: #222;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Table Body */
+.apply-form__table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Hover */
+.apply-form__table tbody tr:hover {
+  background: #f9fafc;
+}
+
+/* STATUS DROPDOWN */
+.status-dropdown {
+  padding: 6px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 6px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Edit Button */
+.edit-btn {
+  background: #4caf50;
+  color: #fff;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: #f44336;
+  color: #fff;
+}
+
+/* Hover Effects */
+.edit-btn:hover {
+  background: #43a047;
+}
+
+.delete-btn:hover {
+  background: #d32f2f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .apply-form__table {
+    min-width: 900px;
+  }
+}

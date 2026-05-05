@@ -156,6 +156,36 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
     ],
   },
 
+   {
+    name: "Carreier",
+    icon: <FaCommentDots />,
+    submenu: [
+      { name: "Crreier", path: "/admin/carreier", icon: <FaQuoteLeft /> },
+      { name: "Apply Form", path: "/admin/carreierapplyform", icon: <FaQuoteLeft /> },
+      
+    ],
+  },
+
+  {
+    name: "Gallery",
+    icon: <FaCommentDots />,
+    submenu: [
+      { name: "Gallery", path: "/admin/gallery", icon: <FaQuoteLeft /> },
+      
+      
+    ],
+  },
+
+   {
+    name: "Project Posting",
+    icon: <FaCommentDots />,
+    submenu: [
+      { name: "Project Posting", path: "/admin/projectposting", icon: <FaQuoteLeft /> },
+      
+      
+    ],
+  },
+
   {
     name: "System Settings",
     icon: <FaAddressBook />,

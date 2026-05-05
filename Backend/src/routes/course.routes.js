@@ -1,43 +1,21 @@
 const express = require("express");
-const {
-  createCourse,
-  getCourses,
-  getCourse,
-  deleteCourse,
-  updateCourse, // ✅ added
-} = require("../controllers/course.controllers");
-
-const { upload, convertToWebp } = require("../middleware/upload");
-
 const router = express.Router();
 
-/* ================= CREATE COURSE ================= */
-router.post(
-  "/",
-  upload.fields([
-    { name: "banner", maxCount: 1 },
-    { name: "profile", maxCount: 1 },
-  ]),
-  convertToWebp,
-  createCourse
-);
+const {
+  createProject,
+  getProjects,
+  updateProject,
+  deleteProject,
+  toggleVisibility,
+} = require("../controllers/project.controllers");
 
-/* ================= GET ================= */
-router.get("/", getCourses);
-router.get("/:id", getCourse);
+const { upload } = require("../middleware/upload");
 
-/* ================= UPDATE ================= */
-router.put(
-  "/:id",
-  upload.fields([
-    { name: "banner", maxCount: 1 },
-    { name: "profile", maxCount: 1 },
-  ]),
-  convertToWebp,
-  updateCourse
-);
-
-/* ================= DELETE ================= */
-router.delete("/:id", deleteCourse);
+// ✅ SINGLE image upload (IMPORTANT)
+router.post("/projects", upload.single("image"), createProject);
+router.get("/projects", getProjects);
+router.put("/projects/:id", upload.single("image"), updateProject);
+router.delete("/projects/:id", deleteProject);
+router.patch("/projects/:id/toggle", toggleVisibility);
 
 module.exports = router;
